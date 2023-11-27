@@ -6,6 +6,7 @@ namespace ProjectopgaveE23test
         [TestMethod]
         public void TestMethod1()
         {
+            Assert.Fail();
         }
     }
 }
