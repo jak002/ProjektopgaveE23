@@ -1,0 +1,44 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Events.IndexModel
+@{
+    ViewData["Title"] = "Event Index";
+}
+
+<h1>EVENTS!</h1>
+
+
+<p>Create event</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>DateTime</th>
+            <th>Name</th>
+            <th>Place</th>
+            <th>Description</th>
+            <th>Attendees</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/eventimages/@item.Image" width="150" height="150">
+                </td>
+                <td>@item.Id</td>
+                <td>@item.Date</td>
+                <td>@item.Name</td>
+                <td>@item.Place</td>
+                <td>@item.Description</td>
+                <td>@item.Attendees</td>
+                <td><a asp-page="EditEvent" asp-route-id="@item.Id">Edit</a></td>
+                <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
