@@ -1,0 +1,30 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Boats.AddBoatModel
+@{
+    ViewData["Title"] = "Add Boat";
+}
+
+<h1>Add boat</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="@Model.NewBoat.Name" class=" control-label"></label>
+        <input asp-for="@Model.NewBoat.Name" class="form-control" />
+        <span asp-validation-for="NewBoat.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewBoat.Description" class=" control-label"></label>
+        <input asp-for="@Model.NewBoat.Description" class="form-control" />
+        <span asp-validation-for="NewBoat.Description" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <input type="submit" value="Add a boat" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>

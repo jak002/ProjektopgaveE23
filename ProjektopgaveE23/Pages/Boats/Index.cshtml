@@ -1,0 +1,38 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Boats.IndexModel
+@{
+    ViewData["Title"] = "List Boats";
+}
+
+<h1>List of Boats</h1>
+
+<p>
+    <a asp-page="AddBoat">Add new boat</a>
+
+</p>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            
+        </tr>
+    </thead>
+    @foreach (var item in Model.Boats)
+    {
+        <tr>
+            
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            
+            <td><a asp-page="BookBoat">Book</a></td>
+            <td><a asp-page="EditBoat" asp-route-id="@item.Id">Edit</a></td>
+            <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Delete</a></td>
+        </tr>
+    }

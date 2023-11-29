@@ -1,0 +1,16 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Boats.DeleteBoatModel
+@{
+    ViewData["Title"] = "Delete Boat";
+}
+
+<h1>Delete boat</h1>
+<form method="post">
+    <div class="form-group">
+        <label>Boat id</label> :@Model.DeleteBoat.Id <br />
+        <label>Boat name</label> :@Model.DeleteBoat.Name <br />
+        <label>Boat desciption</label> :@Model.DeleteBoat.Description <br />
+
+        <input type="submit" asp-page-handler="Delete" asp-route-number="@Model.DeleteBoat.Id" value="Delete boat" />
+    </div>
+</form>
