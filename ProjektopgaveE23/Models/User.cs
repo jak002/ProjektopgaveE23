@@ -7,24 +7,26 @@ namespace ProjektopgaveE23.Models
 
     public class User
     {
-        //[Required(ErrorMessage = "Udfyld dit brugernavn"), DisplayName("Brugernavn")]
+        [Display(Name = "Brugernavn")]
+        [Required(ErrorMessage = "Udfyld dit brugernavn")]
         public string Username { get; set; }
 
-        //[Required(ErrorMessage = "Udfyld dit password") DisplayName, Password")]
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Udfyld dit password")]
         public string Password { get; set; }
 
-        //[DisplayName("Navn")]
+        [Display(Name = "Navn")]
         public string Name { get; set; }
 
-        //[DisplayName("E-mail")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        //[DisplayName("Telefon nummer")]
+        [Display(Name = "Telefon nummer")]
         public string PhoneNumber { get; set; }
 
         public bool Admin { get; set; }
 
-        //[DisplayName("Medlemsskab")]
+        [Display(Name = "Medlemsskab")]
         public MembershipType MembershipType { get; set; }
 
         public User()

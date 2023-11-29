@@ -16,5 +16,23 @@
     "PhoneNumber": "12345678",
     "Admin": false,
     "MembershipType": 2
+  },
+  {
+    "Username": "very test",
+    "Password": "asdfasdf",
+    "Name": "Testidy Testables",
+    "Email": "beepeebeep@hgfdgkhjf.lol",
+    "PhoneNumber": "12341234",
+    "Admin": false,
+    "MembershipType": 1
+  },
+  {
+    "Username": "ghsdfgsdfg",
+    "Password": "vbcfncvbbncv",
+    "Name": "yttyterterterer",
+    "Email": "aaaaaaaaaaa",
+    "PhoneNumber": "bbbbbbb",
+    "Admin": false,
+    "MembershipType": 3
   }
 ]
