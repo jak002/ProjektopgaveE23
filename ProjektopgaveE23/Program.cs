@@ -1,7 +1,11 @@
+using ProjektopgaveE23.Interfaces;
+using ProjektopgaveE23.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<IUserRepository,UserRepository>();
 
 var app = builder.Build();
 
