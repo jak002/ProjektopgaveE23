@@ -7,6 +7,14 @@
     "Attendees": 4,
     "Description": "Der skal grilles",
     "Image": null
+  },
+  {
+    "Id": 2,
+    "Name": "Grill 2.0",
+    "Date": "2023-12-06T13:03:00",
+    "Place": "klubben",
+    "Attendees": 0,
+    "Description": "vi griller",
+    "Image": "4b9dbec7-404c-4df7-8455-55dff276ce6f_Cute_dog.jpg"
   }
-  
 ]

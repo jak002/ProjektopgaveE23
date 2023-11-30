@@ -66,7 +66,7 @@ namespace ProjektopgaveE23.Services
                         evt.Name = updatedEvent.Name;
                         evt.Date = updatedEvent.Date;
                         evt.Place = updatedEvent.Place;
-                        evt.Attendees = updatedEvent.Attendees;
+                        evt.Attendees = updatedEvent.Attendees; //måske væk
                         evt.Description = updatedEvent.Description;
                         //måske image også 
                         break;
