@@ -8,8 +8,8 @@ namespace ProjektopgaveE23.Helpers
         {
             using (var jsonFileReader = File.OpenText(jsonFileName))
             {
-                string inddata = jsonFileReader.ReadToEnd();
-                return JsonSerializer.Deserialize<List<T>>(inddata);
+                string dataIn = jsonFileReader.ReadToEnd();
+                return JsonSerializer.Deserialize<List<T>>(dataIn);
             }
         }
     }

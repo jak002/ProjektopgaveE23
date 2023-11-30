@@ -1,0 +1,37 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Brugere";
+}
+
+<h1>Oversigt af brugere</h1>
+
+<p>
+    <a asp-page="CreateUser">Tilføj ny bruger</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Brugernavn</th>
+            <th>Navn</th>
+            <th>E-mail</th>
+            <th>Telefon nr</th>
+            <th>Medlemstype</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Users)
+        {
+            <tr>
+                <td>@item.Username</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.MembershipType</td>
+                <td><a asp-page="UpdateUser" asp-route-username="@item.Username">Opdater</a></td>
+                <td><a asp-page="DeleteUser" asp-route-username="@item.Username">Fjern</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
