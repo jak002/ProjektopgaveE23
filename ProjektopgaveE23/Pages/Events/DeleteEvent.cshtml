@@ -1,0 +1,62 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Events.DeleteEventModel
+@{
+    ViewData["Title"] = "Delete event";
+}
+
+<h1>Slet Begivenhed</h1>
+
+
+<form method="post">
+    <div class="form-group">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>@Model.DeleteEvent.Id</td>
+            </tr>
+            <tr>
+                <th>Navn</th>
+                <td>@Model.DeleteEvent.Name</td>
+            </tr>
+            <tr>
+                <th>Afholdelsessted</th>
+                <td>@Model.DeleteEvent.Place</td>
+            </tr>
+            <tr>
+                <th>Dato</th>
+                <td>@Model.DeleteEvent.Date</td>
+            </tr>
+            <tr>
+                <th>Beskrivelse</th>
+                <td>@Model.DeleteEvent.Description</td>
+            </tr>
+        </table>
+        
+        
+        
+        @* <label>Begivenheds id</label>: @Model.DeleteEvent.Id <br>
+        <label>Begivenheds navn</label>: @Model.DeleteEvent.Name <br>
+        <label>begivenheds Afholdelsessted</label>: @Model.DeleteEvent.Place <br>
+        <label>Begivenheds dato</label>: @Model.DeleteEvent.Date <br>
+        <label>Begivenheds beskrivelse</label>: @Model.DeleteEvent.Description <br>
+ *@
+        <br />
+        <input type="submit" asp-page-handler="Delete" asp-route-idNumber="@Model.DeleteEvent.Id" class="btn btn-danger" value="Slet begivenhed" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+
+
+
+    </div>
+</form>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
