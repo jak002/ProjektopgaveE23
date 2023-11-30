@@ -1,10 +1,11 @@
 ﻿@page
+@using ProjektopgaveE23.Models;
 @model ProjektopgaveE23.Pages.Boats.AddBoatModel
 @{
-    ViewData["Title"] = "Add Boat";
+    ViewData["Title"] = "Tilføj båd";
 }
 
-<h1>Add boat</h1>
+<h1>Tilføj båd</h1>
 
 <form method="post" enctype="multipart/form-data">
 
@@ -18,6 +19,15 @@
         <input asp-for="@Model.NewBoat.Description" class="form-control" />
         <span asp-validation-for="NewBoat.Description" class="text-danger"></span>
     </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="@Model.NewBoat.BoatModel" class="control-label">Bådtype</label>
+        <br />
+        <select asp-for="@Model.NewBoat.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
+            <option selected="selected" value="">Vælg venligst</option>
+        </select>
+    </div>
+    <br />
     
 
     <div class="form-group">

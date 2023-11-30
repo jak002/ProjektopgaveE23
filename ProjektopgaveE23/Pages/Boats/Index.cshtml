@@ -1,13 +1,13 @@
 ﻿@page
 @model ProjektopgaveE23.Pages.Boats.IndexModel
 @{
-    ViewData["Title"] = "List Boats";
+    ViewData["Title"] = "Bådliste";
 }
 
-<h1>List of Boats</h1>
+<h1>Bådliste</h1>
 
 <p>
-    <a asp-page="AddBoat">Add new boat</a>
+    <a asp-page="AddBoat">Tilføj ny båd</a>
 
 </p>
 
@@ -18,8 +18,9 @@
         <tr>
             
             <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Model type</th>
             
         </tr>
     </thead>
@@ -30,9 +31,10 @@
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
+            <td>@item.BoatModel</td>
             
             <td><a asp-page="BookBoat">Book</a></td>
-            <td><a asp-page="EditBoat" asp-route-id="@item.Id">Edit</a></td>
-            <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Delete</a></td>
+            <td><a asp-page="EditBoat" asp-route-id="@item.Id">Rediger</a></td>
+            <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Slet</a></td>
         </tr>
     }

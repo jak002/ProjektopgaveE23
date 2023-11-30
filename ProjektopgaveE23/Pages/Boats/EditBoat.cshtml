@@ -1,10 +1,11 @@
 ﻿@page
+@using ProjektopgaveE23.Models;
 @model ProjektopgaveE23.Pages.Boats.EditBoatModel
 @{
-    ViewData["Title"] = "Edit Boat";
+    ViewData["Title"] = "Rediger bådoplysninger";
 }
 
-<h1>Edit Boat</h1>
+<h1>Rediger bådoplysninger</h1>
 
 <form method="post">
 
@@ -17,9 +18,17 @@
         <label asp-for="@Model.BoatToUpdate.Description" class=" control-label"></label>
         <input asp-for="@Model.BoatToUpdate.Description" class="form-control" />
     </div>
-    
+    <br />
     <div class="form-group">
-        <input type="submit" value="Update boat" asp-page-handler="Update" class="btn btn-primary" />
-        <input type="submit" value="Delete boat" asp-page-handler="Delete" class="btn btn-primary" />
+        <label asp-for="@Model.BoatToUpdate.BoatModel" class="control-label">Bådtype</label>
+        <br />
+        <select asp-for="@Model.BoatToUpdate.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
+            <option selected="selected" value="">Vælg venligst</option>
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Opdater båd" asp-page-handler="Update" class="btn btn-primary" />
+        <input type="submit" value="Slet båd" asp-page-handler="Delete" class="btn btn-primary" />
     </div>
 </form>

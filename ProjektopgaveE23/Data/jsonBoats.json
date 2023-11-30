@@ -2,11 +2,19 @@
   {
     "Id": 1,
     "Name": "Titanic",
-    "Description": "Surely cannot sink"
+    "Description": "Surely cannot sink",
+    "BoatModel": 3
   },
   {
     "Id": 2,
     "Name": "Twotanic",
-    "Description": "Submarine"
+    "Description": "Submarine",
+    "BoatModel": 4
+  },
+  {
+    "Id": 4,
+    "Name": "Oceansgate",
+    "Description": "canned",
+    "BoatModel": 0
   }
 ]

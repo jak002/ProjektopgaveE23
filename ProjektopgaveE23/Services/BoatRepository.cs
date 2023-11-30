@@ -63,7 +63,8 @@ namespace ProjektopgaveE23.Services
                     {
                         b.Id = bo.Id;
                         b.Name = bo.Name;
-                        b.Description = bo.Description;                        
+                        b.Description = bo.Description;
+                        b.BoatModel = bo.BoatModel;
                         break;
                     }
                 }
