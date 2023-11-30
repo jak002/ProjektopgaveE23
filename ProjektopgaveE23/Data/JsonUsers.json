@@ -1,14 +1,5 @@
 [
   {
-    "Username": "test15",
-    "Password": "123123",
-    "Name": "Testing Stuff",
-    "Email": "testest@testest.test",
-    "PhoneNumber": "12341234",
-    "Admin": false,
-    "MembershipType": 2
-  },
-  {
     "Username": "test16",
     "Password": "123456",
     "Name": "Testing More Stuff",

@@ -1,0 +1,20 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Users.DeleteUserModel
+@{
+    ViewData["Title"] = "Fjern bruger";
+}
+
+<h1>Er du sikker?</h1>
+<p>Du er ved at fjerne følgende bruger:</p>
+
+<form method="post">
+    <div class="form-group">
+        <label>Brugernavn: </label> @Model.UserToDelete.Username <br />
+        <label>Navn:</label> @Model.UserToDelete.Name <br />
+        <label>E-mail: </label> @Model.UserToDelete.Email <br />
+
+        <input type="submit" asp-page-handler="Delete" asp-route-username="@Model.UserToDelete.Username" class="btn btn-danger" value="Fjern" />
+
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+    </div>
+</form>

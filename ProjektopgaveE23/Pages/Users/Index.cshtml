@@ -29,8 +29,8 @@
                 <td>@item.Email</td>
                 <td>@item.PhoneNumber</td>
                 <td>@item.MembershipType</td>
-                <td><a>Opdater</a></td>
-                <td><a>Fjern</a></td>
+                <td><a asp-page="UpdateUser" asp-route-username="@item.Username">Opdater</a></td>
+                <td><a asp-page="DeleteUser" asp-route-username="@item.Username">Fjern</a></td>
             </tr>
         }
     </tbody>
