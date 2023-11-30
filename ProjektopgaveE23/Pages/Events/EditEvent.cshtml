@@ -1,0 +1,35 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Events.EditEventModel
+@{
+    ViewData["Title"] = "Edit event";
+}
+
+<h1>Rediger begivenhed</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="@Model.UpdatedEvent.Id" />
+
+    <div class="form-group">
+        <label asp-for="@Model.UpdatedEvent.Name" class="control-label">Navn</label>
+        <input asp-for="@Model.UpdatedEvent.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.UpdatedEvent.Place" class="control-label">Afholdelsessted</label>
+        <input asp-for="@Model.UpdatedEvent.Place" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.UpdatedEvent.Date" class="control-label">Dato</label>
+        <input asp-for="@Model.UpdatedEvent.Date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.UpdatedEvent.Description" class="control-label">Beskrivelse</label>
+        <input asp-for="@Model.UpdatedEvent.Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <br />
+        <input type="submit" value="Update event" class="btn btn-primary" asp-page-handler="Update"/>
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+    </div>
+</form>

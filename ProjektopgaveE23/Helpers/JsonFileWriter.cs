@@ -12,8 +12,8 @@ namespace ProjektopgaveE23.Helpers
                 {
                     SkipValidation = false,
                     Indented = true
-                }
-                );
+                });
+
                 JsonSerializer.Serialize<T[]>(writer, elements.ToArray());
             }
         }
