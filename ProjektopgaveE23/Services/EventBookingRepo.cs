@@ -1,4 +1,5 @@
-﻿using ProjektopgaveE23.Interfaces;
+﻿using ProjektopgaveE23.Helpers;
+using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
 
 namespace ProjektopgaveE23.Services
@@ -9,7 +10,24 @@ namespace ProjektopgaveE23.Services
 
         public void Addbooking(EventBooking booking)
         {
-            throw new NotImplementedException();
+            List<int> bookingIds = new List<int>();
+            List<EventBooking> bookings = GetAllBookings();
+
+            foreach (var bok in bookings)
+            {
+                bookingIds.Add(bok.ID);
+            }
+            if (bookingIds.Count != 0)
+            {
+                int start = bookingIds.Max();
+                booking.ID = start + 1;
+            }
+            else
+            {
+                booking.ID = 1;
+            }
+            bookings.Add(booking);
+            JsonFileWriter<EventBooking>.WriteToJson(bookings, filepath);
         }
 
         public int CalculateAttendees(Event ev)
@@ -29,7 +47,7 @@ namespace ProjektopgaveE23.Services
 
         public List<EventBooking> GetAllBookings()
         {
-            throw new NotImplementedException();
+            return JsonFileReader<EventBooking>.ReadJson(filepath);
         }
 
         public EventBooking GetBooking(int id)
