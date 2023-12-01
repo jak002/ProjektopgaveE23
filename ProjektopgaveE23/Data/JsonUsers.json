@@ -25,5 +25,14 @@
     "PhoneNumber": "bbbbbbb",
     "Admin": false,
     "MembershipType": 3
+  },
+  {
+    "Username": "admin",
+    "Password": "admin",
+    "Name": "Admin",
+    "Email": "bestyrelse@text.noget",
+    "PhoneNumber": "nej",
+    "Admin": true,
+    "MembershipType": 3
   }
 ]

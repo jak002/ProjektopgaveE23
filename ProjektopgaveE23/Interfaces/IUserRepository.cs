@@ -9,5 +9,6 @@ namespace ProjektopgaveE23.Interfaces
         User GetUser(string username);
         public void UpdateUser(User updatedUser);
         void DeleteUser(string username);
+        public User? VerifyUser(string username, string password);
     }
 }

@@ -1,0 +1,25 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Users.InfoModel
+@{
+    ViewData["Title"] = "Brugerinfo";
+}
+
+<h1>Velkommen til din side, @Model.CurrentUser.Username!</h1>
+<p>Info:</p>
+
+<label>Brugernavn: </label> @Model.CurrentUser.Username
+<br />
+<label>Navn:</label> @Model.CurrentUser.Name
+<br />
+<label>E-mail: </label> @Model.CurrentUser.Email
+<br />
+<label>Telefonnummer: </label> @Model.CurrentUser.PhoneNumber
+<br />
+<label>Medlemstype:</label> @Model.CurrentUser.MembershipType
+<br />
+@if(Model.CurrentUser.Admin)
+{
+    <label>Adminstrator</label>
+}
+<br />
+<a asp-page="/Users/Login" asp-page-handler="Logout">Log ud</a>

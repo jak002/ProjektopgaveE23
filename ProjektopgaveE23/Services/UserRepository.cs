@@ -62,5 +62,17 @@ namespace ProjektopgaveE23.Services
                 JsonFileWriter<User>.WriteToJson(userDict.Values.ToList(), filePath);
             }
         }
+
+        public User? VerifyUser(string username, string password)
+        {
+            foreach (var user in GetAllUsers().Values)
+            {
+                if (username.Equals(user.Username) && password.Equals(user.Password))
+                {
+                    return user;
+                }
+            }
+            return null;
+        }
     }
 }
