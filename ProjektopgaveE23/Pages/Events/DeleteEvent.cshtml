@@ -5,6 +5,7 @@
 }
 
 <h1>Slet Begivenhed</h1>
+<br />
 
 
 <form method="post">
@@ -39,7 +40,7 @@
         <label>begivenheds Afholdelsessted</label>: @Model.DeleteEvent.Place <br>
         <label>Begivenheds dato</label>: @Model.DeleteEvent.Date <br>
         <label>Begivenheds beskrivelse</label>: @Model.DeleteEvent.Description <br>
- *@
+        *@
         <br />
         <input type="submit" asp-page-handler="Delete" asp-route-idNumber="@Model.DeleteEvent.Id" class="btn btn-danger" value="Slet begivenhed" />
         <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
