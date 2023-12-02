@@ -61,10 +61,4 @@ namespace ProjektopgaveE23.Pages.Events
         
     }
 }
-/*
- * tilknyt event 
- * selectlist user
- * selectlist attendees
- * 
- * 
- */
+
