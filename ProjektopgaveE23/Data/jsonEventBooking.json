@@ -1,3 +1,14 @@
-{
-
-}
+[
+  {
+    "ID": 1,
+    "Username": "[very test, ProjektopgaveE23.Models.User]",
+    "EventID": 0,
+    "AttendeesPerBooking": 3
+  },
+  {
+    "ID": 2,
+    "Username": "[test16, ProjektopgaveE23.Models.User]",
+    "EventID": 0,
+    "AttendeesPerBooking": 3
+  }
+]

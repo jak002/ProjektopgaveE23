@@ -11,9 +11,9 @@ namespace ProjektopgaveE23.Interfaces
 
         EventBooking GetBooking(int id);
 
-        List<EventBooking> GetAllbookingByEvent(Event ev);
+        List<EventBooking> GetAllbookingsByEvent(int eventId);
 
-        int CalculateAttendees(Event ev);
+        int CalculateAttendees(int eventId);
 
         void DeleteBooking(EventBooking booking);
 

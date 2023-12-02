@@ -30,19 +30,35 @@ namespace ProjektopgaveE23.Services
             JsonFileWriter<EventBooking>.WriteToJson(bookings, filepath);
         }
 
-        public int CalculateAttendees(Event ev)
+        public int CalculateAttendees(int eventId)
         {
-            throw new NotImplementedException();
+            List<EventBooking> bookings = GetAllbookingsByEvent(eventId);
+            int result = 0;
+            foreach (var book in bookings) 
+            {
+                result = result + book.AttendeesPerBooking;
+            }
+            return result;
         }
 
         public void DeleteBooking(EventBooking booking)
         {
-            throw new NotImplementedException();
+            List<EventBooking> bookings = GetAllBookings();
+            bookings.Remove(booking);
+            JsonFileWriter<EventBooking>.WriteToJson(bookings, filepath);
         }
 
-        public List<EventBooking> GetAllbookingByEvent(Event ev)
+        public List<EventBooking> GetAllbookingsByEvent(int eventId)
         {
-            throw new NotImplementedException();
+            List<EventBooking > bookings = new List<EventBooking>();
+            foreach (var book in GetAllBookings()) 
+            { 
+                if (book.EventID == eventId)
+                {
+                    bookings.Add(book);
+                }
+            }
+            return bookings;
         }
 
         public List<EventBooking> GetAllBookings()
@@ -52,7 +68,12 @@ namespace ProjektopgaveE23.Services
 
         public EventBooking GetBooking(int id)
         {
-            throw new NotImplementedException();
+            foreach (var book in GetAllBookings())
+            {
+                if (book.ID == id)
+                    return book;
+            }
+            return new EventBooking();
         }
     }
 }

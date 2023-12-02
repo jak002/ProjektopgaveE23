@@ -6,3 +6,35 @@
 
 <h1>Tilmeld begivenhed</h1>
 
+<form method="post">
+
+    <div class="form-group">
+        <input type="hidden" asp-for="@Model.EventBooking.ID" />
+        <input asp-for="@Model.EventBooking.ID" class="control-label" disabled />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="@Model.Event.Name" class="control-label">Begivenhedsnavn: </label>
+        <input asp-for="@Model.Event.Name" class="control-label" disabled />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.EventBooking.Username" class="control-label">Bruger</label>
+        <select asp-for="@Model.EventBooking.Username" asp-items="@Model.Usernames" class="form-control">
+            <option>---vælg bruger---</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.EventBooking.AttendeesPerBooking" class="control-label">Antal deltager</label>
+        <select asp-for="@Model.EventBooking.AttendeesPerBooking" asp-items="@Model.AtendeesNumber" class="form-control">
+            <option>---Vælg antal deltager---</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create Booking" class="btn btn-primary" asp-page-handler="Booking" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+    </div>
+
+</form>
