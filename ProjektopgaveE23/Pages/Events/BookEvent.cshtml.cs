@@ -22,7 +22,7 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public Event Event { get; set; }
 
-        public int Number {  get; set; }
+
 
         public BookEventModel(IEventBookingRepo eventBookingRepo,IEventRepository eventRepository, 
             IUserRepository userRepository)
@@ -43,11 +43,12 @@ namespace ProjektopgaveE23.Pages.Events
         public void OnGet(int id)
         {
             Event = _eventRepo.GetEvent(id);
-            
+
         }
 
-        public IActionResult OnPostBooking() 
+        public IActionResult OnPostBooking(int id) 
         {
+            EventBooking.EventID = id;
             _bookingRepo.Addbooking(EventBooking);
             return RedirectToPage("ListEventBooking");
         
