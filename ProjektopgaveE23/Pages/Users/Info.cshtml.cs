@@ -5,27 +5,28 @@ using ProjektopgaveE23.Models;
 
 namespace ProjektopgaveE23.Pages.Users
 {
-    public class IndexModel : PageModel
+    public class InfoModel : PageModel
     {
-        private IUserRepository _urepo;
 
         public User CurrentUser { get; set; }
-        public List<User> Users { get; private set; }
 
-        public IndexModel(IUserRepository users)
+        private IUserRepository _urepo;
+
+        public InfoModel(IUserRepository users)
         {
             _urepo = users;
-            CurrentUser = null;
         }
-
-        public void OnGet()
+        public IActionResult OnGet()
         {
             string sessionusername = HttpContext.Session.GetString("Username");
-            if (sessionusername != null)
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            } else
             {
                 CurrentUser = _urepo.GetUser(sessionusername);
-                    }
-                Users = _urepo.GetAllUsers().Values.ToList();
+                return Page();
+            }
         }
     }
 }

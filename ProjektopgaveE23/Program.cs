@@ -12,6 +12,8 @@ builder.Services.AddTransient<IEventRepository,EventRepository>();
 
 
 builder.Services.AddTransient<IBoatRepository, BoatRepository>();
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddTransient<IEventBookingRepo, EventBookingRepo>();
 
@@ -24,6 +26,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
