@@ -18,15 +18,6 @@
     "MembershipType": 1
   },
   {
-    "Username": "ghsdfgsdfg",
-    "Password": "vbcfncvbbncv",
-    "Name": "yttyterterterer",
-    "Email": "aaaaaaaaaaa",
-    "PhoneNumber": "bbbbbbb",
-    "Admin": false,
-    "MembershipType": 3
-  },
-  {
     "Username": "admin",
     "Password": "admin",
     "Name": "Admin",
@@ -36,12 +27,12 @@
     "MembershipType": 3
   },
   {
-    "Username": "pohe",
-    "Password": "password",
-    "Name": "Poul",
-    "Email": "poul@poul.poul",
-    "PhoneNumber": "numre",
+    "Username": "notadmin",
+    "Password": "1234",
+    "Name": "Not Admin",
+    "Email": "hkdfgjhkdfjghdf",
+    "PhoneNumber": "asdfasdfadsf",
     "Admin": false,
-    "MembershipType": 2
+    "MembershipType": 1
   }
 ]

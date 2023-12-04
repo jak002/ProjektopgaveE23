@@ -9,16 +9,23 @@ namespace ProjektopgaveE23.Pages.Users
     {
         private IUserRepository _urepo;
 
+        public User CurrentUser { get; set; }
         public List<User> Users { get; private set; }
 
         public IndexModel(IUserRepository users)
         {
             _urepo = users;
+            CurrentUser = null;
         }
 
         public void OnGet()
         {
-            Users = _urepo.GetAllUsers().Values.ToList();
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername != null)
+            {
+                CurrentUser = _urepo.GetUser(sessionusername);
+                    }
+                Users = _urepo.GetAllUsers().Values.ToList();
         }
     }
 }
