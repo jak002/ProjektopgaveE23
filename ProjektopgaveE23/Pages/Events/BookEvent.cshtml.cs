@@ -22,6 +22,8 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public Event Event { get; set; }
 
+        public int Number {  get; set; }
+
         public BookEventModel(IEventBookingRepo eventBookingRepo,IEventRepository eventRepository, 
             IUserRepository userRepository)
         {

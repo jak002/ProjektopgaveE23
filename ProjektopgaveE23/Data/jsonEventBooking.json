@@ -10,5 +10,11 @@
     "Username": "[test16, ProjektopgaveE23.Models.User]",
     "EventID": 0,
     "AttendeesPerBooking": 3
+  },
+  {
+    "ID": 3,
+    "Username": "[test16, ProjektopgaveE23.Models.User]",
+    "EventID": 0,
+    "AttendeesPerBooking": 2
   }
 ]
