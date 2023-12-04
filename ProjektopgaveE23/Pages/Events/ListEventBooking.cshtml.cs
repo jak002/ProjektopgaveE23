@@ -9,17 +9,41 @@ namespace ProjektopgaveE23.Pages.Events
     {
 
         private IEventBookingRepo _eventBookingRepo;
+        private IEventRepository _eventRepository;
+
+        [BindProperty]
+        public int EventID { get; set; }
+
+        public Event Event { get; set; }
+        
 
         public List<EventBooking> EventBookings { get; set; }
 
-        public ListEventBookingModel(IEventBookingRepo eventBookingRepo)
+        public ListEventBookingModel(IEventBookingRepo eventBookingRepo, IEventRepository eventRepository)
         {
             _eventBookingRepo = eventBookingRepo;
+            _eventRepository = eventRepository;
         }
 
-        public void OnGet()
+        public IActionResult OnGet(int id)
         {
-            EventBookings = _eventBookingRepo.GetAllBookings();
+            Event = _eventRepository.GetEvent(id);
+
+            EventID = id;
+            EventBookings = new List<EventBooking>();
+            if (EventID == null) 
+            { 
+                return NotFound();
+            }
+            EventBookings = _eventBookingRepo.GetAllbookingsByEvent(id);
+            {
+                if (EventBookings == null) 
+                {
+                    return NotFound();
+                }
+            }
+            return Page();
+
         }
     }
 }

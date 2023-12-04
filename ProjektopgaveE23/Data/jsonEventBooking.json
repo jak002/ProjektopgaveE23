@@ -1,68 +1,20 @@
 [
   {
     "ID": 1,
-    "Username": "[very test, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
+    "Username": "[test16, ProjektopgaveE23.Models.User]",
+    "EventID": 1,
     "AttendeesPerBooking": 3
   },
   {
     "ID": 2,
     "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 3
-  },
-  {
-    "ID": 3,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 2
-  },
-  {
-    "ID": 4,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 2
-  },
-  {
-    "ID": 5,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 3
-  },
-  {
-    "ID": 6,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 5
-  },
-  {
-    "ID": 7,
-    "Username": "[very test, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
-    "AttendeesPerBooking": 3
-  },
-  {
-    "ID": 8,
-    "Username": "[very test, ProjektopgaveE23.Models.User]",
-    "EventID": 0,
+    "EventID": 2,
     "AttendeesPerBooking": 6
   },
   {
-    "ID": 9,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 1,
-    "AttendeesPerBooking": 5
-  },
-  {
-    "ID": 10,
+    "ID": 3,
     "Username": "[very test, ProjektopgaveE23.Models.User]",
     "EventID": 1,
-    "AttendeesPerBooking": 3
-  },
-  {
-    "ID": 11,
-    "Username": "[ghsdfgsdfg, ProjektopgaveE23.Models.User]",
-    "EventID": 2,
-    "AttendeesPerBooking": 5
+    "AttendeesPerBooking": 6
   }
 ]

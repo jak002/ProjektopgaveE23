@@ -50,7 +50,7 @@ namespace ProjektopgaveE23.Pages.Events
         {
             EventBooking.EventID = id;
             _bookingRepo.Addbooking(EventBooking);
-            return RedirectToPage("ListEventBooking");
+            return RedirectToPage("Index");
         
         }
 

@@ -37,6 +37,7 @@
                 <td>@item.Description</td>
                 <td>@item.Attendees</td>
                 <td><a asp-page="BookEvent" asp-route-id="@item.Id">Tilmelding</a></td>
+                <td><a asp-page="ListEventBooking" asp-route-id="@item.Id">Se alle Tilmeldinger</a></td>
                 <td><a asp-page="EditEvent" asp-route-id="@item.Id">Rediger</a></td>
                 <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Slet</a></td>
             </tr>

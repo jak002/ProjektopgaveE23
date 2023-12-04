@@ -1,10 +1,10 @@
 ﻿@page
 @model ProjektopgaveE23.Pages.Events.ListEventBookingModel
 @{
-    ViewData["Title"] = "List bookinger";
+    ViewData["Title"] = "Tilmeldingsliste";
 }
 
-<h1>Alle begivenheds tilmeldinger</h1>
+<h1>Tilmeldinger til @Model.Event.Name</h1>
 
 <table class="table">
     <thead>
@@ -23,6 +23,7 @@
                 <td>@item.Username</td>
                 <td>@item.EventID</td>
                 <td>@item.AttendeesPerBooking</td>
+                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID">Slet</a></td>
             </tr>
         }
 
