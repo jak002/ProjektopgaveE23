@@ -16,7 +16,7 @@
 <table class="table">
     <thead>
         <tr>
-            
+            <th>Billede</th>
             <th>ID</th>
             <th>Navn</th>
             <th>Beskrivelse</th>
@@ -27,7 +27,9 @@
     @foreach (var item in Model.Boats)
     {
         <tr>
-            
+            <td>
+                <img src="~/images/boatimages/@item.BoatImage" width="160" height="140" />
+            </td>
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
