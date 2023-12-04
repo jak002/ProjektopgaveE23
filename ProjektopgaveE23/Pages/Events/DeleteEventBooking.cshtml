@@ -4,4 +4,52 @@
     ViewData["Title"] = "Slet tilmelding";
 }
 
+<h1>Slet tilmelding</h1>
 
+
+<form method="post">
+    <div class="form-group">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>@Model.BookingToDelete.ID</td>
+            </tr>
+            <tr>
+                <th>Navn</th>
+                <td>@Model.BookingToDelete.Username</td>
+            </tr>
+            <tr>
+                <th>Antal deltager </th>
+                <td>@Model.BookingToDelete.AttendeesPerBooking</td>
+            </tr>
+            <tr>
+                <th>Begivenhed</th>
+                <td>@Model.Event.Name</td>
+            </tr>
+            
+        </table>
+
+        <br />
+        <input type="submit" asp-page-handler="Delete" asp-route-idNumber="@Model.BookingToDelete.ID" class="btn btn-danger" value="Slet begivenhed" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+
+
+
+    </div>
+</form>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: #A3CEF1;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
