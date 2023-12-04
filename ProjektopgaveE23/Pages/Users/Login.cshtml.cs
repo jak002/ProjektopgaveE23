@@ -32,12 +32,12 @@ namespace ProjektopgaveE23.Pages.Users
 
         public IActionResult OnPost()
         {
-            User? loginUser = _urepo.VerifyUser(Username, Password);
+            User loginUser = _urepo.VerifyUser(Username, Password);
             if (loginUser != null)
             {
 
-                HttpContext.Session.SetString("UserName", loginUser.Username);
-                return RedirectToPage("/Users/Info");
+                HttpContext.Session.SetString("Username", loginUser.Username);
+                return RedirectToPage("Info");
             }
             else
             {

@@ -34,5 +34,14 @@
     "PhoneNumber": "nej",
     "Admin": true,
     "MembershipType": 3
+  },
+  {
+    "Username": "pohe",
+    "Password": "password",
+    "Name": "Poul",
+    "Email": "poul@poul.poul",
+    "PhoneNumber": "numre",
+    "Admin": false,
+    "MembershipType": 2
   }
 ]
