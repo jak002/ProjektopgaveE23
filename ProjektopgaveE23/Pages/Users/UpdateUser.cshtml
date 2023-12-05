@@ -43,5 +43,10 @@
 </form>
 
     <div>
-        <a asp-page="Index">Tilbage</a>
-    </div>
+    @if (Model.UsertoUpdate.Username != Model.CurrentUser.Username && Model.CurrentUser.Admin){
+        <a asp-page="Index">Tilbage til oversigt</a>
+    } else
+    {
+        <a asp-page="Info">Tilbage til brugerinfo</a>
+    }
+</div>

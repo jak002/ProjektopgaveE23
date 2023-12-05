@@ -15,6 +15,6 @@
 
         <input type="submit" asp-page-handler="Delete" asp-route-username="@Model.UserToDelete.Username" class="btn btn-danger" value="Fjern" />
 
-        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" asp-route-username="@Model.UserToDelete.Username" />
     </div>
 </form>

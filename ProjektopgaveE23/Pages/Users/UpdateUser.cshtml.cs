@@ -13,20 +13,39 @@ namespace ProjektopgaveE23.Pages.Users
         [BindProperty]
         public User UsertoUpdate { get; set; }
 
+        public User CurrentUser { get; set; }
+
         public UpdateUserModel(IUserRepository users)
         {
             _urepo = users;
         }
 
-        public void OnGet(string username)
+        public IActionResult OnGet(string username)
         {
-            UsertoUpdate = _urepo.GetUser(username);
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                CurrentUser = _urepo.GetUser(sessionusername);
+                UsertoUpdate = _urepo.GetUser(username);
+                return Page();
+            }
+
         }
 
         public IActionResult OnPost()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _urepo.GetUser(sessionusername);
             _urepo.UpdateUser(UsertoUpdate);
-            return RedirectToPage("Index");
+            if (UsertoUpdate.Username != CurrentUser.Username && CurrentUser.Admin)
+            {
+                return RedirectToPage("Index");
+            }
+            return RedirectToPage("Info");
         }
     }
 }
