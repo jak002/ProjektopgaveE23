@@ -30,20 +30,9 @@ namespace ProjektopgaveE23.Pages.Events
             
         }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            string sessionusername = HttpContext.Session.GetString("Username");
-            var Current = HttpContext.User.Identity.Name;
-            if (sessionusername != null)
-            {
-                if (sessionusername!=Current)
-                {
-                    return Page();
-                }
-                CurrentUser = _userRepository.GetUser(sessionusername);
-                
-            }
-            return Page();
+
         }
 
         public IActionResult OnPost()
