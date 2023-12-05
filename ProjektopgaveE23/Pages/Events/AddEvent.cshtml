@@ -4,7 +4,50 @@
     ViewData["Title"] = "Create event";
 }
 
-<h1>Opret ny begivenhed</h1>
+@if (Model.CurrentUser != null)
+{
+    @if (Model.CurrentUser.Admin)
+    {
+        <h1>Opret ny begivenhed</h1>
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="@Model.NewEvent.Name" class="control-label">Begivenhedsnavn</label>
+                <input asp-for="@Model.NewEvent.Name" class="form-control" />
+                <span asp-validation-for="NewEvent.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.NewEvent.Place" class="control-label">Hvor afholdes det</label>
+                <input asp-for="@Model.NewEvent.Place" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.NewEvent.Description" class="control-label">Beskrivelse</label>
+                <input asp-for="@Model.NewEvent.Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.NewEvent.Date" class="control-label">Dato</label>
+                <input asp-for="@Model.NewEvent.Date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Photo" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="@Model.Photo" class="custom-file-input form-control" />
+                    <label class="custom-file-label">Gem Billede</label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Opret begivenhed" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Tilbage til oversigten</a>
+            </div>
+        </form>
+    }
+}
+
+@* <h1>Opret ny begivenhed</h1>
 
 <form method="post" enctype="multipart/form-data">
 
@@ -39,6 +82,6 @@
         <input type="submit" value="Opret begivenhed" class="btn btn-primary" />
         <a asp-page="Index" class="btn btn-secondary">Tilbage til oversigten</a>
     </div>
-</form>
+</form> *@
 
 

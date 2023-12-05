@@ -17,7 +17,7 @@ namespace ProjektopgaveE23.Interfaces
 
         void DeleteBooking(EventBooking booking);
 
-        public List<EventBooking> GetBookingByUser(String username, int eventId);
+        public List<EventBooking> GetBookingByUserAndEvent(String username, int eventId);
 
 
     }

@@ -79,7 +79,7 @@ namespace ProjektopgaveE23.Pages.Events
             {
                 return NotFound();
             }
-            EventBookings = _eventBookingRepo.GetBookingByUser(CurrentUser.Username, id);
+            EventBookings = _eventBookingRepo.GetBookingByUserAndEvent(CurrentUser.Username, id);
             {
                 if (EventBookings == null)
                 {

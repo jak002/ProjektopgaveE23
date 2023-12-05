@@ -62,7 +62,7 @@ namespace ProjektopgaveE23.Services
             return bookings;
         }
 
-        public List<EventBooking> GetBookingByUser(String username, int eventId)
+        public List<EventBooking> GetBookingByUserAndEvent(String username, int eventId)    
         {
             List<EventBooking> bookings = new List<EventBooking>();
             foreach (var book in GetAllBookings()) 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using ProjektopgaveE23.Services;
 
 namespace ProjektopgaveE23.Pages.Events
 {
@@ -10,6 +11,7 @@ namespace ProjektopgaveE23.Pages.Events
     {
 
         private IEventRepository _repo;
+        private IUserRepository _userRepository;
 
         private IWebHostEnvironment _webHostEnvironment;
 
@@ -19,6 +21,8 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public Event NewEvent { get; set; }
 
+        public User CurrentUser { get; set; }
+
         public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost)
         {
             _repo = eventRepository;
@@ -26,8 +30,20 @@ namespace ProjektopgaveE23.Pages.Events
             
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            var Current = HttpContext.User.Identity.Name;
+            if (sessionusername != null)
+            {
+                if (sessionusername!=Current)
+                {
+                    return Page();
+                }
+                CurrentUser = _userRepository.GetUser(sessionusername);
+                
+            }
+            return Page();
         }
 
         public IActionResult OnPost()
