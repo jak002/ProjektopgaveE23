@@ -6,8 +6,17 @@
 
 <h1>Klubbens Begivenheder</h1>
 
-<a asp-page="AddEvent" class="btn btn-secondary">Opret begivenhed</a>
-@* <p><a asp-page="AddEvent">Opret ny begivenhed</a></p> *@
+<br />
+
+@if (Model.CurrentUser != null)
+{
+    @if(Model.CurrentUser.Admin)
+    {
+        <a asp-page="AddEvent" class="btn btn-secondary">Opret begivenhed</a>
+    }
+}
+
+
 
 <table class="table">
     <thead>
@@ -18,7 +27,9 @@
             <th>Navn</th>
             <th>Afholdelsessted</th>
             <th>Beskrivelse</th>
-            <th>Antal deltagere</th>
+            @* <th>Antal deltagere</th> *@
+            <th></th>
+            <th></th>
             
             
         </tr>
@@ -35,11 +46,28 @@
                 <td>@item.Name</td>
                 <td>@item.Place</td>
                 <td>@item.Description</td>
-                <td>@item.Attendees</td>
-                <td><a asp-page="BookEvent" asp-route-id="@item.Id">Tilmelding</a></td>
+                @* <td>@item.Attendees</td> *@
+                @if (Model.CurrentUser != null)
+                {
+                    if(!Model.CurrentUser.Admin)
+                    {
+                        <td><a asp-page="BookEvent" asp-route-id="@item.Id">Tilmelding</a></td>
+                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal">Se din Tilmelding</a></td>
+                    }
+                    
+                    //noget med at se egen tilmelding
+                    if(Model.CurrentUser.Admin)
+                    {
+                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="All">Se alle Tilmeldinger</a></td>
+                        <td><a asp-page="EditEvent" asp-route-id="@item.Id">Rediger</a></td>
+                        <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Slet</a></td>
+                    }
+                    
+                }
+                @* <td><a asp-page="BookEvent" asp-route-id="@item.Id">Tilmelding</a></td>
                 <td><a asp-page="ListEventBooking" asp-route-id="@item.Id">Se alle Tilmeldinger</a></td>
                 <td><a asp-page="EditEvent" asp-route-id="@item.Id">Rediger</a></td>
-                <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Slet</a></td>
+                <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Slet</a></td> *@
             </tr>
         }
     </tbody>

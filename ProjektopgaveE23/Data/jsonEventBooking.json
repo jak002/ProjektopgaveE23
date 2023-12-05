@@ -1,27 +1,9 @@
 [
   {
-    "ID": 1,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 1,
-    "AttendeesPerBooking": 3
-  },
-  {
     "ID": 2,
     "Username": "[test16, ProjektopgaveE23.Models.User]",
     "EventID": 2,
     "AttendeesPerBooking": 6
-  },
-  {
-    "ID": 3,
-    "Username": null,
-    "EventID": 1,
-    "AttendeesPerBooking": 5
-  },
-  {
-    "ID": 4,
-    "Username": null,
-    "EventID": 1,
-    "AttendeesPerBooking": 5
   },
   {
     "ID": 5,
@@ -36,9 +18,15 @@
     "AttendeesPerBooking": 5
   },
   {
-    "ID": 7,
-    "Username": "notadmin",
+    "ID": 9,
+    "Username": "test16",
     "EventID": 1,
-    "AttendeesPerBooking": 9
+    "AttendeesPerBooking": 6
+  },
+  {
+    "ID": 10,
+    "Username": "test16",
+    "EventID": 2,
+    "AttendeesPerBooking": 7
   }
 ]

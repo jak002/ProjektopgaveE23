@@ -6,6 +6,15 @@
 
 <h1>Tilmeldinger til @Model.Event.Name</h1>
 
+@if (Model.CurrentUser != null)
+{
+    @if (Model.CurrentUser.Admin)
+    {
+        <h3>Antal tilmeldte: @Model.EventCount </h3>
+    }
+}
+
+
 <table class="table">
     <thead>
         <tr>

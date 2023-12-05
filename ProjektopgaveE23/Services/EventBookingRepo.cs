@@ -1,6 +1,7 @@
 ﻿using ProjektopgaveE23.Helpers;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using System.Reflection.Metadata;
 
 namespace ProjektopgaveE23.Services
 {
@@ -59,6 +60,21 @@ namespace ProjektopgaveE23.Services
                 }
             }
             return bookings;
+        }
+
+        public List<EventBooking> GetBookingByUser(String username, int eventId)
+        {
+            List<EventBooking> bookings = new List<EventBooking>();
+            foreach (var book in GetAllBookings()) 
+            { 
+                if (book.EventID==eventId && book.Username==username)
+                {
+                    bookings.Add(book);
+                }
+            
+            }
+            return bookings;
+
         }
 
         public List<EventBooking> GetAllBookings()
