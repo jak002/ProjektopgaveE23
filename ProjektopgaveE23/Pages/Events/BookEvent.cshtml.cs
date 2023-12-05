@@ -22,6 +22,9 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public Event Event { get; set; }
 
+        [BindProperty]
+        public User CurrentUser {  get; set; } 
+
 
 
         public BookEventModel(IEventBookingRepo eventBookingRepo,IEventRepository eventRepository, 
@@ -40,17 +43,40 @@ namespace ProjektopgaveE23.Pages.Events
 
 
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Event = _eventRepo.GetEvent(id);
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                CurrentUser = _userRepo.GetUser(sessionusername);
+                return Page();
+            }
 
         }
 
         public IActionResult OnPostBooking(int id) 
         {
             EventBooking.EventID = id;
-            _bookingRepo.Addbooking(EventBooking);
-            return RedirectToPage("Index");
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                CurrentUser = _userRepo.GetUser(sessionusername);
+                EventBooking.Username = CurrentUser.Username;
+                _bookingRepo.Addbooking(EventBooking);
+                return RedirectToPage("Index");
+            }
+
+                
+
         
         }
 

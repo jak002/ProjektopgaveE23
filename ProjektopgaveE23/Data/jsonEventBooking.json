@@ -10,5 +10,29 @@
     "Username": "[test16, ProjektopgaveE23.Models.User]",
     "EventID": 2,
     "AttendeesPerBooking": 6
+  },
+  {
+    "ID": 3,
+    "Username": null,
+    "EventID": 1,
+    "AttendeesPerBooking": 5
+  },
+  {
+    "ID": 4,
+    "Username": null,
+    "EventID": 1,
+    "AttendeesPerBooking": 5
+  },
+  {
+    "ID": 5,
+    "Username": "notadmin",
+    "EventID": 1,
+    "AttendeesPerBooking": 4
+  },
+  {
+    "ID": 6,
+    "Username": "notadmin",
+    "EventID": 2,
+    "AttendeesPerBooking": 5
   }
 ]

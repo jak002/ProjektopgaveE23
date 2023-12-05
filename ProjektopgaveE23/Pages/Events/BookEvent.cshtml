@@ -12,18 +12,30 @@
         <label type="hidden" asp-for="@Model.Event.Id">Begivenheds ID: </label>
         <input asp-for="@Model.Event.Id" class="control-label" disabled />
     </div>
+
+    <br />
     
     <div class="form-group">
         <label asp-for="@Model.Event.Name" class="control-label">Begivenhedsnavn: </label>
         <input asp-for="@Model.Event.Name" class="control-label" disabled />
     </div>
 
+    <br />
+    
     <div class="form-group">
+        <label asp-for="@Model.CurrentUser.Username" class="control-label">Bruger:  </label>
+        <input asp-for="@Model.CurrentUser.Username" class="control-label" disabled />
+
+    </div>
+
+    <br />
+
+   @*  <div class="form-group">
         <label asp-for="@Model.EventBooking.Username" class="control-label">Bruger</label>
         <select asp-for="@Model.EventBooking.Username" asp-items="@Model.Usernames" class="form-control">
             <option>---vælg bruger---</option>
         </select>
-    </div>
+    </div> *@
 
     <div class="form-group">
         <label asp-for="@Model.EventBooking.AttendeesPerBooking" class="control-label">Antal deltager</label>
@@ -31,6 +43,8 @@
             <option>---Vælg antal deltager---</option>
         </select>
     </div>
+
+    <br />
 
     <div class="form-group">
         <input type="submit" value="Create Booking" class="btn btn-primary" asp-route-id="@Model.Event.Id" asp-page-handler="Booking" />
