@@ -34,5 +34,11 @@
     "Username": "notadmin",
     "EventID": 2,
     "AttendeesPerBooking": 5
+  },
+  {
+    "ID": 7,
+    "Username": "notadmin",
+    "EventID": 1,
+    "AttendeesPerBooking": 9
   }
 ]

@@ -49,7 +49,7 @@ namespace ProjektopgaveE23.Pages.Events
             string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername == null)
             {
-                return RedirectToPage("Login");
+                return RedirectToPage("/Users/Login");
             }
             else
             {
