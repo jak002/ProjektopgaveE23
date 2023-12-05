@@ -18,12 +18,13 @@ namespace ProjektopgaveE23.Pages.Users
         /// <summary>
         /// The current user. Since this property isn't gonna be filled with information from the browser, BindProperty is not needed.
         /// </summary>
-        public User UserToDelete;
+        public User UserToDelete { get; set; }
         /// <summary>
         /// Constructor, with user repository as a parameter.
         /// The local instance field for this kind of repository is assigned this parameter within the constructor.
         /// </summary>
         /// <param name="users">This will always receive the one user repository in use within the system, as it is added as a singleton.</param>
+        public User CurrentUser { get; set; }
         public DeleteUserModel(IUserRepository users)
         {
             _urepo = users;
@@ -36,30 +37,53 @@ namespace ProjektopgaveE23.Pages.Users
         /// <returns>The same page.</returns>
         public IActionResult OnGet(string username)
         {
-            UserToDelete = _urepo.GetUser(username);
-            return Page();
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                CurrentUser = _urepo.GetUser(sessionusername);
+                UserToDelete = _urepo.GetUser(username);
+                return Page();
+            }
         }
 
         /// <summary>
         /// This method is called when the "Delete" button is pressed, with a username as parameter.
+        /// Since the user can't access this page without being logged in, their information can be fetched without a login check.
         /// The user repository's delete method is called, with the given username as argument.
-        /// After this is done, the user is returned to the user index page.
+        /// After this is done, the user is either returned to their info page, or, if the user has admin privileges and is accessing another user's info, the user index page.
         /// </summary>
         /// <param name="username">This is received from the user repository, given through the website's link.</param>
-        /// <returns>A redirect to the user index page.</returns>
+        /// <returns>A redirect to the user info page, or index page if criteria(admin + accessing another user) are met.</returns>
         public IActionResult OnPostDelete(string username)
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _urepo.GetUser(sessionusername);
             _urepo.DeleteUser(username);
-            return RedirectToPage("Index");
+            if (username != CurrentUser.Username && CurrentUser.Admin)
+            {
+                return RedirectToPage("Index");
+            }
+            return RedirectToPage("Info");
         }
         /// <summary>
         /// This method is called when the "Cancel" button is pressed.
-        /// The user is returned to the user index page, with nothing changed in the user repository.
+        /// Since the user can't access this page without being logged in, their information can be fetched without a login check.
+        /// The user is returned to the user info page (or user index, with same checks as OnPostDelete), with nothing changed in the user repository.
         /// </summary>
-        /// <returns>A redirect to the user index page.</returns>
-        public IActionResult OnPostCancel()
+        /// <returns>A redirect to the user info page, or index page if criteria(admin + accessing another user) are met.</returns>
+        public IActionResult OnPostCancel(string username)
         {
-            return RedirectToPage("Index");
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _urepo.GetUser(sessionusername);
+            if (username != CurrentUser.Username && CurrentUser.Admin)
+            {
+                return RedirectToPage("Index");
+            }
+            return RedirectToPage("Info");
         }
     }
 }

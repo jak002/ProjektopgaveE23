@@ -5,7 +5,7 @@
 }
 
 <h1>Velkommen til din side, @Model.CurrentUser.Username!</h1>
-<p>Info:</p>
+<h2>Info:</h2>
 
 <label>Brugernavn: </label> @Model.CurrentUser.Username
 <br />
@@ -22,4 +22,6 @@
     <label>Adminstrator</label>
 }
 <br />
-<a asp-page="/Users/Login" asp-page-handler="Logout">Log ud</a>
+<a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">Opdater</a> | <a asp-page="/Users/Login" asp-page-handler="Logout">Log ud</a>
+<br />
+<a asp-page="DeleteUser" asp-route-username="@Model.CurrentUser.Username">Fjern</a>

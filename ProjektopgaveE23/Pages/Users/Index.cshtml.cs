@@ -25,7 +25,7 @@ namespace ProjektopgaveE23.Pages.Users
             {
                 CurrentUser = _urepo.GetUser(sessionusername);
             }
-                Users = _urepo.GetAllUsers().Values.ToList();
+            Users = _urepo.GetAllUsers().Values.ToList();
         }
     }
 }
