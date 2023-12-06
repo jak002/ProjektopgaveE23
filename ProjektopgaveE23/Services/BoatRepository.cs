@@ -6,7 +6,7 @@ namespace ProjektopgaveE23.Services
 {
     public class BoatRepository : IBoatRepository
     {
-        private string jsonFileName = @"Data\JsonBoats.json";
+        private string jsonFileName = @"Data\jsonBoats.json";
         public void AddBoat(Boat bo)
         {
             List<int> boatIds = new List<int>();
