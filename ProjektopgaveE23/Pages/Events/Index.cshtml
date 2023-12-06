@@ -51,7 +51,7 @@
                 {
                     if(!Model.CurrentUser.Admin)
                     {
-                        <td><a asp-page="BookEvent" asp-route-id="@item.Id">Tilmelding</a></td>
+                        <td><a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book">Tilmelding</a></td>
                         <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal">Se din Tilmelding</a></td>
                     }
                     

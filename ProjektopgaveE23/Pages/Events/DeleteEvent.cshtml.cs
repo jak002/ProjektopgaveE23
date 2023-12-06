@@ -21,6 +21,8 @@ namespace ProjektopgaveE23.Pages.Events
            _userRepository = userRepository;
         }
 
+
+
         public IActionResult OnGet(int deleteId)
         {
             string sessionusername = HttpContext.Session.GetString("Username");
@@ -32,7 +34,7 @@ namespace ProjektopgaveE23.Pages.Events
             }
             if (!CurrentUser.Admin)
             {
-                return NotFound();
+                return RedirectToPage("/RestrictedAdminAccess");
             }
             else
             {

@@ -42,7 +42,7 @@ namespace ProjektopgaveE23.Pages.Events
             }
             if (!CurrentUser.Admin)
             {
-                return NotFound();
+                return RedirectToPage("/RestrictedAdminAccess");
             }
             else
             {

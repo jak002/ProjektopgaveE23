@@ -32,8 +32,27 @@ namespace ProjektopgaveE23.Pages.Events
             _userRepository = userRepository;
         }
 
+        public IActionResult OnGet()
+        {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/Users/Login");
+            }
+            else
+            {
+
+                return RedirectToPage("Index");
+            }
+        }
+
+
+
+
         public IActionResult OnGetAll(int id)
         {
+            
+            
             string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername != null)
             {

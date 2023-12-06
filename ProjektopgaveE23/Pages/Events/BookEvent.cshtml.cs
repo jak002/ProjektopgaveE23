@@ -41,9 +41,23 @@ namespace ProjektopgaveE23.Pages.Events
 
         }
 
+        public IActionResult OnGet()
+        {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/Users/Login");
+            }
+            else
+            {
+
+                return RedirectToPage("Index");
+            }
+        }
 
 
-        public IActionResult OnGet(int id)
+
+        public IActionResult OnGetBook(int id)
         {
             Event = _eventRepo.GetEvent(id);
             string sessionusername = HttpContext.Session.GetString("Username");

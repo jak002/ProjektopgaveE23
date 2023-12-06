@@ -32,7 +32,7 @@
                 <td>@item.Username</td>
                 <td>@item.EventID</td>
                 <td>@item.AttendeesPerBooking</td>
-                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID">Slet</a></td>
+                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del">Slet</a></td>
             </tr>
         }
 
