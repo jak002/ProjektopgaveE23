@@ -16,14 +16,8 @@ namespace ProjektopgaveE23.Pages.Boats
         public SelectList BoatNames { get; set; }
         public SelectList UserNames { get; set; }
 
-        //private List<string> _facilities;
-        //public List<string> Facilities { get { return _facilities; } }
-
         [BindProperty]
-        public List<string> AreChecked { get; set; }
-
-        public List<string> PriceModel { get; }
-
+        public Boat Boat { get; set; }
         [BindProperty]
         public BoatBooking BoatBooking { get; set; }
         public BookBoatModel(IBoatRepository boatRepo, IUserRepository userrepo, IBoatBookingRepository bookingRepository)
@@ -38,14 +32,14 @@ namespace ProjektopgaveE23.Pages.Boats
             
 
         }
-        public void OnGet(id)
+        public void OnGet(int id)
         {
             Boat = _boatRepository.GetBoat(id);
         }
 
         public IActionResult OnPost()
         {
-            //BoatBooking.Facilities = AreChecked;
+            
             _boatBookingRepository.AddBoatBooking(BoatBooking);
             return RedirectToPage("ListBoatBookings");
         }
