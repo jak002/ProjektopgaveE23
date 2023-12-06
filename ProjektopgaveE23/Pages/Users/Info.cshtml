@@ -19,7 +19,8 @@
 <br />
 @if(Model.CurrentUser.Admin)
 {
-    <label>Adminstrator</label>
+    <label>Adminstrator.</label>
+    <p><a asp-page="Index">Se oversigt over brugere her.</a></p>
 }
 <br />
 <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">Opdater</a> | <a asp-page="/Users/Login" asp-page-handler="Logout">Log ud</a>

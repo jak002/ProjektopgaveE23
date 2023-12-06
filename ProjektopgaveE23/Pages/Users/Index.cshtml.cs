@@ -18,14 +18,27 @@ namespace ProjektopgaveE23.Pages.Users
             CurrentUser = null;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername != null)
             {
-                CurrentUser = _urepo.GetUser(sessionusername);
+                if (_urepo.GetUser(sessionusername).Admin)
+                {
+                    CurrentUser = _urepo.GetUser(sessionusername);
+                    Users = _urepo.GetAllUsers().Values.ToList();
+                    return Page();
+                }
+                else
+                {
+                    return RedirectToPage("/RestrictedAdminAccess");
+                }
             }
-            Users = _urepo.GetAllUsers().Values.ToList();
+            else
+            {
+                return RedirectToPage("Login");
+            }
+
         }
     }
 }
