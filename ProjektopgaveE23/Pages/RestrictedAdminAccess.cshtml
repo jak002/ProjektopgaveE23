@@ -1,0 +1,9 @@
+﻿@page
+@model ProjektopgaveE23.Pages.RestrictedAdminAccessModel
+@{
+    ViewData["Title"] = "Ingen adgang uden admin";
+}
+
+<h1>Denne side kan kun tilgås af administrator.</h1>
+<p><a asp-page="Users/Login">Hvis du har glemt at logge ind, skal du gøre dette her.</a></p>
+<p><a asp-page="Index">Ellers kan du klikke her for at vende tilbage til forsiden.</a></p>
