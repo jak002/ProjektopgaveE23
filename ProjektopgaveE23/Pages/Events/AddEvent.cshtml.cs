@@ -23,15 +23,32 @@ namespace ProjektopgaveE23.Pages.Events
 
         public User CurrentUser { get; set; }
 
-        public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost)
+        public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost, IUserRepository userRepository)
         {
             _repo = eventRepository;
             this._webHostEnvironment = webHost;
+            _userRepository = userRepository;
             
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/users/Login");
+            }
+            if (!CurrentUser.Admin)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //CurrentUser = _userRepository.GetUser(sessionusername);
+                return Page();
+            }
 
         }
 
