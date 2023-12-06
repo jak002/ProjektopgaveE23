@@ -57,7 +57,7 @@ namespace ProjektopgaveE23.Pages.Events
             string sessionusername = HttpContext.Session.GetString("Username");
             CurrentUser = _userRepository.GetUser(sessionusername);
             
-            if (BookingToDelete.Username != CurrentUser.Username || CurrentUser.Admin)
+            if (BookingToDelete.Username != CurrentUser.Username && !CurrentUser.Admin)
             {
                 Message = "Denne booking kan ikke slettes da den ikke tilhøre dig";
                 return Page();
