@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\eventimages\" />
     <Folder Include="wwwroot\images\boatimages\" />
+    <Folder Include="wwwroot\images\blogimages\" />
   </ItemGroup>
 
 </Project>
