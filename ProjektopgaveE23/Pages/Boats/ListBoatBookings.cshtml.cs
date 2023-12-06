@@ -17,6 +17,7 @@ namespace ProjektopgaveE23.Pages.Boats
         }
         public void OnGet()
         {
+            EventBookings = _eventBookingRepo.GetAllBookings();
         }
     }
 }

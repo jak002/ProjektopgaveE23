@@ -38,8 +38,9 @@ namespace ProjektopgaveE23.Pages.Boats
             
 
         }
-        public void OnGet()
+        public void OnGet(id)
         {
+            Boat = _boatRepository.GetBoat(id);
         }
 
         public IActionResult OnPost()
