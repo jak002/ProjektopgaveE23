@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using ProjektopgaveE23.Services;
 
 namespace ProjektopgaveE23.Pages.Boats
 {
@@ -15,6 +16,7 @@ namespace ProjektopgaveE23.Pages.Boats
 
         public SelectList BoatNames { get; set; }
         public SelectList UserNames { get; set; }
+        public User CurrentUser { get; set; }
 
         [BindProperty]
         public Boat Boat { get; set; }
@@ -32,16 +34,38 @@ namespace ProjektopgaveE23.Pages.Boats
             
 
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
-            Boat = _boatRepository.GetBoat(id);
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/users/Login");
+            }
+            else
+            {
+                //CurrentUser = _userRepository.GetUser(sessionusername);
+                Boat = _boatRepository.GetBoat(id);
+                return Page();
+            }
         }
 
         public IActionResult OnPost(int id)
         {
             BoatBooking.BoatId = id;
-            _boatBookingRepository.AddBoatBooking(BoatBooking);
-            return RedirectToPage("ListBoatBookings");
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (sessionusername == null)
+            {
+                return RedirectToPage("Login");
+            }
+            else
+            {
+                CurrentUser = _userRepository.GetUser(sessionusername);
+                BoatBooking.Username = CurrentUser.Username;
+                _boatBookingRepository.AddBoatBooking(BoatBooking);
+                return RedirectToPage("ListBoatBookings");
+            }
         }
 
     }

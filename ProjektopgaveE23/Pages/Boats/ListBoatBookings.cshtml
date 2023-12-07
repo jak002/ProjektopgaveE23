@@ -28,9 +28,9 @@
             <th>
                 Bruger
             </th>
-            <th>Date from</th>
-            <th>Date to</th>
-            
+            <th>Dato</th>
+            <th>Tidspunkt</th>
+            <th>Til Kl</th>
             
         </tr>
     </thead>
@@ -49,11 +49,13 @@
                 </td>
                 <td>
                     @item.DateTime.ToShortDateString()
+                </td>
+                <td>
                     @item.DateTime.ToShortTimeString()
                 </td>
-                @* <td>
-                    @item.DateTime.AddDays(item.NumberOfDays*1.0).ToShortDateString()
-                </td> *@
+                <td>
+                    @item.DateTime.AddHours(item.NumberOfHours*1.0).ToShortTimeString()
+                </td>
                 <td></td>
                 <td></td>
                 <td>
