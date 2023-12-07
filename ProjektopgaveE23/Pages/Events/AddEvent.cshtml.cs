@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using ProjektopgaveE23.Services;
 
 namespace ProjektopgaveE23.Pages.Events
 {
@@ -10,6 +11,7 @@ namespace ProjektopgaveE23.Pages.Events
     {
 
         private IEventRepository _repo;
+        private IUserRepository _userRepository;
 
         private IWebHostEnvironment _webHostEnvironment;
 
@@ -19,15 +21,35 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public Event NewEvent { get; set; }
 
-        public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost)
+        public User CurrentUser { get; set; }
+
+        public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost, IUserRepository userRepository)
         {
             _repo = eventRepository;
             this._webHostEnvironment = webHost;
+            _userRepository = userRepository;
             
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/users/Login");
+            }
+            if (!CurrentUser.Admin)
+            {
+                return RedirectToPage("/RestrictedAdminAccess");
+            }
+            else
+            {
+                //CurrentUser = _userRepository.GetUser(sessionusername);
+                return Page();
+            }
+
         }
 
         public IActionResult OnPost()

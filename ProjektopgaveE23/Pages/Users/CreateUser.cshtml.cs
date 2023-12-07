@@ -11,6 +11,8 @@ namespace ProjektopgaveE23.Pages.Users
 
         [BindProperty]
         public User NewUser { get; set; }
+        public string EmailMessage { get; set; }
+        public string PhoneMessage { get; set; }
 
         public CreateUserModel(IUserRepository users)
         {
@@ -22,9 +24,23 @@ namespace ProjektopgaveE23.Pages.Users
 
         public IActionResult OnPost() 
         {
-            NewUser.Admin = false;
-            _urepo.AddUser(NewUser);
-            return RedirectToPage("Index");
+            bool valid = true;
+            if (NewUser.Email != null && !NewUser.Email.Contains("@") && !NewUser.Email.Contains("."))
+            {
+                EmailMessage = "E-mail skal formateres korrekt";
+                valid = false;
+            }
+
+            if (!valid)
+            {
+                return Page();
+            }
+            else
+            {
+                NewUser.Admin = false;
+                _urepo.AddUser(NewUser);
+                return RedirectToPage("Index");
+            }
         }
     }
 }

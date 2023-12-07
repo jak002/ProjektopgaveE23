@@ -1,0 +1,41 @@
+﻿@page
+@model ProjektopgaveE23.Pages.Events.ListEventBookingModel
+@{
+    ViewData["Title"] = "Tilmeldingsliste";
+}
+
+<h1>Tilmeldinger til @Model.Event.Name</h1>
+
+@if (Model.CurrentUser != null)
+{
+    @if (Model.CurrentUser.Admin)
+    {
+        <h3>Antal tilmeldte: @Model.EventCount </h3>
+    }
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking id</th>
+            <th>Medlem</th>
+            <th>begivenhedsid</th>
+            <th>antal deltagere</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.EventBookings)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Username</td>
+                <td>@item.EventID</td>
+                <td>@item.AttendeesPerBooking</td>
+                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del">Slet</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
