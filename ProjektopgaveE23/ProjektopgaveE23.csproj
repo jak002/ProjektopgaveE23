@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\eventimages\" />
-    <Folder Include="wwwroot\images\boatimages\" />
   </ItemGroup>
 
 </Project>

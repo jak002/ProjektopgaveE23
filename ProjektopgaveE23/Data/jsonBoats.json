@@ -3,21 +3,18 @@
     "Id": 1,
     "Name": "Titanic",
     "Description": "Surely cannot sink",
-    "BoatModel": 3,
-    "BoatImage": "Titanic.jpg"
+    "BoatModel": 3
   },
   {
     "Id": 2,
     "Name": "Twotanic",
     "Description": "Submarine",
-    "BoatModel": 4,
-    "BoatImage": "Twotanic.webp"
+    "BoatModel": 4
   },
   {
-    "Id": 3,
+    "Id": 4,
     "Name": "Oceansgate",
     "Description": "canned",
-    "BoatModel": 7,
-    "BoatImage": "Oceansgate.jpg"
+    "BoatModel": 0
   }
 ]

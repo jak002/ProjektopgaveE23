@@ -13,7 +13,7 @@ builder.Services.AddTransient<IEventRepository,EventRepository>();
 
 builder.Services.AddTransient<IBoatRepository, BoatRepository>();
 
-builder.Services.AddTransient<IBoatBookingRepository, BoatBookingRepository>();
+builder.Services.AddTransient<IEventBookingRepo, EventBookingRepo>();
 
 var app = builder.Build();
 

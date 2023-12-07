@@ -11,7 +11,6 @@ namespace ProjektopgaveE23.Models
         public string Description { get; set; }
         [Required]
         public BoatType BoatModel { get; set; }
-        public string BoatImage { get; set; }
         public Boat()
         {
             
