@@ -1,4 +1,6 @@
 ﻿@page
+@using ProjektopgaveE23.Models;
+@using ProjektopgaveE23.Pages
 @model ProjektopgaveE23.Pages.Boats.IndexModel
 @{
     ViewData["Title"] = "Bådliste";
@@ -11,12 +13,19 @@
 
 </p>
 
+<form>
+    search: <input type="text" asp-for="@Model.FilterCriteria" />
+    <input type="submit" value="Filter" />
+</form>
 
+@* <select asp-for="@Model.FilterCriteria" asp-items="Html.GetEnumSelectList<BoatType>()">
+    <option selected="selected" value="">Vælg venligst</option>
+</select> *@
 
 <table class="table">
     <thead>
         <tr>
-            
+            <th>Billede</th>
             <th>ID</th>
             <th>Navn</th>
             <th>Beskrivelse</th>
@@ -27,13 +36,15 @@
     @foreach (var item in Model.Boats)
     {
         <tr>
-            
+            <td>
+                <img src="~/images/boatimages/@item.BoatImage" width="160" height="140" />
+            </td>
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
             <td>@item.BoatModel</td>
-            
-            <td><a asp-page="BookBoat">Book</a></td>
+
+            <td><a asp-page="BookBoat" asp-route-id="@item.Id">Book</a></td>
             <td><a asp-page="EditBoat" asp-route-id="@item.Id">Rediger</a></td>
             <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Slet</a></td>
         </tr>

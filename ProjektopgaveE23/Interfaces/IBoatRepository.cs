@@ -11,6 +11,7 @@ namespace ProjektopgaveE23.Interfaces
 
         void UpdateBoat(Boat bo);
         void DeleteBoat(Boat boatToUpdate);
-        
+        List<Boat> FilterBoats(string filterCriteria);
+        List<Boat> SearchBoatByModel(string model);
     }
 }
