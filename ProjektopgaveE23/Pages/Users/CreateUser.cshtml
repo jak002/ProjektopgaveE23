@@ -22,16 +22,16 @@
         <label asp-for="@Model.NewUser.Name" class="control-label"></label>
         <input asp-for="@Model.NewUser.Name" class="form-control" />
     </div>
-    <p class="text-danger">@Model.EmailMessage</p>
     <div class="form-group">
         <label asp-for="@Model.NewUser.Email" class="control-label"></label>
         <input asp-for="@Model.NewUser.Email" class="form-control" />
+        <p class="text-danger">@Model.EmailMessage</p>
     </div>
     <div class="form-group">
         <label asp-for="@Model.NewUser.PhoneNumber" class="control-label"></label>
         <input asp-for="@Model.NewUser.PhoneNumber" class="form-control" />
+        <p class="text-danger">@Model.PhoneMessage</p>
     </div>
-    <p class="text-danger">@Model.PhoneMessage</p>
     <div class="form-group">
         <label asp-for="@Model.NewUser.MembershipType" class="control-label"></label>
         <br />
