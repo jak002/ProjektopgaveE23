@@ -14,6 +14,9 @@ builder.Services.AddTransient<IEventRepository,EventRepository>();
 builder.Services.AddTransient<IBoatRepository, BoatRepository>();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddTransient<IEventBookingRepo, EventBookingRepo>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
