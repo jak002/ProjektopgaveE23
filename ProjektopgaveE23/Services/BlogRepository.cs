@@ -24,7 +24,7 @@ namespace ProjektopgaveE23.Services
             }
             else
             {
-                blogPost.Id = 0;
+                blogPost.Id = 1;
             }
             blogposts.Add(blogPost);
             JsonFileWriter<Blog>.WriteToJson(blogposts, Filepath);
