@@ -50,3 +50,7 @@ button.accept-policy {
 nav {
     background-color: #274C77;
 }
+
+.btn-secondary {
+    background-color: black !important;
+}

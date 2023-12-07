@@ -22,6 +22,7 @@
             <th>Medlem</th>
             <th>begivenhedsid</th>
             <th>antal deltagere</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +33,7 @@
                 <td>@item.Username</td>
                 <td>@item.EventID</td>
                 <td>@item.AttendeesPerBooking</td>
-                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del">Slet</a></td>
+                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del" class="btn btn-danger">Slet</a></td>
             </tr>
         }
 
