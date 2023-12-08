@@ -46,7 +46,6 @@ namespace ProjektopgaveE23.Pages.Events
             }
             else
             {
-                //CurrentUser = _userRepository.GetUser(sessionusername);
                 return Page();
             }
 

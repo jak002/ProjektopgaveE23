@@ -13,10 +13,10 @@
     @if(Model.CurrentUser.Admin)
     {
         <a asp-page="AddEvent" class="btn btn-secondary">Opret begivenhed</a>
+        <br />
+        <br />
     }
 }
-
-<br />
 
 <table class="table">
     <thead>
@@ -75,4 +75,15 @@
         }
     </tbody>
 </table>
+
+<style>
+    th {
+        background-color: #274C77 !important;
+        color: white;
+    }
+
+    tr {
+        backgroud-color: 8B8C89 !important;
+    }
+</style>
 
