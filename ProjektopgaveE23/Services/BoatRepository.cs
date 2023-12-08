@@ -35,7 +35,20 @@ namespace ProjektopgaveE23.Services
             JsonFileWriter<Boat>.WriteToJson(boats, jsonFileName);
         }
 
-        
+        public List<Boat> FilterBoats(string filterCriteria)
+        {
+            List<Boat> filteredList = new List<Boat>();
+            foreach (var boat in GetAllBoats())
+            {
+                if (boat.BoatModel.ToString().Contains(filterCriteria) || boat.Name.Contains(filterCriteria) || boat.Description.Contains(filterCriteria))
+                {
+                    filteredList.Add(boat);
+                }
+
+            }
+
+            return filteredList;
+        }
 
         public List<Boat> GetAllBoats()
         {
@@ -50,6 +63,11 @@ namespace ProjektopgaveE23.Services
                     return boat;
             }
             return new Boat();
+        }
+
+        public List<Boat> SearchBoatByModel(string model)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateBoat(Boat bo)
