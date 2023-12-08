@@ -19,8 +19,9 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="@Model.NewPost.Text" class="control-label">Brødtekst</label>
-        <input asp-for="@Model.NewPost.Text" class="form-control" style="height:200px" />
+        <label asp-for="@Model.NewPost.Text" class="control-label" for="text">Brødtekst</label>
+        @* <input type="text" asp-for="@Model.NewPost.Text"/> *@
+        <textarea asp-for="@Model.NewPost.Text" class="form-control" id="text" rows="10"></textarea>
     </div>
     <div class="form-group">
         <label asp-for="@Model.Photo" class="control-label">Tilføj billede</label>
