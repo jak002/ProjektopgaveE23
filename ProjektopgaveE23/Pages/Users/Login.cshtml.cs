@@ -32,18 +32,42 @@ namespace ProjektopgaveE23.Pages.Users
 
         public IActionResult OnPost()
         {
-            User loginUser = _urepo.VerifyUser(Username, Password);
-            if (loginUser != null)
+            bool valid = true;
+            if (Username == null) 
             {
-
-                HttpContext.Session.SetString("Username", loginUser.Username);
-                return RedirectToPage("Info");
+                valid = false;
+                Message = "Husk at skrive brugernavn";
             }
-            else
+            if (Password == null) 
             {
-                Message = "Forkert brugernavn eller password";
-                Username = "";
-                Password = "";
+                if (valid == false)
+                {
+                    Message = "Indtast brugernavn og password nedenfor";
+                }
+                else
+                {
+                    valid = false;
+                    Message = "Husk at skrive password";
+                }
+            }
+            if (valid)
+            {
+                User loginUser = _urepo.VerifyUser(Username, Password);
+                if (loginUser != null)
+                {
+
+                    HttpContext.Session.SetString("Username", loginUser.Username);
+                    return RedirectToPage("Info");
+                }
+                else
+                {
+                    Message = "Forkert brugernavn eller password";
+                    Username = "";
+                    Password = "";
+                    return Page();
+                }
+            } else
+            {
                 return Page();
             }
 

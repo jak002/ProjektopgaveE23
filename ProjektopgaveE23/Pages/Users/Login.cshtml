@@ -5,17 +5,20 @@
 }
 
 <h1>Log ind</h1>
-@Model.Message
+<span class="text-danger">@Model.Message</span>
 <form method="post">
     <div class="form-group">
     <table>
         <tr>
             <td>Brugernavn</td>
             <td><Input type="text" asp-for="@Model.Username" /></td>
+
+
         </tr>
         <tr>
             <td>Password</td>
             <td><Input type="password" asp-for="@Model.Password" /></td>
+
         </tr>
     </table>
     </div>
