@@ -4,6 +4,62 @@
     ViewData["Title"] = "Blog";
 }
 
-<h1>Blog</h1>
+<div class="header">
+    <h2>Klubbens blog</h2>
+</div>
+
 
 <a asp-page="AddPost" class="btn btn-secondary">Opret nyt blogindlæg</a>
+
+
+@foreach (var item in Model.Posts)
+{
+    <div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+                <h2 align="center">@item.Title</h2>
+                <h5 align="center">@item.Date.ToString("dddd, dd MMMM yyyy HH:mm")</h5>
+                <div align="center"><img src="~/images/blogimages/@item.BlogImage" height="400px"></div>
+                <p align="center">@item.Text</p>
+    </div>
+    </div>
+    </div>
+}
+
+
+<style>
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* .leftcolumn {
+        float: left;
+        width: 75%;
+    } */
+
+    body {
+        font-family: Arial;
+        background: #f1f1f1;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+    }
+
+    
+</style>
