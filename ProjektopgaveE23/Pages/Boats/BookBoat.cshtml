@@ -1,4 +1,40 @@
 ﻿@page
 @model ProjektopgaveE23.Pages.Boats.BookBoatModel
 @{
+    ViewData["Title"] = "Book båd";
 }
+
+<h1>Book båd</h1>
+<form method="post">
+    <input type="hidden" asp-for="@Model.Boat.Id" />
+    <div class="form-group">
+        <label asp-for="@Model.Boat.Name" class=" control-label"></label>
+        <input asp-for="@Model.Boat.Name" class="control-label" disabled/>
+    </div>
+    @* <div class="form-group">
+        <label class="control-label">Bruger</label>
+        <select asp-for="@Model.BoatBooking.Usename" asp-items="@Model.UserNames" class="form-control">
+            <option value="">--vælg bruger--</option>
+        </select>
+    </div> *@
+    
+    
+    <div class="form-group">
+        <label asp-for="@Model.BoatBooking.DateTime" class="control-label"></label>
+        <input asp-for="@Model.BoatBooking.DateTime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="@Model.BoatBooking.NumberOfHours" class="control-label"></label>
+        <input asp-for="@Model.BoatBooking.NumberOfHours" class="form-control" />
+    </div>
+    <br />
+     
+    
+    <div class="form-group">
+        <input type="submit" value="Lav booking" class="btn btn-primary" />
+
+    </div>
+
+
+</form>

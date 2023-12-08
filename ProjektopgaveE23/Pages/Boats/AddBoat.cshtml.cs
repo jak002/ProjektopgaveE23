@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using ProjektopgaveE23.Services;
 
 namespace ProjektopgaveE23.Pages.Boats
 {
@@ -9,18 +10,39 @@ namespace ProjektopgaveE23.Pages.Boats
     {
         private IBoatRepository _repo;
         private IWebHostEnvironment webHostEnvironment;
+        private IUserRepository _userRepository;
+
+        
         [BindProperty]
         public Boat NewBoat { get; set; }
         [BindProperty]
         public IFormFile Photo { get; set; }
+        public User CurrentUser { get; set; }
 
-        public AddBoatModel(IBoatRepository boatRepository, IWebHostEnvironment webHost)
+        public AddBoatModel(IBoatRepository boatRepository, IWebHostEnvironment webHost, IUserRepository userRepository)
         {
             _repo = boatRepository;
             this.webHostEnvironment = webHost;
+            _userRepository = userRepository;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            if (sessionusername == null)
+            {
+                return RedirectToPage("/users/Login");
+            }
+            if (!CurrentUser.Admin)
+            {
+                return RedirectToPage("/RestrictedAdminAccess");
+            }
+            else
+            {
+                //CurrentUser = _userRepository.GetUser(sessionusername);
+                return Page();
+            }
         }
         public IActionResult OnPost()
         {

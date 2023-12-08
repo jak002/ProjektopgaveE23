@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-secondary {
+    background-color: #6096BA !important;
+    border-color: #6096BA !important;
+    /*color: black !important;*/
+}

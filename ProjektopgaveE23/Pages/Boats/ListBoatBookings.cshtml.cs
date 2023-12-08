@@ -6,19 +6,20 @@ using ProjektopgaveE23.Services;
 
 namespace ProjektopgaveE23.Pages.Boats
 {
-    public class DeleteBoatModel : PageModel
+    public class ListBoatBookingsModel : PageModel
     {
-        private IBoatRepository _repo;
+        private IBoatBookingRepository boatBookingRepository;
         private IUserRepository _userRepository;
 
-        public Boat DeleteBoat { get; set; }
+        public List<BoatBooking> Bookings { get; set; }
         public User CurrentUser { get; set; }
-        public DeleteBoatModel(IBoatRepository repo, IUserRepository userRepository)
+        public ListBoatBookingsModel(IBoatBookingRepository boatBookingRepo, IUserRepository userRepository)
         {
-            _repo = repo;
+            boatBookingRepository = boatBookingRepo;
+            Bookings = boatBookingRepository.GetAllBoatBookings();
             _userRepository = userRepository;
         }
-        public IActionResult OnGet(int deleteId)
+        public IActionResult OnGet()
         {
             string sessionusername = HttpContext.Session.GetString("Username");
             CurrentUser = _userRepository.GetUser(sessionusername);
@@ -27,22 +28,12 @@ namespace ProjektopgaveE23.Pages.Boats
             {
                 return RedirectToPage("/users/Login");
             }
-            if (!CurrentUser.Admin)
-            {
-                return RedirectToPage("/RestrictedAdminAccess");
-            }
             else
             {
                 //CurrentUser = _userRepository.GetUser(sessionusername);
-                DeleteBoat = _repo.GetBoat(deleteId);
+                Bookings = boatBookingRepository.GetAllBoatBookings();
                 return Page();
             }
-        }
-        public IActionResult OnPostDelete(int number)
-        {
-            DeleteBoat = _repo.GetBoat(number);
-            _repo.DeleteBoat(DeleteBoat);
-            return RedirectToPage("Index");
         }
     }
 }

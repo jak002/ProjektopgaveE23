@@ -7,7 +7,7 @@ namespace ProjektopgaveE23.Interfaces
         List<BoatBooking> GetAllBoatBookings();
         void AddBoatBooking(BoatBooking boatbooking);
         BoatBooking GetBoatBookingById(int id);
-        List<BoatBooking> GetBoatBookingByUserId(string username);
+        List<BoatBooking> GetBoatBookingByUserId(int userId);
 
         void DeleteBoatBooking(BoatBooking boatBooking);
 
