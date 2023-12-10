@@ -34,5 +34,14 @@
     "PhoneNumber": "asdfasdfadsf",
     "Admin": false,
     "MembershipType": 1
+  },
+  {
+    "Username": "Jacob",
+    "Password": "1234",
+    "Name": "Jacob Sejer",
+    "Email": "jacob.sejer@email.dk",
+    "PhoneNumber": "\u002B45 12 34 56 78",
+    "Admin": false,
+    "MembershipType": 1
   }
 ]
