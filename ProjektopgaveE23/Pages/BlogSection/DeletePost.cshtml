@@ -3,3 +3,51 @@
 @{
     ViewData["Title"] = "Delete post";
 }
+
+<h1>Slet blogindlæg</h1>
+
+<form method="post">
+    <div class="form-group">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>@Model.DeletePost.Id</td>
+            </tr>
+            <tr>
+                <th>Dato</th>
+                <td>@Model.DeletePost.Date</td>
+            </tr>
+            <tr>
+                <th>Titel</th>
+                <td>@Model.DeletePost.Title</td>
+            </tr>
+            <tr>
+                <th>Brødtekst</th>
+                <td><pre style="font-family:Verdana">@Model.DeletePost.Text</pre></td>
+            </tr>
+        </table>
+
+        <br />
+        <input type="submit" asp-page-handler="Delete" asp-route-postId="@Model.DeletePost.Id" class="btn btn-danger" value="Slet blogindlæg" />
+        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+
+
+
+    </div>
+</form>
+
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: #A3CEF1;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>

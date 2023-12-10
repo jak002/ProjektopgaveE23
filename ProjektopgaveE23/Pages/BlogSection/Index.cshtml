@@ -4,27 +4,50 @@
     ViewData["Title"] = "Blog";
 }
 
+
+
+
 <div class="header">
-    <h2>Klubbens blog</h2>
+    <h1> <span class="material-icons md-36">sailing</span> Klubbens blog <span class="material-icons md-36">sailing</span></h1>
 </div>
 
+@if (Model.CurrentUser!=null)
+{
+    @if (Model.CurrentUser.Admin)
+    {
+        <br />
+        <a asp-page="AddPost" class="btn btn-secondary">Opret nyt blogindlæg</a>
 
-<a asp-page="AddPost" class="btn btn-secondary">Opret nyt blogindlæg</a>
+    }
+}
+
+
 
 
 @foreach (var item in Model.Posts)
 {
     <div class="row">
-  <div class="leftcolumn">
-    <div class="card">
+        <div class="leftcolumn">
+            <div class="card">
                 <h2 align="center">@item.Title</h2>
                 <h7 align="center">@item.Date.ToString("dddd, dd MMMM yyyy HH:mm")</h7>
                 <div align="center"><img src="~/images/blogimages/@item.BlogImage" height="400px"></div>
                 <br>
                 @* <p align="center">@item.Text</p> *@
                 <pre align="center" style="font-family:Verdana">@item.Text</pre>
+
+                @if (Model.CurrentUser != null)
+                {
+                    @if (Model.CurrentUser.Admin)
+                    {
+                        <a asp-page="DeletePost" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet blogindlæg</a>
+                        <br>
+                        <a asp-page="EditPost" asp-route-id="@item.Id" class="btn btn-secondary">Rediger blogindlæg</a>
+
+                    }
+                }
             </div>
-    </div>
+        </div>
     </div>
 }
 
@@ -42,11 +65,6 @@
         clear: both;
     }
 
-    /* .leftcolumn {
-        float: left;
-        width: 75%;
-    } */
-
     body {
         font-family: Arial;
         background: #f1f1f1;
@@ -60,7 +78,7 @@
         padding: 30px;
         font-size: 40px;
         text-align: center;
-        background: white;
+        background: #A3CEF1;
     }
 
     

@@ -26,3 +26,7 @@ body {
     border-color: #6096BA !important;
     /*color: black !important;*/
 }
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
