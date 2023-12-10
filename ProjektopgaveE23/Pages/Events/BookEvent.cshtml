@@ -6,6 +6,8 @@
 
 <h1>Tilmeld begivenhed</h1>
 
+<p style="color:red">@Model.Message</p>
+
 <form method="post">
 
     <div class="form-group">
@@ -47,7 +49,10 @@
     <br />
 
     <div class="form-group">
-        <input type="submit" value="Create Booking" class="btn btn-primary" asp-route-id="@Model.Event.Id" asp-page-handler="Booking" />
+        @if (Model.Found.Count==0)
+        {
+            <input type="submit" value="Create Booking" class="btn btn-primary" asp-route-id="@Model.Event.Id" asp-page-handler="Booking" />
+        }
         <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
     </div>
 
