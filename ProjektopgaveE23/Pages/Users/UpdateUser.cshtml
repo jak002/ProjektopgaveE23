@@ -29,6 +29,16 @@
         <input asp-for="@Model.UsertoUpdate.PhoneNumber" class="form-control" />
         <p class="text-danger">@Model.PhoneMessage</p>
     </div>
+    @if (Model.CurrentUser.Admin)
+    {
+        if(Model.UsertoUpdate.CreatedThroughWebsite == true)
+        {
+            <div class="form-group">
+                    <label asp-for="@Model.UsertoUpdate.Admin" class="control-label"></label>
+                    <input type="checkbox" asp-for="@Model.UsertoUpdate.Admin" class="form-check"/>
+            </div>
+        }
+    }
     <div class="form-group">
         <label asp-for="@Model.UsertoUpdate.MembershipType" class="control-label"></label>
         <br />

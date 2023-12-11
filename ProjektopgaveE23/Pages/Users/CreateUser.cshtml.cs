@@ -44,6 +44,7 @@ namespace ProjektopgaveE23.Pages.Users
             else
             {
                 NewUser.Admin = false;
+                NewUser.CreatedThroughWebsite = true;
                 _urepo.AddUser(NewUser);
                 return RedirectToPage("Index");
             }

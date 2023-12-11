@@ -12,12 +12,6 @@
     "AttendeesPerBooking": 4
   },
   {
-    "ID": 6,
-    "Username": "notadmin",
-    "EventID": 2,
-    "AttendeesPerBooking": 5
-  },
-  {
     "ID": 9,
     "Username": "test16",
     "EventID": 1,
@@ -30,9 +24,9 @@
     "AttendeesPerBooking": 7
   },
   {
-    "ID": 13,
+    "ID": 11,
     "Username": "notadmin",
     "EventID": 2,
-    "AttendeesPerBooking": 9
+    "AttendeesPerBooking": 7
   }
 ]

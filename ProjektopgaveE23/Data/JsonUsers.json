@@ -6,6 +6,7 @@
     "Email": "testest@testest.test",
     "PhoneNumber": "12345678",
     "Admin": false,
+    "CreatedThroughWebsite": true,
     "MembershipType": 2
   },
   {
@@ -14,7 +15,8 @@
     "Name": "Testidy Testables",
     "Email": "beepeebeep@hgfdgkhjf.lol",
     "PhoneNumber": "12341234",
-    "Admin": false,
+    "Admin": true,
+    "CreatedThroughWebsite": false,
     "MembershipType": 1
   },
   {
@@ -24,6 +26,7 @@
     "Email": "bestyrelse@text.noget",
     "PhoneNumber": "nej",
     "Admin": true,
+    "CreatedThroughWebsite": false,
     "MembershipType": 3
   },
   {
@@ -33,6 +36,7 @@
     "Email": "hkdfgjhkdfjghdf",
     "PhoneNumber": "asdfasdfadsf",
     "Admin": false,
+    "CreatedThroughWebsite": true,
     "MembershipType": 1
   },
   {
@@ -42,6 +46,7 @@
     "Email": "jacob.sejer@email.dk",
     "PhoneNumber": "\u002B45 12 34 56 78",
     "Admin": false,
+    "CreatedThroughWebsite": false,
     "MembershipType": 1
   }
 ]
