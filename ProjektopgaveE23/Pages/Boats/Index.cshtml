@@ -51,11 +51,13 @@
             {
                 if (!Model.CurrentUser.Admin)
                 {
+                    
                     <td><a asp-page="BookBoat" asp-route-id="@item.Id">Book</a></td>
                 }
 
                 if (Model.CurrentUser.Admin)
                 {
+                    
                     <td><a asp-page="BookBoat" asp-route-id="@item.Id">Book</a></td>
                     <td><a asp-page="EditBoat" asp-route-id="@item.Id">Rediger</a></td>
                     <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Slet</a></td>

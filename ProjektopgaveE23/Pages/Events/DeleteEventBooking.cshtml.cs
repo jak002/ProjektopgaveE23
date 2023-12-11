@@ -44,7 +44,7 @@ namespace ProjektopgaveE23.Pages.Events
 
 
         public void OnGetDel(int deleteId)
-        {
+            {
             BookingToDelete = _eventBookingRepo.GetBooking(deleteId);
             Event = _eventRepository.GetEvent(BookingToDelete.EventID);
 
@@ -54,14 +54,14 @@ namespace ProjektopgaveE23.Pages.Events
         {
             BookingToDelete = _eventBookingRepo.GetBooking(idNumber);
             
-            string sessionusername = HttpContext.Session.GetString("Username");
-            CurrentUser = _userRepository.GetUser(sessionusername);
+            //string sessionusername = HttpContext.Session.GetString("Username");
+            //CurrentUser = _userRepository.GetUser(sessionusername);
             
-            if (BookingToDelete.Username != CurrentUser.Username && !CurrentUser.Admin)
-            {
-                Message = "Denne booking kan ikke slettes da den ikke tilhøre dig";
-                return Page();
-            }
+            //if (BookingToDelete.Username != CurrentUser.Username && !CurrentUser.Admin)
+            //{
+            //    Message = "Denne booking kan ikke slettes da den ikke tilhøre dig";
+            //    return Page();
+            //}
             
             _eventBookingRepo.DeleteBooking(BookingToDelete);
             return RedirectToPage("Index");
