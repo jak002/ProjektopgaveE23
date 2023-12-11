@@ -14,7 +14,7 @@
     }
 }
 
-
+<div class="card">
 <table class="table">
     <thead>
         <tr>
@@ -39,6 +39,32 @@
 
     </tbody>
 
-</table>
+    </table>
+    <div><a asp-page="Index" class="btn btn-warning">Tilbage</a></div>
+    
+</div>
 
-<a asp-page="Index" class="btn btn-warning">Tilbage</a>
+
+
+
+<style>
+    th {
+        background-color: #274C77 !important;
+        color: white;
+    }
+
+    tr {
+        backgroud-color: 8B8C89 !important;
+    }
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    body {
+        font-family: Arial;
+        background: #f1f1f1;
+    }
+</style>
