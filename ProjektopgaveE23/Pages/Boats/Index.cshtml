@@ -13,10 +13,12 @@
     @if (Model.CurrentUser.Admin)
     {
         <a asp-page="AddBoat" class="btn btn-secondary">Tilføj ny båd</a>
+        <br />
     }
 }
 
 <form>
+    <br />
     Søg: <input type="text" asp-for="@Model.FilterCriteria" />
     <input type="submit" value="Filter" />
 </form>
