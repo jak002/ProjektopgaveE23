@@ -22,5 +22,13 @@
     "BlogImage": "351d93cc-1479-4a84-845a-154432de3435_Grill.jpg",
     "Date": "2024-01-05T12:52:00",
     "Author": null
+  },
+  {
+    "Id": 4,
+    "Title": "dddd",
+    "Text": "dddd",
+    "BlogImage": null,
+    "Date": "2023-12-11T19:05:56.5569167+01:00",
+    "Author": "Admin"
   }
 ]

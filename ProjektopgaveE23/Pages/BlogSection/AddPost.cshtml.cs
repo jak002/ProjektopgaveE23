@@ -54,6 +54,7 @@ namespace ProjektopgaveE23.Pages.BlogSection
             CurrentUser = _userRepository.GetUser(sessionusername);
 
             NewPost.Author = CurrentUser.Name;
+            NewPost.Date = DateTime.Now;
             
             if (Photo != null)
             {
