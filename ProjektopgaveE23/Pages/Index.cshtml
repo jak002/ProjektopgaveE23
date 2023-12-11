@@ -4,23 +4,16 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="header">
+@* <div class="header">
     <h1>Hillerød sejlklub</h1>
-</div>
+</div> *@
 
 <div class="row">
     <div class="leftcolumn">
-        <div class="card">
+        <div class="card" align="center" >
             <h2>Velkommen til Hillerød Sejlklub</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-            <div align="center"><img src="~/images/boatimages/Peace.jpg" height="400px" class="responsive"></div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-        <div class="card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
+            <h5>En klub for jollesejlere</h5>
+            <div align="center"><img src="~/images/boatimages/Peace.jpg" height="300px" class="responsive"></div>
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
@@ -28,14 +21,19 @@
     <div class="rightcolumn">
         <div class="card">
             <h2>Om os</h2>
-            <div class="fakeimg" style="height:100px;">Image</div>
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            <div align="center"><img src="~/images/Pooul.jpg" height="100px" class="responsive"></div>
+            <br />
+            <p>
+                Hillerød Sejlklub er en klub for jollesejlere
+                Vi har altid plads til børn og voksne, som vil sejle for deres fornøjelses skyld, 
+                for det sociale samvær, og evt. selv medvirke eller støtte andre sejlere i konkurrencesejlads..
+            </p>
         </div>
         <div class="card">
-            <h3>Popular Post</h3>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div>
+            <h3>Genveje</h3>
+            <a asp-page="events/index" class="btn btn-secondary">Begivenheder</a><br />
+            <a asp-page="boats/index" class="btn btn-secondary">Både</a><br />
+            <a asp-page="blogsection/index" class="btn btn-secondary">Blog</a>
         </div>
         <div class="card">
             <h3>Følg os her</h3>
@@ -106,7 +104,7 @@ body {
 }
 
     .responsive {
-        width: 100%;
+        max-width: 100%;
         height: auto;
     }
 
