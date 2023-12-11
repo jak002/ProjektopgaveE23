@@ -64,7 +64,7 @@ namespace ProjektopgaveE23.Pages.Boats
             }
 
             _boatBookingRepo.DeleteBoatBooking(BookingToDelete);
-            return RedirectToPage("Index");
+            return RedirectToPage("ListBoatBookings");
 
         }
 

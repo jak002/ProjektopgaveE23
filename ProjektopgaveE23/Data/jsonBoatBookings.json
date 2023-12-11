@@ -1,26 +1,5 @@
 [
   {
-    "BookingId": 2,
-    "BoatId": 0,
-    "Username": null,
-    "DateTime": "2023-12-13T11:42:00",
-    "NumberOfHours": 0
-  },
-  {
-    "BookingId": 3,
-    "BoatId": 0,
-    "Username": null,
-    "DateTime": "2023-12-14T12:18:00",
-    "NumberOfHours": 0
-  },
-  {
-    "BookingId": 4,
-    "BoatId": 0,
-    "Username": null,
-    "DateTime": "2023-12-14T09:32:00",
-    "NumberOfHours": 0
-  },
-  {
     "BookingId": 5,
     "BoatId": 2,
     "Username": null,
