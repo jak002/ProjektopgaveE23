@@ -6,54 +6,73 @@
 
 <h1>Tilmeld begivenhed</h1>
 
-<p style="color:red">@Model.Message</p>
+<div class="card">
 
-<form method="post">
+    <p style="color:red">@Model.Message</p>
 
-    <div class="form-group">
-        <label type="hidden" asp-for="@Model.Event.Id">Begivenheds ID: </label>
-        <input asp-for="@Model.Event.Id" class="control-label" disabled />
-    </div>
+    <form method="post">
 
-    <br />
-    
-    <div class="form-group">
-        <label asp-for="@Model.Event.Name" class="control-label">Begivenhedsnavn: </label>
-        <input asp-for="@Model.Event.Name" class="control-label" disabled />
-    </div>
+        <div class="form-group">
+            <label type="hidden" asp-for="@Model.Event.Id">Begivenheds ID: </label>
+            <input asp-for="@Model.Event.Id" class="control-label" disabled />
+        </div>
 
-    <br />
-    
-    <div class="form-group">
-        <label asp-for="@Model.CurrentUser.Username" class="control-label">Bruger:  </label>
-        <input asp-for="@Model.CurrentUser.Username" class="control-label" disabled />
+        <br />
 
-    </div>
+        <div class="form-group">
+            <label asp-for="@Model.Event.Name" class="control-label">Begivenhedsnavn: </label>
+            <input asp-for="@Model.Event.Name" class="control-label" disabled />
+        </div>
 
-    <br />
+        <br />
 
-   @*  <div class="form-group">
+        <div class="form-group">
+            <label asp-for="@Model.CurrentUser.Username" class="control-label">Bruger:  </label>
+            <input asp-for="@Model.CurrentUser.Username" class="control-label" disabled />
+
+        </div>
+
+        <br />
+
+        @*  <div class="form-group">
         <label asp-for="@Model.EventBooking.Username" class="control-label">Bruger</label>
         <select asp-for="@Model.EventBooking.Username" asp-items="@Model.Usernames" class="form-control">
-            <option>---vælg bruger---</option>
+        <option>---vælg bruger---</option>
         </select>
-    </div> *@
+        </div> *@
 
-    <div class="form-group">
-        <label asp-for="@Model.EventBooking.AttendeesPerBooking" class="control-label">Antal deltager</label>
-        <select asp-for="@Model.EventBooking.AttendeesPerBooking" asp-items="@Model.AtendeesNumber" class="form-control">
-            <option>---Vælg antal deltager---</option>
-        </select>
-    </div>
+        <div class="form-group">
+            <label asp-for="@Model.EventBooking.AttendeesPerBooking" class="control-label">Antal deltager</label>
+            <select asp-for="@Model.EventBooking.AttendeesPerBooking" asp-items="@Model.AtendeesNumber" class="form-control">
+                <option>---Vælg antal deltager---</option>
+            </select>
+        </div>
 
-    <br />
+        <br />
 
-    <div class="form-group">
-        @if (Model.Found.Count==0)
-        {
-            <input type="submit" value="Create Booking" class="btn btn-primary" asp-route-id="@Model.Event.Id" asp-page-handler="Booking" />
-        }
-        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
-    </div>
+        <div class="form-group">
+            @if (Model.Found.Count == 0)
+            {
+                <input type="submit" value="Create Booking" class="btn btn-primary" asp-route-id="@Model.Event.Id" asp-page-handler="Booking" />
+            }
+            <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+        </div>
 
-</form>
+    </form>
+</div>
+
+
+
+<style>
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    body {
+        font-family: Arial;
+        background: #f1f1f1;
+    }
+</style>

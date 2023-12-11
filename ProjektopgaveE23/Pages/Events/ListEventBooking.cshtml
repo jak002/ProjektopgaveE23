@@ -15,33 +15,33 @@
 }
 
 <div class="card">
-<table class="table">
-    <thead>
-        <tr>
-            <th>Booking id</th>
-            <th>Medlem</th>
-            <th>begivenhedsid</th>
-            <th>antal deltagere</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model.EventBookings)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.ID</td>
-                <td>@item.Username</td>
-                <td>@item.EventID</td>
-                <td>@item.AttendeesPerBooking</td>
-                <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del" class="btn btn-danger">Slet</a></td>
+                <th>Booking id</th>
+                <th>Medlem</th>
+                <th>begivenhedsid</th>
+                <th>antal deltagere</th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.EventBookings)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Username</td>
+                    <td>@item.EventID</td>
+                    <td>@item.AttendeesPerBooking</td>
+                    <td><a asp-page="DeleteEventBooking" asp-route-deleteId="@item.ID" asp-page-handler="Del" class="btn btn-danger">Slet</a></td>
+                </tr>
+            }
 
-    </tbody>
+        </tbody>
 
     </table>
     <div><a asp-page="Index" class="btn btn-warning">Tilbage</a></div>
-    
+
 </div>
 
 

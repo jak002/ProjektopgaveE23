@@ -17,14 +17,13 @@ html {
   min-height: 100%;
 }
 
-body {
+/*body {
   margin-bottom: 60px;
-}
+}*/
 
 .btn-secondary {
     background-color: #6096BA !important;
     border-color: #6096BA !important;
-    /*color: black !important;*/
 }
 
 .material-icons.md-36 {
@@ -39,13 +38,11 @@ body {
     box-sizing: border-box;
 }
 
-/* Add a gray background color with some padding */
 body {
     font-family: Arial;
     background: #f1f1f1;
 }
 
-/* Header/Blog Title */
 .header {
     padding: 30px;
     font-size: 40px;
@@ -94,9 +91,9 @@ body {
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@@media screen and (max-width: 800px) {
+/*@@media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {
         width: 100%;
         padding: 0;
     }
-}
+}*/
