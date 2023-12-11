@@ -31,7 +31,9 @@ namespace ProjektopgaveE23.Services
 
         public void DeleteBoatBooking(BoatBooking boatBooking)
         {
-            throw new NotImplementedException();
+            List<BoatBooking> bookings = GetAllBoatBookings();
+            bookings.Remove(boatBooking);
+            JsonFileWriter<BoatBooking>.WriteToJson(bookings, filePath);
         }
 
         public List<BoatBooking> GetAllBoatBookings()
@@ -41,7 +43,12 @@ namespace ProjektopgaveE23.Services
 
         public BoatBooking GetBoatBookingById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var book in GetAllBoatBookings())
+            {
+                if (book.BookingId == id)
+                    return book;
+            }
+            return new BoatBooking();
         }
 
         public List<BoatBooking> GetBoatBookingByUserId(int userId)

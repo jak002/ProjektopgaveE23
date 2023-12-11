@@ -59,8 +59,25 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <a asp-page="DeleteBoatBooking" asp-route-Code="@item.BookingId">Slet</a>
+                    @if (Model.CurrentUser != null)
+                    {
+                        if (!Model.CurrentUser.Admin)
+                        {
+                            if (Model.CurrentUser.Username == item.Username)
+                            {
+                                <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del">Slet</a>
+                            }
+                        }
+
+                        if (Model.CurrentUser.Admin)
+                        {
+                            <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del">Slet</a>
+                        }
+
+                    }
+                    
                 </td>
+                
             </tr>
         }
     </tbody>
