@@ -50,6 +50,11 @@ namespace ProjektopgaveE23.Pages.BlogSection
 
         public IActionResult OnPost()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            NewPost.Author = CurrentUser.Name;
+            
             if (Photo != null)
             {
                 if (NewPost.BlogImage != null)

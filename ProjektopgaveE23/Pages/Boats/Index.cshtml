@@ -61,15 +61,15 @@
                     if (!Model.CurrentUser.Admin)
                     {
 
-                        <td><a asp-page="BookBoat" asp-route-id="@item.Id">Book</a></td>
+                        <td><a asp-page="BookBoat" asp-route-id="@item.Id" class="btn btn-secondary">Book</a></td>
                     }
 
                     if (Model.CurrentUser.Admin)
                     {
 
-                        <td><a asp-page="BookBoat" asp-route-id="@item.Id">Book</a></td>
-                        <td><a asp-page="EditBoat" asp-route-id="@item.Id">Rediger</a></td>
-                        <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id">Slet</a></td>
+                        <td><a asp-page="BookBoat" asp-route-id="@item.Id" class="btn btn-secondary">Book</a></td>
+                        <td><a asp-page="EditBoat" asp-route-id="@item.Id" class="btn btn-secondary">Rediger</a></td>
+                        <td><a asp-page="DeleteBoat" asp-route-DeleteId="@item.Id" class="btn btn-secondary">Slet</a></td>
                     }
 
                 }

@@ -32,7 +32,8 @@
             <div class="card">
                 <h2 align="center">@item.Title</h2>
                 <h7 align="center">@item.Date.ToString("dddd, dd MMMM yyyy HH:mm")</h7>
-                <div align="center"><img src="~/images/blogimages/@item.BlogImage" height="400px"></div>
+                <h7 align="center">skrevet af @item.Author </h7>
+                <div align="center"><img src="~/images/blogimages/@item.BlogImage" height="400px" class="responsive"></div>
                 <br>
                 @* <p align="center">@item.Text</p> *@
                 <pre align="center" style="font-family:Verdana">@item.Text</pre>
@@ -59,7 +60,7 @@
 <br />
 
 
-@* <style>
+<style>
     .card {
         background-color: white;
         padding: 20px;
@@ -86,8 +87,13 @@
         font-size: 40px;
         text-align: center;
         background: #A3CEF1;
-        width: 35%;
+    }
+
+    .responsive {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
     }
 
     
-</style> *@
+</style>
