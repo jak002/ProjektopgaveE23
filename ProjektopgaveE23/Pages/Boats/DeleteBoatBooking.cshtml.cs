@@ -70,7 +70,7 @@ namespace ProjektopgaveE23.Pages.Boats
 
         public IActionResult OnPostCancel()
         {
-            return RedirectToPage("Index");
+            return RedirectToPage("ListBoatBookings");
         }
     }
 }
