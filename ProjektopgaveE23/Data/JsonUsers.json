@@ -15,8 +15,8 @@
     "Name": "Testidy Testables",
     "Email": "beepeebeep@hgfdgkhjf.lol",
     "PhoneNumber": "12341234",
-    "Admin": true,
-    "CreatedThroughWebsite": false,
+    "Admin": false,
+    "CreatedThroughWebsite": true,
     "MembershipType": 1
   },
   {
@@ -46,7 +46,7 @@
     "Email": "jacob.sejer@email.dk",
     "PhoneNumber": "\u002B45 12 34 56 78",
     "Admin": false,
-    "CreatedThroughWebsite": false,
+    "CreatedThroughWebsite": true,
     "MembershipType": 1
   }
 ]

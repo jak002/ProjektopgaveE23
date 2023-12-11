@@ -9,6 +9,7 @@
 
 <form method="post">
     <input type="hidden" asp-for="@Model.UsertoUpdate.Username" />
+    <input type="hidden" asp-for="@Model.UsertoUpdate.CreatedThroughWebsite" />
 
     <div class="form-group">
         <label asp-for="@Model.UsertoUpdate.Password" class="control-label"></label>
@@ -33,9 +34,9 @@
     {
         if(Model.UsertoUpdate.CreatedThroughWebsite == true)
         {
-            <div class="form-group">
-                    <label asp-for="@Model.UsertoUpdate.Admin" class="control-label"></label>
-                    <input type="checkbox" asp-for="@Model.UsertoUpdate.Admin" class="form-check"/>
+            <div class="form-check form-switch">
+                    <input type="checkbox" asp-for="@Model.UsertoUpdate.Admin" id="" class="form-check-input"/>
+                <label asp-for="@Model.UsertoUpdate.Admin" class="form-check-label"></label>
             </div>
         }
     }
