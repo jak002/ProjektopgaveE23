@@ -36,16 +36,18 @@
                 @* <p align="center">@item.Text</p> *@
                 <pre align="center" style="font-family:Verdana">@item.Text</pre>
 
-                @if (Model.CurrentUser != null)
-                {
-                    @if (Model.CurrentUser.Admin)
+                <div>
+                    @if (Model.CurrentUser != null)
                     {
-                        <a asp-page="DeletePost" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet blogindlæg</a>
-                        <br>
-                        <a asp-page="EditPost" asp-route-id="@item.Id" class="btn btn-secondary">Rediger blogindlæg</a>
+                        @if (Model.CurrentUser.Admin)
+                        {
+                            <a asp-page="DeletePost" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet blogindlæg</a>
+                            <a asp-page="EditPost" asp-route-id="@item.Id" class="btn btn-secondary">Rediger blogindlæg</a>
 
+                        }
                     }
-                }
+                </div>
+                
             </div>
         </div>
     </div>
