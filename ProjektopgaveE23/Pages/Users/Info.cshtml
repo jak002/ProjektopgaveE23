@@ -3,11 +3,64 @@
 @{
     ViewData["Title"] = "Brugerinfo";
 }
+<head>
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+</head>
 
 <h1>Velkommen til din side, @Model.CurrentUser.Username!</h1>
-<h2>Info:</h2>
+<div class="card">
+    <div class="form-group">
+        <h2>Info:</h2>
 
-<label>Brugernavn: </label> @Model.CurrentUser.Username
+        <table>
+            <tr>
+                <th>Brugernavn</th>
+                <td>@Model.CurrentUser.Username</td>
+            </tr>
+            <tr>
+                <th>Navn</th>
+                <td>@Model.CurrentUser.Name</td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td>@Model.CurrentUser.Email</td>
+            </tr>
+            <tr>
+                <th>Telefonnummer</th>
+                <td>@Model.CurrentUser.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>Medlemstype</th>
+                <td>@Model.CurrentUser.MembershipType</td>
+            </tr>
+            @if (Model.CurrentUser.Admin)
+            {
+                <tr>
+                    <th>status</th>
+                    <td>Administrator</td>
+                </tr>
+            }
+
+        </table>
+
+        <br />
+
+        @if (Model.CurrentUser.Admin)
+        {
+            <p><a asp-page="Index" class="btn btn-secondary">Se oversigt over brugere her.</a></p>
+        }
+
+        <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username" class="btn btn-secondary">Opdater</a>        
+        <a asp-page="/Users/Login" asp-page-handler="Logout" class="btn btn-secondary">Log ud</a>
+        <br />
+        <br />
+        <a asp-page="DeleteUser" asp-route-username="@Model.CurrentUser.Username" class="btn btn-warning">Fjern</a>
+
+    </div>
+
+</div>
+
+@* <label>Brugernavn: </label> @Model.CurrentUser.Username
 <br />
 <label>Navn:</label> @Model.CurrentUser.Name
 <br />
@@ -17,12 +70,12 @@
 <br />
 <label>Medlemstype:</label> @Model.CurrentUser.MembershipType
 <br />
-@if(Model.CurrentUser.Admin)
+@if (Model.CurrentUser.Admin)
 {
     <label>Adminstrator.</label>
-    <p><a asp-page="Index">Se oversigt over brugere her.</a></p>
+    <p><a asp-page="Index" class="btn btn-secondary">Se oversigt over brugere her.</a></p>
 }
 <br />
 <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">Opdater</a> | <a asp-page="/Users/Login" asp-page-handler="Logout">Log ud</a>
 <br />
-<a asp-page="DeleteUser" asp-route-username="@Model.CurrentUser.Username">Fjern</a>
+<a asp-page="DeleteUser" asp-route-username="@Model.CurrentUser.Username">Fjern</a> *@

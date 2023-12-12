@@ -6,34 +6,39 @@
 
 <h1>Opret nyt blogindlæg</h1>
 
+<div class="card">
+    <form method="post" enctype="multipart/form-data">
 
-<form method="post" enctype="multipart/form-data">
-
-    @* <div class="form-group">
+        @* <div class="form-group">
         <label asp-for="@Model.NewPost.Date" class="control-label">Dato</label>
         <input asp-for="@Model.NewPost.Date" class="form-control" />
-    </div> *@
-    <div class="form-group">
-        <label asp-for="@Model.NewPost.Title" class="control-label">Titel</label>
-        <input asp-for="@Model.NewPost.Title" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="@Model.NewPost.Text" class="control-label" for="text">Brødtekst</label>
-        @* <input type="text" asp-for="@Model.NewPost.Text"/> *@
-        <textarea asp-for="@Model.NewPost.Text" class="form-control" id="text" rows="10"></textarea>
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Photo" class="control-label">Tilføj billede</label>
-        <div class="custom-file">
-            <input asp-for="@Model.Photo" class="custom-file-input form-control" />
-            <label class="custom-file-label"></label>
+        </div> *@
+        <div class="form-group">
+            <label asp-for="@Model.NewPost.Author" class="control-label">Forfatter</label>
+            <input asp-for="@Model.CurrentUser.Name" class="form-control" disabled />
         </div>
-    </div>
+        <div class="form-group">
+            <label asp-for="@Model.NewPost.Title" class="control-label">Titel</label>
+            <input asp-for="@Model.NewPost.Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.NewPost.Text" class="control-label" for="text">Brødtekst</label>
+            @* <input type="text" asp-for="@Model.NewPost.Text"/> *@
+            <textarea asp-for="@Model.NewPost.Text" class="form-control" id="text" rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Photo" class="control-label">Tilføj billede</label>
+            <div class="custom-file">
+                <input asp-for="@Model.Photo" class="custom-file-input form-control" />
+                <label class="custom-file-label"></label>
+            </div>
+        </div>
 
 
-    <div class="form-group">
-        <input type="submit" value="Opret Blogindlæg" class="btn btn-secondary" />
-        <a asp-page="Index" class="btn btn-warning">Tilbage til oversigten</a>
-    </div>
-</form>
+        <div class="form-group">
+            <input type="submit" value="Opret Blogindlæg" class="btn btn-secondary" />
+            <a asp-page="Index" class="btn btn-warning">Tilbage til oversigten</a>
+        </div>
+    </form>
+</div>
