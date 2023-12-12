@@ -59,7 +59,8 @@
                         @item.DateTime.ToShortTimeString()
                     </td>
                     <td>
-                        @item.DateTime.AddHours(item.NumberOfHours*1.0).ToShortTimeString()
+@*                         @item.DateTime.AddHours(item.NumberOfHours*1.0).ToShortTimeString() *@
+                           @item.EndDateTime.ToShortTimeString()
                     </td>
                     <td></td>
                     <td></td>

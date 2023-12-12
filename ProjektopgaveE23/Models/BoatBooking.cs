@@ -8,6 +8,7 @@
         public DateTime DateTime { get; set; }
         public int NumberOfHours { get; set; }
 
+        public DateTime EndDateTime { get { return DateTime.AddHours(NumberOfHours * 1.0); } }
 
 
        

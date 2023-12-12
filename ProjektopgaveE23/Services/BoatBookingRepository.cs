@@ -29,6 +29,25 @@ namespace ProjektopgaveE23.Services
             JsonFileWriter<BoatBooking>.WriteToJson(bookings, filePath);
         }
 
+        public bool CheckAvailability(int boatId, DateTime start, DateTime end)
+        {
+            foreach(var item in GetAllBookingsByBoatId(boatId))
+            {
+                if(item.DateTime < start)
+                {
+                    if (item.EndDateTime > start)
+                    {
+                        return false;
+                    }
+                }
+                else if(item.DateTime < end)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void DeleteBoatBooking(BoatBooking boatBooking)
         {
             List<BoatBooking> bookings = GetAllBoatBookings();
@@ -39,6 +58,19 @@ namespace ProjektopgaveE23.Services
         public List<BoatBooking> GetAllBoatBookings()
         {
             return JsonFileReader<BoatBooking>.ReadJson(filePath);
+        }
+
+        public List<BoatBooking> GetAllBookingsByBoatId(int boatId)
+        {
+            List<BoatBooking> filteredlist = new List<BoatBooking>();
+            foreach(var booking in GetAllBoatBookings())
+            {
+                if (booking.BoatId == boatId)
+                {
+                    filteredlist.Add(booking);
+                }
+            }
+            return filteredlist;
         }
 
         public BoatBooking GetBoatBookingById(int id)

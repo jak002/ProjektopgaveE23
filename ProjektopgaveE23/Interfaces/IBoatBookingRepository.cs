@@ -9,6 +9,9 @@ namespace ProjektopgaveE23.Interfaces
         BoatBooking GetBoatBookingById(int id);
         List<BoatBooking> GetBoatBookingByUserId(int userId);
 
+        List<BoatBooking> GetAllBookingsByBoatId(int boatId);
+
+        bool CheckAvailability(int boatId, DateTime start, DateTime end);
         void DeleteBoatBooking(BoatBooking boatBooking);
 
     }
