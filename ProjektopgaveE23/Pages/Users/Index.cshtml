@@ -15,9 +15,14 @@
         <tr>
             <th>Brugernavn</th>
             <th>Navn</th>
+            <th>Bestyrelse</th>
             <th>E-mail</th>
             <th>Telefon nr</th>
             <th>Medlemstype</th>
+            @if (Model.CurrentUser != null)
+            {
+                <th></th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -26,6 +31,13 @@
             <tr>
                 <td>@item.Username</td>
                 <td>@item.Name</td>
+                @if (item.Admin)
+                {
+                    <td>✓</td>
+                } else
+                {
+                    <td></td>
+                }
                 <td>@item.Email</td>
                 <td>@item.PhoneNumber</td>
                 <td>@item.MembershipType</td>

@@ -26,6 +26,8 @@ namespace ProjektopgaveE23.Models
 
         public bool Admin { get; set; }
 
+        public bool CreatedThroughWebsite {  get; set; }
+
         [Display(Name = "Medlemsskab")]
         public MembershipType MembershipType { get; set; }
 

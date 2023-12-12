@@ -19,5 +19,19 @@
     "Username": "notadmin",
     "DateTime": "2023-12-14T11:44:00",
     "NumberOfHours": 0
+  },
+  {
+    "BookingId": 8,
+    "BoatId": 7,
+    "Username": "notadmin",
+    "DateTime": "2023-12-14T12:22:00",
+    "NumberOfHours": 5
+  },
+  {
+    "BookingId": 9,
+    "BoatId": 4,
+    "Username": "notadmin",
+    "DateTime": "2023-12-13T13:40:00",
+    "NumberOfHours": 3
   }
 ]

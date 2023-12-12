@@ -9,7 +9,9 @@
 {
     if (Model.CurrentUser.Username == Model.UserToDelete.Username)
     {
-        <p class="text-danger">Du er ved at prøve at fjerne admin. Vær opmærksom på at admin brugere ikke kan tilføjes igen via hjemmesiden.</p>
+        <p class="text-danger">Du er ved at prøve at fjerne admin. 
+            Vær opmærksom på at admin brugere ikke kan tilføjes igen via hjemmesiden.
+            </p>
     }
     else
     {
@@ -17,7 +19,10 @@
     }
 } else
 {
-    <p>Hvis du vil ændre oplysninger som f.eks. password, kan du altid <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">opdatere dem her i stedet.</a></p>
+    <p>Hvis du vil ændre oplysninger som f.eks. password, kan du altid 
+        <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">
+            opdatere dem her i stedet.</a>
+            </p>
 }
 
 <form method="post">
