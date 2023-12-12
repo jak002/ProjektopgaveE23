@@ -6,7 +6,8 @@
     "Place": "klubben",
     "Attendees": 0,
     "Description": "Kom og sejl, vi giver maden. Kun for klubbens medlemmer",
-    "Image": "e0d8cc8b-2306-42b8-937e-ea10921d09a5_boat.jpg"
+    "Image": "e0d8cc8b-2306-42b8-937e-ea10921d09a5_boat.jpg",
+    "Author": null
   },
   {
     "Id": 2,
@@ -15,6 +16,7 @@
     "Place": "Klubben",
     "Attendees": 0,
     "Description": "S\u00E5 skal der spises p\u00F8lser. Tag hele familien med",
-    "Image": "d2e45699-2345-40aa-aaa3-d34c49564b01_Grill.jpg"
+    "Image": "d2e45699-2345-40aa-aaa3-d34c49564b01_Grill.jpg",
+    "Author": null
   }
 ]
