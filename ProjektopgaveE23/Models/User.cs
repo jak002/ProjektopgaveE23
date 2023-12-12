@@ -16,12 +16,15 @@ namespace ProjektopgaveE23.Models
         public string Password { get; set; }
 
         [Display(Name = "Navn")]
+        [Required(ErrorMessage = "Udfyld dit navn")]
         public string Name { get; set; }
 
         [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "Udfyld din e-mail")]
         public string Email { get; set; }
 
         [Display(Name = "Telefon nummer")]
+        [Required(ErrorMessage = "Udfyld dit telefonnummer")]
         public string PhoneNumber { get; set; }
 
         public bool Admin { get; set; }
@@ -29,6 +32,8 @@ namespace ProjektopgaveE23.Models
         public bool CreatedThroughWebsite {  get; set; }
 
         [Display(Name = "Medlemsskab")]
+        [Required(ErrorMessage = "Vælg et medlemsskab")]
+        [Range(1,3, ErrorMessage = "Vælg et medlemsskab")]
         public MembershipType MembershipType { get; set; }
 
         public User()

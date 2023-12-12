@@ -45,7 +45,7 @@
     "Name": "Jacob Sejer",
     "Email": "jacob.sejer@email.dk",
     "PhoneNumber": "\u002B45 12 34 56 78",
-    "Admin": false,
+    "Admin": true,
     "CreatedThroughWebsite": true,
     "MembershipType": 1
   }

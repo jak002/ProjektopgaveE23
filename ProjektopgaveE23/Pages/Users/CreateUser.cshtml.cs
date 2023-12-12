@@ -25,6 +25,10 @@ namespace ProjektopgaveE23.Pages.Users
 
         public IActionResult OnPost() 
         {
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
             bool valid = true;
             if (!InputValidator.ValidateEmail(NewUser.Email))
             {
