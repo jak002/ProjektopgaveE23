@@ -48,3 +48,13 @@ body {
     background: white;
 }
 
+.card-login {
+    background-color: white;
+    padding: 30px;
+    margin-top: 20px;
+    width: 35%;
+    border-radius: 5px;
+}
+
+
+

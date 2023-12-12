@@ -4,6 +4,10 @@
     ViewData["Title"] = "Fjern bruger";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+</head>
+
 <h1>Er du sikker?</h1>
 @if (Model.CurrentUser.Admin)
 {
@@ -47,19 +51,3 @@
         <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" asp-route-username="@Model.UserToDelete.Username" />
     </div>
 </form>
-
-
-<style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-
-    th {
-        background-color: #A3CEF1;
-    }
-
-    th, td {
-        padding: 15px;
-    }
-</style>

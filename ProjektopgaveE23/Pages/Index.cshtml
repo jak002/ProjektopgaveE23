@@ -4,6 +4,9 @@
     ViewData["Title"] = "Home page";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+</head>
 @* <div class="header">
     <h1>Hillerød sejlklub</h1>
 </div> *@
@@ -14,6 +17,13 @@
             <h2>Velkommen til Hillerød Sejlklub</h2>
             <h5>En klub for jollesejlere</h5>
             <div align="center"><img src="~/images/boatimages/Peace.jpg" height="300px" class="responsive"></div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+
+        <div class="card" align="center">
+            <h2>Igangværende sejlere</h2>
+            <h5>To be made</h5>
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
@@ -46,59 +56,3 @@
 <br />
 <br />
 
-<style>
-
-
-    * {
-        box-sizing: border-box;
-    }
-
-    /* Create two unequal columns that floats next to each other */
-    /* Left column */
-    .leftcolumn {
-        float: left;
-        width: 75%;
-    }
-
-    /* Right column */
-    .rightcolumn {
-        float: left;
-        width: 25%;
-        padding-left: 20px;
-    }
-
-    /* Fake image */
-    .fakeimg {
-        background-color: #aaa;
-        width: 100%;
-        padding: 20px;
-    }
-
-    /* Add a card effect for articles */
-    .card {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .responsive {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-    @@media screen and (max-width: 800px) {
-        .leftcolumn, .rightcolumn {
-            width: 100%;
-            padding: 0;
-        }
-    }
-
-</style>

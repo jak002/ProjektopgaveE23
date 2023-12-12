@@ -1,0 +1,35 @@
+﻿
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    font-family: Arial;
+    background: #f1f1f1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: #A3CEF1;
+}
+
+.responsive {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
