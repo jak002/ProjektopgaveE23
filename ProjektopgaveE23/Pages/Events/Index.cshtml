@@ -28,7 +28,7 @@
             <th>Tidspunkt</th>
             <th>Navn</th>
             <th>Afholdelsessted</th>
-            <th>Arrangør</th>
+            @* <th>Arrangør</th> *@
             <th>Beskrivelse</th>
             @* <th>Antal deltagere</th> *@
             <th></th>
@@ -50,7 +50,7 @@
                 <td>@item.Date.TimeOfDay</td>
                 <td>@item.Name</td>
                 <td>@item.Place</td>
-                <td>@item.Author</td>
+                @* <td>@item.Author</td> *@
                 <td>@item.Description</td>
                 @* <td>@item.Attendees</td> *@
                 @if (Model.CurrentUser != null)
