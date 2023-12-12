@@ -7,41 +7,43 @@
 
 <h1>Tilføj båd</h1>
 
-<form method="post" enctype="multipart/form-data">
+<div class="card">
+    <form method="post" enctype="multipart/form-data">
 
-    <div class="form-group">
-        <label asp-for="@Model.NewBoat.Name" class=" control-label"></label>
-        <input asp-for="@Model.NewBoat.Name" class="form-control" />
-        <span asp-validation-for="NewBoat.Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.NewBoat.Description" class=" control-label"></label>
-        <input asp-for="@Model.NewBoat.Description" class="form-control" />
-        <span asp-validation-for="NewBoat.Description" class="text-danger"></span>
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="@Model.NewBoat.BoatModel" class="control-label">Bådtype</label>
-        <br />
-        <select asp-for="@Model.NewBoat.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
-            <option selected="selected" value="">Vælg venligst</option>
-        </select>
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="@Model.Photo" class="control-label"></label>
-        <div class="custom-file">
-            <input asp-for="@Model.Photo" class="custom-file-input form-control" />
-            <label class="custom-file-label">Gem Billede</label>
+        <div class="form-group">
+            <label asp-for="@Model.NewBoat.Name" class=" control-label"></label>
+            <input asp-for="@Model.NewBoat.Name" class="form-control" />
+            <span asp-validation-for="NewBoat.Name" class="text-danger"></span>
         </div>
-    </div>
-    
+        <div class="form-group">
+            <label asp-for="@Model.NewBoat.Description" class=" control-label"></label>
+            <input asp-for="@Model.NewBoat.Description" class="form-control" />
+            <span asp-validation-for="NewBoat.Description" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="@Model.NewBoat.BoatModel" class="control-label">Bådtype</label>
+            <br />
+            <select asp-for="@Model.NewBoat.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
+                <option selected="selected" value="">Vælg venligst</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="@Model.Photo" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="@Model.Photo" class="custom-file-input form-control" />
+                <label class="custom-file-label">Gem Billede</label>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <input type="submit" value="Add a boat" class="btn btn-primary" />
-    </div>
-</form>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+        <div class="form-group">
+            <input type="submit" value="Add a boat" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-page="Index" class="btn btn-warning">Back to List</a>
+    </div>
 </div>

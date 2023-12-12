@@ -1,19 +1,5 @@
 [
   {
-    "BookingId": 5,
-    "BoatId": 2,
-    "Username": null,
-    "DateTime": "2023-12-24T09:55:00",
-    "NumberOfHours": 0
-  },
-  {
-    "BookingId": 6,
-    "BoatId": 3,
-    "Username": null,
-    "DateTime": "2023-12-14T11:35:00",
-    "NumberOfHours": 0
-  },
-  {
     "BookingId": 7,
     "BoatId": 1,
     "Username": "notadmin",

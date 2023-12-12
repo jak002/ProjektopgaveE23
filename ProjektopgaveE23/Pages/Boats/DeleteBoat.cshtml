@@ -3,15 +3,55 @@
 @{
     ViewData["Title"] = "Slet båd";
 }
+<head>
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+</head>
 
 <h1>Slet båd</h1>
-<form method="post">
-    <div class="form-group">
-        <label>Id</label> :@Model.DeleteBoat.Id <br />
-        <label>Name</label> :@Model.DeleteBoat.Name <br />
-        <label>Beskrivelse</label> :@Model.DeleteBoat.Description <br />
-        <label>Type</label> :@Model.DeleteBoat.BoatModel <br />
 
-        <input type="submit" asp-page-handler="Delete" asp-route-number="@Model.DeleteBoat.Id" value="Slet båd" />
-    </div>
-</form>
+<div class="card">
+    <form method="post">
+        <div class="form-group">
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td>@Model.DeleteBoat.Id</td>
+                </tr>
+                <tr>
+                    <th>Navn</th>
+                    <td>@Model.DeleteBoat.Name</td>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <td>@Model.DeleteBoat.BoatModel</td>
+                </tr>
+                <tr>
+                    <th>Beskrivelse</th>
+                    <td>@Model.DeleteBoat.Description</td>
+                </tr>
+                
+
+            </table>
+
+            <br />
+
+            <input type="submit" asp-page-handler="Delete" asp-route-number="@Model.DeleteBoat.Id" value="Slet båd" class="btn btn-danger" />
+            <a asp-page="Index" class="btn btn-warning">Back to List</a>
+            
+        </div>
+    </form>
+</div>
+
+
+@* <label>Id</label> :@Model.DeleteBoat.Id
+<br />
+<label>Name</label> :@Model.DeleteBoat.Name
+<br />
+<label>Beskrivelse</label> :@Model.DeleteBoat.Description
+<br />
+<label>Type</label> :@Model.DeleteBoat.BoatModel
+<br />
+
+<input type="submit" asp-page-handler="Delete" asp-route-number="@Model.DeleteBoat.Id" value="Slet båd" class="btn btn-danger" />
+<a asp-page="Index" class="btn btn-warning">Back to List</a> *@
