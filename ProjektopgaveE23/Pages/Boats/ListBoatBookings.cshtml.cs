@@ -12,6 +12,7 @@ namespace ProjektopgaveE23.Pages.Boats
         private IUserRepository _userRepository;
 
         public List<BoatBooking> Bookings { get; set; }
+        public List<BoatBooking> List {  get; set; }
         public User CurrentUser { get; set; }
         public ListBoatBookingsModel(IBoatBookingRepository boatBookingRepo, IUserRepository userRepository)
         {
@@ -32,6 +33,7 @@ namespace ProjektopgaveE23.Pages.Boats
             {
                 //CurrentUser = _userRepository.GetUser(sessionusername);
                 Bookings = boatBookingRepository.GetAllBoatBookings();
+                List = Bookings.OrderBy(x=>x.DateTime).ToList();
                 return Page();
             }
         }

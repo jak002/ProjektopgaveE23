@@ -8,16 +8,23 @@ namespace ProjektopgaveE23.Pages.Boats
     public class IndexModel : PageModel
     {
         private IBoatRepository _repo;
+
         private IUserRepository _userRepository;
+
         public List<Boat> Boats { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
+
         public User CurrentUser { get; set; }
+
+
         public IndexModel(IBoatRepository boatRepository, IUserRepository userRepository)
         {
             _repo = boatRepository;
             _userRepository = userRepository;
         }
+
         public void OnGet()
         {
             string sessionusername = HttpContext.Session.GetString("Username");
