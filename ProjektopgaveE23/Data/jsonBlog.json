@@ -1,11 +1,11 @@
 [
   {
     "Id": 1,
-    "Title": "Tak for en god aften",
-    "Text": "Det var en god aften vi havde i klubben. WOOOOW vi ses snart igen. hahahahakdnwe. fjdlsdkfnsd\r\nwoooow!!",
+    "Title": "dddd",
+    "Text": "ggfgdfggffgddfgdgddfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfg",
     "BlogImage": "fdb994cb-8cfd-4723-916c-e06dd428abf2_Cute_dog.jpg",
     "Date": "2023-12-07T09:54:00",
-    "Author": null
+    "Author": "Admin"
   },
   {
     "Id": 2,
@@ -13,7 +13,7 @@
     "Text": "djjksskjm,snas,masd\r\ndjdjd\r\nsjsjsjs\r\ndjdjdjdj\r\ndndjdjdmxa\r\nnxn,xmnxas\r\nndjdjdjd\r\ndndmndma\r\nnndmd,s\r\n",
     "BlogImage": "4a77be06-7d02-444e-87a6-1f5423799a80_boat.jpg",
     "Date": "2023-12-08T12:12:00",
-    "Author": null
+    "Author": "Admin"
   },
   {
     "Id": 3,
@@ -21,14 +21,6 @@
     "Text": "vi har grillet \r\ndet var godt \r\ndet var hyggeligt\r\nheheheheh\r\nses gutterne \r\ngrill for days",
     "BlogImage": "351d93cc-1479-4a84-845a-154432de3435_Grill.jpg",
     "Date": "2024-01-05T12:52:00",
-    "Author": null
-  },
-  {
-    "Id": 4,
-    "Title": "dddd",
-    "Text": "dddd",
-    "BlogImage": null,
-    "Date": "2023-12-11T19:05:56.5569167+01:00",
     "Author": "Admin"
   }
 ]

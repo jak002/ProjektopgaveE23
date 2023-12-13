@@ -48,8 +48,16 @@ namespace ProjektopgaveE23.Pages.BlogSection
 
         }
 
-        public IActionResult OnPostUpdate() 
+        public IActionResult OnPostUpdate(int id) 
         {
+            
+            if (!ModelState.IsValid)
+            {
+
+                UpdatedPost = _blogRepository.GetBlogPost(id);
+
+                return Page();
+            }
             _blogRepository.UpdateBlogPost(UpdatedPost);
             return RedirectToPage("Index");
         }
