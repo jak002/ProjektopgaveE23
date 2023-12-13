@@ -13,6 +13,7 @@
             <label asp-for="@Model.NewUser.Username" class="control-label"></label>
             <input asp-for="@Model.NewUser.Username" class="form-control" />
             <span asp-validation-for="NewUser.Username" class="text-danger"></span>
+            <p class="text-danger">@Model.UsernameMessage</p>
         </div>
         <div class="form-group">
             <label asp-for="@Model.NewUser.Password" class="control-label"></label>

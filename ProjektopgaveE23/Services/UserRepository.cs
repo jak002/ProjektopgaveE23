@@ -16,6 +16,9 @@ namespace ProjektopgaveE23.Services
             {
                 currentDict.Add(username, user);
                 JsonFileWriter<User>.WriteToJson(currentDict.Values.ToList(), filePath);
+            } else
+            {
+                throw new ArgumentException("Dette brugernavn er optaget. Vælg venligst et andet brugernavn");
             }
         }
 

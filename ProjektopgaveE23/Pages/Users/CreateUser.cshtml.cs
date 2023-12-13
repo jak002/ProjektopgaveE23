@@ -14,6 +14,7 @@ namespace ProjektopgaveE23.Pages.Users
         public User NewUser { get; set; }
         public string EmailMessage { get; set; }
         public string PhoneMessage { get; set; }
+        public string UsernameMessage { get; set; }
 
         public CreateUserModel(IUserRepository users)
         {
@@ -47,10 +48,17 @@ namespace ProjektopgaveE23.Pages.Users
             }
             else
             {
-                NewUser.Admin = false;
-                NewUser.CreatedThroughWebsite = true;
-                _urepo.AddUser(NewUser);
-                return RedirectToPage("Index");
+                try
+                {
+                    NewUser.Admin = false;
+                    NewUser.CreatedThroughWebsite = true;
+                    _urepo.AddUser(NewUser);
+                    return RedirectToPage("Index");
+                } catch (ArgumentException ex)
+                {
+                    UsernameMessage = ex.Message;
+                    return Page();
+                }
             }
         }
     }
