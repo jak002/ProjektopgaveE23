@@ -20,6 +20,8 @@ namespace ProjektopgaveE23.Pages.BlogSection
 
         public User CurrentUser { get; set; }
 
+        public string Message { get; set; }
+
         public AddPostModel(IBlogRepository blogRepository, IUserRepository userRepository, IWebHostEnvironment webHostEnvironment)
         {
             _blogRepository = blogRepository;
@@ -55,7 +57,7 @@ namespace ProjektopgaveE23.Pages.BlogSection
             
             if (!ModelState.IsValid)
             {
-
+                Message = "Du skal tilføje et billede";
                 return Page();
             }
             

@@ -1,23 +1,31 @@
-﻿namespace ProjektopgaveE23.Models
+﻿using ProjektopgaveE23.Helpers;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProjektopgaveE23.Models
 {
     public class Event
     {
 
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [Required(ErrorMessage ="Indtast navn på begivenhed")]
+        public string? Name { get; set; }
 
+        [Required(ErrorMessage = "Krav om dato")]
+        [CustomDate(ErrorMessage ="Dato skal være indenfor range")]
         public DateTime Date { get; set; }
 
-        public string Place { get; set; }
+        [Required(ErrorMessage ="Indtast afholdelsessted")]
+        public string? Place { get; set; }
 
-        public int Attendees { get; set; }
+        public int? Attendees { get; set; }
 
-        public string Description { get; set; }
+        [Required(ErrorMessage ="Indtast beskrivelse")]
+        public string? Description { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        public string Author { get; set; }
+        public string? Author { get; set; }
 
 
 

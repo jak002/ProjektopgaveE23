@@ -1,4 +1,6 @@
-﻿namespace ProjektopgaveE23.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjektopgaveE23.Models
 {
     public class EventBooking
     {
@@ -9,6 +11,8 @@
 
         public int EventID { get; set; }
 
+        //[Required]
+        [Range(1,10, ErrorMessage ="Vælg antal deltagere")]
         public int AttendeesPerBooking { get; set; }    
 
 

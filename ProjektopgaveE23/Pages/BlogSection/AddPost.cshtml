@@ -35,7 +35,7 @@
                 <input asp-for="@Model.Photo" class="custom-file-input form-control" />
                 <label class="custom-file-label"></label>
                 @* <span asp-validation-for="NewPost.BlogImage" class="text-danger"></span> *@
-                <p class="text-danger">Du skal tilføje et billede</p>
+                <p class="text-danger">@Model.Message</p>
             </div>
         </div>
 

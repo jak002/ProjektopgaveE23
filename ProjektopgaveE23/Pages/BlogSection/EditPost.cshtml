@@ -10,6 +10,7 @@
     <form method="post">
 
         <input type="hidden" asp-for="@Model.UpdatedPost.Id" />
+        <input type="hidden" value="@Model.UpdatedPost.Id" name="id" />
 
         <div class="form-group">
             <label asp-for="@Model.UpdatedPost.Date" class="control-label">Dato</label>

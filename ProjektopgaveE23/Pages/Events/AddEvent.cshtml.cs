@@ -55,6 +55,15 @@ namespace ProjektopgaveE23.Pages.Events
         {
             string sessionusername = HttpContext.Session.GetString("Username");
             CurrentUser = _userRepository.GetUser(sessionusername);
+            
+            if (!ModelState.IsValid)
+            { 
+
+                return Page();
+            }
+
+
+            
 
             NewEvent.Author = CurrentUser.Name;
 
