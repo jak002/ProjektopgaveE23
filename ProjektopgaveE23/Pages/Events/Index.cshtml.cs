@@ -30,7 +30,11 @@ namespace ProjektopgaveE23.Pages.Events
             {
                 CurrentUser = _userRepository.GetUser(sessionusername);
             }
+
+          
             Events = _repo.GetAllEvents();
+            
+            
         }
 
 

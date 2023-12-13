@@ -61,8 +61,6 @@ namespace ProjektopgaveE23.Pages.Events
 
                 return Page();
             }
-
-
             
 
             NewEvent.Author = CurrentUser.Name;

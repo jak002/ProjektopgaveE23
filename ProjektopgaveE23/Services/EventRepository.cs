@@ -7,7 +7,7 @@ namespace ProjektopgaveE23.Services
     public class EventRepository : IEventRepository
     {
         
-        private string filepath = @"Data/jsonEvents.json";
+        private string filepath = @"Data/jsonEventss.json";
 
         public void AddEvent(Event ev)
         {
@@ -40,7 +40,7 @@ namespace ProjektopgaveE23.Services
 
         public List<Event> GetAllEvents()
         {
-            return JsonFileReader<Event>.ReadJson(filepath);
+             return JsonFileReader<Event>.ReadJson(filepath);
         }
 
         public Event GetEvent(int id)
