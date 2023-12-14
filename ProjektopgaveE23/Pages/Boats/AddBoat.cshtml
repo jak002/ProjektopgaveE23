@@ -34,7 +34,8 @@
             <label asp-for="@Model.Photo" class="control-label"></label>
             <div class="custom-file">
                 <input asp-for="@Model.Photo" class="custom-file-input form-control" />
-                <label class="custom-file-label">Du skal tilføje et billede</label>
+                <span class="text-danger">@Model.Message</span>
+                @* <label class="custom-file-label">Du skal tilføje et billede</label> *@
             </div>
         </div>
 
