@@ -101,8 +101,6 @@ namespace ProjektopgaveE23.Pages.Events
             }
 
 
-            
-
             EventBooking.EventID = id;
             
             if (sessionusername == null)

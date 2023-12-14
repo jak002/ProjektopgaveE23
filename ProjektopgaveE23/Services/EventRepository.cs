@@ -7,7 +7,7 @@ namespace ProjektopgaveE23.Services
     public class EventRepository : IEventRepository
     {
         
-        private string filepath = @"Data/jsonEventss.json";
+        private string filepath = @"Data/jsonEvents.json";
 
         public void AddEvent(Event ev)
         {
