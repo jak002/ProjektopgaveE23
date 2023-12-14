@@ -54,6 +54,10 @@ namespace ProjektopgaveE23.Pages.Boats
 
         public IActionResult OnPost(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             BoatBooking.BoatId = id;
             bool available = _boatBookingRepository.CheckAvailability(BoatBooking.BoatId, BoatBooking.DateTime, BoatBooking.EndDateTime);
             string sessionusername = HttpContext.Session.GetString("Username");

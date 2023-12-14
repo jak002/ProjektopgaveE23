@@ -10,7 +10,7 @@
     "Id": 2,
     "Name": "Twotanic",
     "Description": "Submarine",
-    "BoatModel": 4,
+    "BoatModel": 0,
     "BoatImage": "Twotanic.webp"
   },
   {

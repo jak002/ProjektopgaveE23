@@ -18,6 +18,7 @@ namespace ProjektopgaveE23.Pages.Boats
         [BindProperty]
         public IFormFile Photo { get; set; }
         public User CurrentUser { get; set; }
+        public string Message { get; private set; }
 
         public AddBoatModel(IBoatRepository boatRepository, IWebHostEnvironment webHost, IUserRepository userRepository)
         {
@@ -46,6 +47,11 @@ namespace ProjektopgaveE23.Pages.Boats
         }
         public IActionResult OnPost()
         {
+            if(!ModelState.IsValid)
+            {
+                Message = "Du skal tilføje et billede";
+                return Page();
+            }
             if (Photo != null)
             {
                 if (NewBoat.BoatImage != null)

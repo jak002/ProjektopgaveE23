@@ -6,12 +6,16 @@ namespace ProjektopgaveE23.Models
     public class Boat
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name of boat is required"), MaxLength(30)]
+        [Required(ErrorMessage = "Navn på båd mangler"), MaxLength(30)]
         public string Name { get; set; }
-        public string Description { get; set; }
-        [Required]
-        public BoatType BoatModel { get; set; }
-        public string BoatImage { get; set; }
+
+        public string ?Description { get; set; }
+
+        [Required(ErrorMessage = "Bådtype mangler")]
+        public BoatType ?BoatModel { get; set; }
+
+        
+        public string ?BoatImage { get; set; }
         public Boat()
         {
             
