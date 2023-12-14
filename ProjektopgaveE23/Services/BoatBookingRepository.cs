@@ -33,14 +33,14 @@ namespace ProjektopgaveE23.Services
         {
             foreach(var item in GetAllBookingsByBoatId(boatId))
             {
-                if(item.DateTime < start)
+                if(item.DateTime <= start)
                 {
-                    if (item.EndDateTime > start)
+                    if (item.EndDateTime >= start)
                     {
                         return false;
                     }
                 }
-                else if(item.DateTime < end)
+                else if(item.DateTime <= end)
                 {
                     return false;
                 }
