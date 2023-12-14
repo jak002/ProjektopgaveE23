@@ -17,6 +17,7 @@ namespace ProjektopgaveE23.Pages.Boats
         public SelectList BoatNames { get; set; }
         public SelectList UserNames { get; set; }
         public User CurrentUser { get; set; }
+        public string Message {  get; set; }
 
         [BindProperty]
         public Boat Boat { get; set; }
@@ -54,10 +55,17 @@ namespace ProjektopgaveE23.Pages.Boats
         public IActionResult OnPost(int id)
         {
             BoatBooking.BoatId = id;
+            bool available = _boatBookingRepository.CheckAvailability(BoatBooking.BoatId, BoatBooking.DateTime, BoatBooking.EndDateTime);
             string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername == null)
             {
                 return RedirectToPage("Login");
+            }
+            else if (!available)
+            {
+                Message = "Båden er optaget på valgte tidspunkt. Tjek båd booking for tilgængelige tider";
+                Boat = _boatRepository.GetBoat(id);
+                return Page();
             }
             else
             {

@@ -1,23 +1,58 @@
 [
   {
+    "BookingId": 5,
+    "BoatId": 2,
+    "Username": null,
+    "DateTime": "2023-12-24T09:55:00",
+    "NumberOfHours": 0,
+    "EndDateTime": "2023-12-24T09:55:00"
+  },
+  {
+    "BookingId": 6,
+    "BoatId": 3,
+    "Username": null,
+    "DateTime": "2023-12-14T11:35:00",
+    "NumberOfHours": 0,
+    "EndDateTime": "2023-12-14T11:35:00"
+  },
+  {
     "BookingId": 7,
     "BoatId": 1,
     "Username": "notadmin",
     "DateTime": "2023-12-14T11:44:00",
-    "NumberOfHours": 0
+    "NumberOfHours": 0,
+    "EndDateTime": "2023-12-14T11:44:00"
   },
   {
     "BookingId": 8,
     "BoatId": 7,
     "Username": "notadmin",
     "DateTime": "2023-12-14T12:22:00",
-    "NumberOfHours": 5
+    "NumberOfHours": 5,
+    "EndDateTime": "2023-12-14T17:22:00"
   },
   {
     "BookingId": 9,
     "BoatId": 4,
     "Username": "notadmin",
     "DateTime": "2023-12-13T13:40:00",
-    "NumberOfHours": 3
+    "NumberOfHours": 3,
+    "EndDateTime": "2023-12-13T16:40:00"
+  },
+  {
+    "BookingId": 10,
+    "BoatId": 6,
+    "Username": "admin",
+    "DateTime": "2023-12-13T11:24:00",
+    "NumberOfHours": 1,
+    "EndDateTime": "2023-12-13T12:24:00"
+  },
+  {
+    "BookingId": 11,
+    "BoatId": 4,
+    "Username": "admin",
+    "DateTime": "2023-12-13T17:10:00",
+    "NumberOfHours": 3,
+    "EndDateTime": "2023-12-13T20:10:00"
   }
 ]
