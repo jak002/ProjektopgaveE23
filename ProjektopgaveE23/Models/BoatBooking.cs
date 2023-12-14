@@ -8,8 +8,8 @@ namespace ProjektopgaveE23.Models
         public int BookingId { get; set; }
         public int BoatId { get; set; }
         public string Username { get; set; }
-        [Required(ErrorMessage = "Dato er påkrævet")]
-        [CustomData(ErrorMessage ="Dato er ugyldig")]
+        //[Required(ErrorMessage = "Dato er påkrævet")]
+        //[CustomData(ErrorMessage ="Dato er ugyldig")]
         public DateTime DateTime { get; set; }
         public int NumberOfHours { get; set; }
 

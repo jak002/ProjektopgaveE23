@@ -18,6 +18,8 @@ namespace ProjektopgaveE23.Pages.Boats
         public SelectList UserNames { get; set; }
         public User CurrentUser { get; set; }
         public string Message {  get; set; }
+        public string HoursMessage { get; set; }
+        public string DateMessage { get; set; }
 
         [BindProperty]
         public Boat Boat { get; set; }
@@ -54,13 +56,23 @@ namespace ProjektopgaveE23.Pages.Boats
 
         public IActionResult OnPost(int id)
         {
-            if (!ModelState.IsValid)
+            string sessionusername = HttpContext.Session.GetString("Username");
+            if (BoatBooking.NumberOfHours == 0 || BoatBooking.NumberOfHours > 12 || BoatBooking.DateTime < DateTime.Now || BoatBooking.DateTime > DateTime.Now.AddYears(2))
             {
+                if(BoatBooking.NumberOfHours == 0 || BoatBooking.NumberOfHours > 12)
+                {
+                    HoursMessage = "Indtast gyldigt antal timer (mellem 1 og 12)";
+                }
+                if(BoatBooking.DateTime < DateTime.Now || BoatBooking.DateTime > DateTime.Now.AddYears(2))
+                {
+                    DateMessage = "Vælg gyldig dato for sejlads (mellem nu og 2 år frem)";
+                }
+                CurrentUser = _userRepository.GetUser(sessionusername);
+                Boat = _boatRepository.GetBoat(id);
                 return Page();
             }
             BoatBooking.BoatId = id;
             bool available = _boatBookingRepository.CheckAvailability(BoatBooking.BoatId, BoatBooking.DateTime, BoatBooking.EndDateTime);
-            string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername == null)
             {
                 return RedirectToPage("Login");

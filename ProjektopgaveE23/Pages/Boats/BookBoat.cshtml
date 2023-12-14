@@ -13,42 +13,25 @@
             <label asp-for="@Model.Boat.Name" class=" control-label"></label>
             <input asp-for="@Model.Boat.Name" class="control-label" disabled />
         </div>
-        @* <div class="form-group">
+@*         <div class="form-group">
         <label class="control-label">Bruger</label>
-        <select asp-for="@Model.BoatBooking.Usename" asp-items="@Model.UserNames" class="form-control">
+        <select asp-for="@Model.BoatBooking.Username" asp-items="@Model.UserNames" class="form-control">
         <option value="">--vælg bruger--</option>
         </select>
-    </div> *@
-    
-    <span class="text-danger">@Model.Message</span>
-    <div class="form-group">
-        <label asp-for="@Model.BoatBooking.DateTime" class="control-label"></label>
-        <input asp-for="@Model.BoatBooking.DateTime" class="form-control" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="@Model.BoatBooking.NumberOfHours" class="control-label"></label>
-        <input asp-for="@Model.BoatBooking.NumberOfHours" class="form-control" />
-    </div>
-    <br />
-     
-    
-    <div class="form-group">
-        <input type="submit" value="Lav booking" class="btn btn-primary" />
-
-    </div>
         </div> *@
 
-
+        <span class="text-danger">@Model.Message</span>
         <div class="form-group">
             <label asp-for="@Model.BoatBooking.DateTime" class="control-label"></label>
             <input asp-for="@Model.BoatBooking.DateTime" class="form-control" />
-            <span asp-validation-for="BoatBooking.DateTime" class="text-danger"></span>
+@*             <span asp-validation-for="BoatBooking.DateTime" class="text-danger"></span> *@
+            <span class="text-danger">@Model.DateMessage</span>
         </div>
         <br />
         <div class="form-group">
             <label asp-for="@Model.BoatBooking.NumberOfHours" class="control-label"></label>
             <input asp-for="@Model.BoatBooking.NumberOfHours" class="form-control" />
+            <span class="text-danger">@Model.HoursMessage</span>
         </div>
         <br />
 
@@ -56,8 +39,8 @@
         <div class="form-group">
             <input type="submit" value="Lav booking" class="btn btn-primary" />
             <a asp-page="Index" class="btn btn-warning">Back to List</a>
+
         </div>
-
-
     </form>
 </div>
+
