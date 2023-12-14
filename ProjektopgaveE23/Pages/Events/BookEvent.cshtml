@@ -46,6 +46,8 @@
             <select asp-for="@Model.EventBooking.AttendeesPerBooking" asp-items="@Model.AtendeesNumber" class="form-control">
                 <option>---Vælg antal deltager---</option>
             </select>
+            <p class="text-danger">@Model.Message2</p>
+            @* <span asp-validation-for="@Model.EventBooking.AttendeesPerBooking" class="text-danger"></span> *@
         </div>
 
         <br />

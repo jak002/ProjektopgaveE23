@@ -48,6 +48,11 @@ namespace ProjektopgaveE23.Pages.Events
 
         public IActionResult OnPostUpdate() 
         {
+            if (!ModelState.IsValid)
+            {
+
+                return Page();
+            }
             _repo.UpdateEvent(UpdatedEvent);
             return RedirectToPage("index");
         }

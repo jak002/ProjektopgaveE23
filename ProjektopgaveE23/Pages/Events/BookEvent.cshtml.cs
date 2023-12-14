@@ -30,6 +30,8 @@ namespace ProjektopgaveE23.Pages.Events
 
         public string Message { get; set; }
 
+        public string Message2 { get; set; }
+
         public BookEventModel(IEventBookingRepo eventBookingRepo,IEventRepository eventRepository, 
             IUserRepository userRepository)
         {
@@ -85,8 +87,22 @@ namespace ProjektopgaveE23.Pages.Events
 
         public IActionResult OnPostBooking(int id) 
         {
-            EventBooking.EventID = id;
             string sessionusername = HttpContext.Session.GetString("Username");
+            
+
+            if (EventBooking.AttendeesPerBooking==0)
+            {
+                CurrentUser = _userRepo.GetUser(sessionusername);            
+                Found = _bookingRepo.GetBookingByUserAndEvent(CurrentUser.Username, id);
+                Event = _eventRepo.GetEvent(id);
+                Message2 = "Du skal vælge antal deltager";
+
+                return Page();
+            }
+
+
+            EventBooking.EventID = id;
+            
             if (sessionusername == null)
             {
                 return RedirectToPage("Login");

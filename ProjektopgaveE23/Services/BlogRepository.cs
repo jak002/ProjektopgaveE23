@@ -59,18 +59,25 @@ namespace ProjektopgaveE23.Services
             if (updatedPost != null)
             {
                 List<Blog> posts = GetAllPosts();
-                foreach (var post in posts) 
-                { 
-                    post.Id = updatedPost.Id;
-                    post.Title = updatedPost.Title;
-                    post.Text = updatedPost.Text;
-                    //post.Date = updatedPost.Date; man burde ikke kunne ændre en dato
-                    //måske image
+                foreach (var post in posts)
+                {
+                    if (post.Id == updatedPost.Id)
+                    {
+                        post.Id = updatedPost.Id;
+                        post.Title = updatedPost.Title;
+                        post.Text = updatedPost.Text;
+                        post.Date = post.Date;
+                        post.Author = post.Author;
+                        post.BlogImage = post.BlogImage;
+                        //post.Date = updatedPost.Date; man burde ikke kunne ændre en dato
+                        //måske image
 
-                    break;
-                
+                        break;
+                    }
+
+
                 }
-                JsonFileWriter<Blog>.WriteToJson(posts,Filepath);
+                JsonFileWriter<Blog>.WriteToJson(posts, Filepath);
             }
         }
 

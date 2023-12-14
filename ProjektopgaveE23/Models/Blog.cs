@@ -1,18 +1,25 @@
-﻿namespace ProjektopgaveE23.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjektopgaveE23.Models
 {
     public class Blog
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
-        
-        public string Text { get; set; }
-        
-        public string BlogImage { get; set; }
+        [Display(Name = "Titel")]
+        [Required(ErrorMessage = "Udfyld titel")]
+        public string? Title { get; set; }
+
+        [Display(Name = "Brødtekst")]
+        [Required(ErrorMessage ="Du skal tilføje tekst")]
+        public string? Text { get; set; }
+
+        //[Required(ErrorMessage = "Du skal tilføje et billede")]
+        public string? BlogImage { get; set; }
         
         public DateTime Date { get; set; }
 
-        public string Author { get; set; }
+        public string? Author { get; set; }
 
 
 

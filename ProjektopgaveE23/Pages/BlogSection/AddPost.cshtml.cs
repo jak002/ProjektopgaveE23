@@ -20,6 +20,8 @@ namespace ProjektopgaveE23.Pages.BlogSection
 
         public User CurrentUser { get; set; }
 
+        public string Message { get; set; }
+
         public AddPostModel(IBlogRepository blogRepository, IUserRepository userRepository, IWebHostEnvironment webHostEnvironment)
         {
             _blogRepository = blogRepository;
@@ -52,6 +54,13 @@ namespace ProjektopgaveE23.Pages.BlogSection
         {
             string sessionusername = HttpContext.Session.GetString("Username");
             CurrentUser = _userRepository.GetUser(sessionusername);
+            
+            if (!ModelState.IsValid)
+            {
+                Message = "Du skal tilføje et billede";
+                return Page();
+            }
+            
 
             NewPost.Author = CurrentUser.Name;
             NewPost.Date = DateTime.Now;
@@ -76,6 +85,7 @@ namespace ProjektopgaveE23.Pages.BlogSection
         private string ProcessUploadedFile()
         {
             string uniqueFileName = null;
+
             if (Photo != null)
             {
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images/blogimages");

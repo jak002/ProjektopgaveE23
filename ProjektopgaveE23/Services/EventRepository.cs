@@ -40,7 +40,9 @@ namespace ProjektopgaveE23.Services
 
         public List<Event> GetAllEvents()
         {
+
             return JsonFileReader<Event>.ReadJson(filepath);
+
         }
 
         public Event GetEvent(int id)

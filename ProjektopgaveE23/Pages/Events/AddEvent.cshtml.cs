@@ -23,6 +23,8 @@ namespace ProjektopgaveE23.Pages.Events
 
         public User CurrentUser { get; set; }
 
+        public string Message { get; set; }
+
         public AddEventModel(IEventRepository eventRepository, IWebHostEnvironment webHost, IUserRepository userRepository)
         {
             _repo = eventRepository;
@@ -55,6 +57,13 @@ namespace ProjektopgaveE23.Pages.Events
         {
             string sessionusername = HttpContext.Session.GetString("Username");
             CurrentUser = _userRepository.GetUser(sessionusername);
+            
+            if (!ModelState.IsValid)
+            {
+                Message = "Du skal tilføje et billede";
+                return Page();
+            }
+            
 
             NewEvent.Author = CurrentUser.Name;
 
