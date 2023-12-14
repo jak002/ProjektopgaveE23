@@ -9,6 +9,11 @@ namespace ProjektopgaveE23.Services
         
         private string filepath = @"Data/jsonEvents.json";
 
+        /// <summary>
+        /// Adds event to Json file.
+        /// Generates a unique ID for the event
+        /// </summary>
+        /// <param name="ev">New Event object</param>
         public void AddEvent(Event ev)
         {
             List<int> eventIds = new List<int>();
@@ -31,6 +36,10 @@ namespace ProjektopgaveE23.Services
             JsonFileWriter<Event>.WriteToJson(events, filepath);
         }
 
+        /// <summary>
+        /// Deletes an event from Json file based on an event object.
+        /// </summary>
+        /// <param name="eventToDelete">Event object you wish to delete</param>
         public void DeleteEvent(Event eventToDelete)
         {
             List<Event> events = GetAllEvents();
@@ -38,6 +47,10 @@ namespace ProjektopgaveE23.Services
             JsonFileWriter<Event>.WriteToJson(events, filepath);
         }
 
+        /// <summary>
+        /// returns a list with all events. read from Json file
+        /// </summary>
+        /// <returns>List of all events</returns>
         public List<Event> GetAllEvents()
         {
 
@@ -45,6 +58,11 @@ namespace ProjektopgaveE23.Services
 
         }
 
+        /// <summary>
+        /// This method returns an event object based on the given event ID
+        /// </summary>
+        /// <param name="id">ID of the event you wish to find</param>
+        /// <returns>Event object</returns>
         public Event GetEvent(int id)
         {
             foreach (var events in GetAllEvents())
@@ -55,6 +73,12 @@ namespace ProjektopgaveE23.Services
             return new Event();
         }
 
+        /// <summary>
+        /// This method updates an already existing event. It finds the matching ID
+        /// and replaces the old info with the new updated info.
+        /// It also updates the Json file.
+        /// </summary>
+        /// <param name="updatedEvent">The updated Event object</param>
         public void UpdateEvent(Event updatedEvent)
         {
             if (updatedEvent != null)
