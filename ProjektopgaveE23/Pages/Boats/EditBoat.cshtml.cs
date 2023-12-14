@@ -40,7 +40,10 @@ namespace ProjektopgaveE23.Pages.Boats
         }
         public IActionResult OnPostUpdate()
         {
-
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             _repo.UpdateBoat(BoatToUpdate);
             return RedirectToPage("Index");
         }

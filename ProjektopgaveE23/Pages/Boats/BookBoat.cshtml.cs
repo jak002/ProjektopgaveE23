@@ -53,6 +53,10 @@ namespace ProjektopgaveE23.Pages.Boats
 
         public IActionResult OnPost(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             BoatBooking.BoatId = id;
             string sessionusername = HttpContext.Session.GetString("Username");
             if (sessionusername == null)

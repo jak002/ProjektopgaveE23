@@ -18,7 +18,7 @@
         <div class="form-group">
             <label asp-for="@Model.NewBoat.Description" class=" control-label"></label>
             <input asp-for="@Model.NewBoat.Description" class="form-control" />
-            <span asp-validation-for="NewBoat.Description" class="text-danger"></span>
+            
         </div>
         <br />
         <div class="form-group">
@@ -27,13 +27,14 @@
             <select asp-for="@Model.NewBoat.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
                 <option selected="selected" value="">Vælg venligst</option>
             </select>
+            <span asp-validation-for="NewBoat.BoatModel" class="text-danger"></span>
         </div>
         <br />
         <div class="form-group">
             <label asp-for="@Model.Photo" class="control-label"></label>
             <div class="custom-file">
                 <input asp-for="@Model.Photo" class="custom-file-input form-control" />
-                <label class="custom-file-label">Gem Billede</label>
+                <label class="custom-file-label">Du skal tilføje et billede</label>
             </div>
         </div>
 

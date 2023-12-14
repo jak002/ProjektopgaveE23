@@ -1,10 +1,15 @@
-﻿namespace ProjektopgaveE23.Models
+﻿using ProjektopgaveE23.Helpers;
+using System.ComponentModel.DataAnnotations;
+
+namespace ProjektopgaveE23.Models
 {
     public class BoatBooking
     {
         public int BookingId { get; set; }
         public int BoatId { get; set; }
         public string Username { get; set; }
+        [Required(ErrorMessage = "Dato er påkrævet")]
+        [CustomData(ErrorMessage ="Dato er ugyldig")]
         public DateTime DateTime { get; set; }
         public int NumberOfHours { get; set; }
 

@@ -24,6 +24,7 @@
         <div class="form-group">
             <label asp-for="@Model.BoatBooking.DateTime" class="control-label"></label>
             <input asp-for="@Model.BoatBooking.DateTime" class="form-control" />
+            <span asp-validation-for="BoatBooking.DateTime" class="text-danger"></span>
         </div>
         <br />
         <div class="form-group">
