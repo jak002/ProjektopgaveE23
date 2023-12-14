@@ -4,7 +4,55 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<head>
+    <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+</head>
+@* <div class="header">
+    <h1>Hillerød sejlklub</h1>
+</div> *@
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card" align="center" >
+            <h2>Velkommen til Hillerød Sejlklub</h2>
+            <h5>En klub for jollesejlere</h5>
+            <div align="center"><img src="~/images/boatimages/Peace.jpg" height="300px" class="responsive"></div>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+
+        <div class="card" align="center">
+            <h2>Igangværende sejlere</h2>
+            <h5>To be made</h5>
+            <p>Some text..</p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>Om os</h2>
+            <div align="center"><img src="~/images/Pooul.jpg" height="100px" class="responsive"></div>
+            <br />
+            <p>
+                Hillerød Sejlklub er en klub for jollesejlere
+                Vi har altid plads til børn og voksne, som vil sejle for deres fornøjelses skyld, 
+                for det sociale samvær, og evt. selv medvirke eller støtte andre sejlere i konkurrencesejlads..
+            </p>
+        </div>
+        <div class="card">
+            <h3>Genveje</h3>
+            <a asp-page="events/index" class="btn btn-secondary">Begivenheder</a><br />
+            <a asp-page="boats/index" class="btn btn-secondary">Både</a><br />
+            <a asp-page="blogsection/index" class="btn btn-secondary">Blog</a>
+        </div>
+        <div class="card">
+            <h3>Følg os her</h3>
+            <p>Some text..</p>
+        </div>
+    </div>
 </div>
+
+<br />
+<br />
+<br />
+

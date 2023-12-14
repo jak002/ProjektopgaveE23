@@ -7,28 +7,30 @@
 
 <h1>Rediger bådoplysninger</h1>
 
-<form method="post">
+<div class="card">
+    <form method="post">
 
-    <input type="hidden" asp-for="@Model.BoatToUpdate.Id" />
-    <div class="form-group">
-        <label asp-for="@Model.BoatToUpdate.Name" class=" control-label"></label>
-        <input asp-for="@Model.BoatToUpdate.Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.BoatToUpdate.Description" class=" control-label"></label>
-        <input asp-for="@Model.BoatToUpdate.Description" class="form-control" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label asp-for="@Model.BoatToUpdate.BoatModel" class="control-label">Bådtype</label>
+        <input type="hidden" asp-for="@Model.BoatToUpdate.Id" />
+        <div class="form-group">
+            <label asp-for="@Model.BoatToUpdate.Name" class=" control-label">Navn</label>
+            <input asp-for="@Model.BoatToUpdate.Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.BoatToUpdate.Description" class=" control-label">Beskrivelse</label>
+            <input asp-for="@Model.BoatToUpdate.Description" class="form-control" />
+        </div>
         <br />
-        <select asp-for="@Model.BoatToUpdate.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
-            <option selected="selected" value="">Vælg venligst</option>
-        </select>
-    </div>
-    <br />
-    <div class="form-group">
-        <input type="submit" value="Opdater båd" asp-page-handler="Update" class="btn btn-primary" />
-        <input type="submit" value="Slet båd" asp-page-handler="Delete" class="btn btn-primary" />
-    </div>
-</form>
+        <div class="form-group">
+            <label asp-for="@Model.BoatToUpdate.BoatModel" class="control-label">Bådtype</label>
+            <br />
+            <select asp-for="@Model.BoatToUpdate.BoatModel" asp-items="Html.GetEnumSelectList<BoatType>()">
+                <option selected="selected" value="">Vælg venligst</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Opdater båd" asp-page-handler="Update" class="btn btn-primary" />
+            @* <input type="submit" value="Slet båd" asp-page-handler="Delete" class="btn btn-primary" /> *@
+        </div>
+    </form>
+</div>

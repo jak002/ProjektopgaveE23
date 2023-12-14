@@ -63,7 +63,7 @@ namespace ProjektopgaveE23.Services
             }
         }
 
-        public User VerifyUser(string username, string password)
+        public User? VerifyUser(string username, string password)
         {
             foreach (var user in GetAllUsers().Values)
             {

@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ProjektopgaveE23</title>
+    <title>@ViewData["Title"] - Hillerød Sejlklub</title>
+    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjektopgaveE23.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a  class="navbar-brand text-light" asp-area="" asp-page="/Index">ProjektopgaveE23</a>
+                <a  class="navbar-brand text-light" asp-area="" asp-page="/Index">Hillerød Sejlklub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,9 +23,6 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/events/index">Begivenheder</a>
@@ -35,9 +34,23 @@
                             <a class="nav-link text-light" asp-area="" asp-page="/Boats/ListBoatBookings">Båd bookings</a>
                         </li>                        
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Users/Info">Brugerinfo</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/BlogSection/Index">Blog</a>
                         </li>
                     </ul>
+                    @using Microsoft.AspNetCore.Http;
+                    @inject IHttpContextAccessor HttpContextAccessor
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("Username") == null)
+                    {
+                        <a class="btn btn-secondary rounded-pill" asp-area="" asp-page="/Users/Info">
+                            <span class="text-light">Log ind</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-secondary rounded-pill" asp-area="" asp-page="/Users/Info">
+                            @HttpContextAccessor.HttpContext.Session.GetString("Username")
+                        </a>
+                    }
                 </div>
             </div>
         </nav>
@@ -50,7 +63,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - ProjektopgaveE23 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2023 - Hillerød sejlklub
         </div>
     </footer>
 

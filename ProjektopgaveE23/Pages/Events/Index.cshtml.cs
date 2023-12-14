@@ -32,5 +32,10 @@ namespace ProjektopgaveE23.Pages.Events
             }
             Events = _repo.GetAllEvents();
         }
+
+
+
+
+
     }
 }

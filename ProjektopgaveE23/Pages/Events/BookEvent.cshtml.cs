@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ProjektopgaveE23.Pages.Events
 {
@@ -25,7 +26,9 @@ namespace ProjektopgaveE23.Pages.Events
         [BindProperty]
         public User CurrentUser {  get; set; } 
 
+        public List<EventBooking> Found {  get; set; }
 
+        public string Message { get; set; }
 
         public BookEventModel(IEventBookingRepo eventBookingRepo,IEventRepository eventRepository, 
             IUserRepository userRepository)
@@ -61,9 +64,16 @@ namespace ProjektopgaveE23.Pages.Events
         {
             Event = _eventRepo.GetEvent(id);
             string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepo.GetUser(sessionusername);
+            Found = _bookingRepo.GetBookingByUserAndEvent(CurrentUser.Username, id);
             if (sessionusername == null)
             {
                 return RedirectToPage("/Users/Login");
+            }
+            else if (Found.Count!=0)
+            {
+                Message = "Du har allerede en booking, så du kan ikke lave flere";
+                return Page();
             }
             else
             {

@@ -20,6 +20,8 @@ builder.Services.AddTransient<IEventBookingRepo, EventBookingRepo>();
 
 builder.Services.AddTransient<IBoatBookingRepository, BoatBookingRepository>();
 
+builder.Services.AddTransient<IBlogRepository, BlogRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

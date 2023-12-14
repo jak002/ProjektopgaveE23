@@ -1,0 +1,39 @@
+﻿@page
+@model ProjektopgaveE23.Pages.BlogSection.EditPostModel
+@{
+    ViewData["Title"] = "Edit post";
+}
+
+<h1>Rediger blogindlæg</h1>
+
+<div class="card">
+    <form method="post">
+
+        <input type="hidden" asp-for="@Model.UpdatedPost.Id" />
+
+        <div class="form-group">
+            <label asp-for="@Model.UpdatedPost.Date" class="control-label">Dato</label>
+            <input asp-for="@Model.UpdatedPost.Date" class="form-control" disabled />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.UpdatedPost.Author" class="control-label">forfatter</label>
+            <input asp-for="@Model.UpdatedPost.Author" class="form-control" disabled />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.UpdatedPost.Title" class="control-label">Titel</label>
+            <input asp-for="@Model.UpdatedPost.Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.UpdatedPost.Text" class="control-label" for="text">Brødtekst</label>
+            <textarea asp-for="@Model.UpdatedPost.Text" class="form-control" id="text" rows="10"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <br />
+            <input type="submit" value="rediger blogindlæg" class="btn btn-primary" asp-page-handler="Update" />
+            <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+        </div>
+    </form>
+</div>

@@ -7,46 +7,63 @@
 
 <h1>Rediger oplysninger for @Model.UsertoUpdate.Username</h1>
 
-<form method="post">
-    <input type="hidden" asp-for="@Model.UsertoUpdate.Username" />
+<div class="card">
+    <form method="post">
+        <input type="hidden" asp-for="@Model.UsertoUpdate.Username" />
+        <input type="hidden" asp-for="@Model.UsertoUpdate.CreatedThroughWebsite" />
 
-    <div class="form-group">
-        <label asp-for="@Model.UsertoUpdate.Password" class="control-label"></label>
-        <input asp-for="@Model.UsertoUpdate.Password" class="form-control" />
-        <span asp-validation-for="UsertoUpdate.Password" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.UsertoUpdate.Name" class="control-label"></label>
-        <input asp-for="@Model.UsertoUpdate.Name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.UsertoUpdate.Email" class="control-label"></label>
-        <input asp-for="@Model.UsertoUpdate.Email" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.UsertoUpdate.PhoneNumber" class="control-label"></label>
-        <input asp-for="@Model.UsertoUpdate.PhoneNumber" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.UsertoUpdate.MembershipType" class="control-label"></label>
-        <br />
-        @foreach (var c in System.Enum.GetValues(typeof(MembershipType)))
+        <div class="form-group">
+            <label asp-for="@Model.UsertoUpdate.Password" class="control-label"></label>
+            <input asp-for="@Model.UsertoUpdate.Password" class="form-control" />
+            <span asp-validation-for="UsertoUpdate.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.UsertoUpdate.Name" class="control-label"></label>
+            <input asp-for="@Model.UsertoUpdate.Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.UsertoUpdate.Email" class="control-label"></label>
+            <input asp-for="@Model.UsertoUpdate.Email" class="form-control" />
+            <p class="text-danger">@Model.EmailMessage</p>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.UsertoUpdate.PhoneNumber" class="control-label"></label>
+            <input asp-for="@Model.UsertoUpdate.PhoneNumber" class="form-control" />
+            <p class="text-danger">@Model.PhoneMessage</p>
+        </div>
+        @if (Model.CurrentUser.Admin)
         {
-            <label class="control-label">@c</label>
-            <input type="radio" asp-for="@Model.UsertoUpdate.MembershipType" value="@c" />
+            if (Model.UsertoUpdate.CreatedThroughWebsite == true)
+            {
+                <div class="form-check form-switch">
+                    <input type="checkbox" asp-for="@Model.UsertoUpdate.Admin" id="" class="form-check-input" />
+                    <label asp-for="@Model.UsertoUpdate.Admin" class="form-check-label"></label>
+                </div>
+            }
         }
-    </div>
+        <div class="form-group">
+            <label asp-for="@Model.UsertoUpdate.MembershipType" class="control-label"></label>
+            <br />
+            @foreach (var c in System.Enum.GetValues(typeof(MembershipType)))
+            {
+                <label class="control-label">@c</label>
+                <input type="radio" asp-for="@Model.UsertoUpdate.MembershipType" value="@c" />
+            }
+        </div>
 
-    <div class="form-group">
-        <input type="submit" value="Opdater" class="btn btn-primary" />
-    </div>
-</form>
+        <div class="form-group">
+            <input type="submit" value="Opdater" class="btn btn-primary" />
+        </div>
+    </form>
 
     <div>
-    @if (Model.UsertoUpdate.Username != Model.CurrentUser.Username && Model.CurrentUser.Admin){
-        <a asp-page="Index">Tilbage til oversigt</a>
-    } else
-    {
-        <a asp-page="Info">Tilbage til brugerinfo</a>
-    }
+        @if (Model.UsertoUpdate.Username != Model.CurrentUser.Username && Model.CurrentUser.Admin)
+        {
+            <a asp-page="Index" class="btn btn-warning">Tilbage til oversigt</a>
+        }
+        else
+        {
+            <a asp-page="Info" class="btn btn-warning">Tilbage til brugerinfo</a>
+        }
+    </div>
 </div>

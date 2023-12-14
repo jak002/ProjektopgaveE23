@@ -46,7 +46,6 @@ namespace ProjektopgaveE23.Pages.Events
             }
             else
             {
-                //CurrentUser = _userRepository.GetUser(sessionusername);
                 return Page();
             }
 
@@ -54,6 +53,12 @@ namespace ProjektopgaveE23.Pages.Events
 
         public IActionResult OnPost()
         {
+            string sessionusername = HttpContext.Session.GetString("Username");
+            CurrentUser = _userRepository.GetUser(sessionusername);
+
+            NewEvent.Author = CurrentUser.Name;
+
+
             if (Photo != null)
             {
                 if (NewEvent.Image != null)

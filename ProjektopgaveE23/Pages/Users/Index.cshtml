@@ -4,42 +4,64 @@
     ViewData["Title"] = "Brugere";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
+
 <h1>Oversigt af brugere</h1>
 
 @* <p>
     <a asp-page="CreateUser">Tilføj ny bruger</a>
 </p> *@
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Brugernavn</th>
-            <th>Navn</th>
-            <th>E-mail</th>
-            <th>Telefon nr</th>
-            <th>Medlemstype</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model.Users)
-        {
+<div class="card">
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.Username</td>
-                <td>@item.Name</td>
-                <td>@item.Email</td>
-                <td>@item.PhoneNumber</td>
-                <td>@item.MembershipType</td>
+                <th>Brugernavn</th>
+                <th>Navn</th>
+                <th>Bestyrelse</th>
+                <th>E-mail</th>
+                <th>Telefon nr</th>
+                <th>Medlemstype</th>
+                <th></th>
                 @if (Model.CurrentUser != null)
                 {
-                    if (Model.CurrentUser.Admin)
-                    {
-                        <td><a asp-page="UpdateUser" asp-route-username="@item.Username">Opdater</a> | <a asp-page="DeleteUser" asp-route-username="@item.Username">Fjern</a></td>
-                    } else if (Model.CurrentUser.Username == item.Username)
-                    {
-                        <td><a asp-page="UpdateUser" asp-route-username="@item.Username">Opdater</a> | <a asp-page="DeleteUser" asp-route-username="@item.Username">Fjern</a></td>
-                    }
+                    <th></th>
                 }
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Users)
+            {
+                <tr>
+                    <td>@item.Username</td>
+                    <td>@item.Name</td>
+                    @if (item.Admin)
+                    {
+                        <td>✓</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.MembershipType</td>
+                    @if (Model.CurrentUser != null)
+                    {
+                        if (Model.CurrentUser.Admin)
+                        {
+                            <td><a asp-page="UpdateUser" asp-route-username="@item.Username" class="btn btn-secondary">Opdater</a></td>
+                            <td><a asp-page="DeleteUser" asp-route-username="@item.Username" class="btn btn-secondary">Fjern</a></td>
+                        }
+                        else if (Model.CurrentUser.Username == item.Username)
+                        {
+                            <td><a asp-page="UpdateUser" asp-route-username="@item.Username" class="btn btn-secondary">Opdater</a></td>
+                            <td><a asp-page="DeleteUser" asp-route-username="@item.Username" class="btn btn-secondary">Fjern</a></td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

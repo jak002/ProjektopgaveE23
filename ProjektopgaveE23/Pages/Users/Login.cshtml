@@ -4,25 +4,35 @@
     ViewData["Title"] = "Log ind";
 }
 
-<h1>Log ind</h1>
-@Model.Message
-<form method="post">
-    <div class="form-group">
-    <table>
-        <tr>
-            <td>Brugernavn</td>
-            <td><Input type="text" asp-for="@Model.Username" /></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><Input type="password" asp-for="@Model.Password" /></td>
-        </tr>
-    </table>
-    </div>
-    <div class="form-group">
-        <Input type="submit" value="Log ind" class="btn btn-primary"/>
-    </div>
+<div @* class="d-flex align-items-center justify-content-center vh-100" *@ align="center">
+    <div class="card-login">
+        <h1>Log ind</h1>
+        <span class="text-danger">@Model.Message</span>
+        <form method="post">
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>Brugernavn</td>
+                        <td><Input type="text" asp-for="@Model.Username" /></td>
 
 
-</form>
-<p>Ny til siden? <a asp-page="CreateUser">Opret dig som bruger her!</a></p>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><Input type="password" asp-for="@Model.Password" /></td>
+
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="form-group">
+                <Input type="submit" value="Log ind" class="btn btn-secondary" />
+            </div>
+
+
+        </form>
+        <br />
+        <p>Ny til siden? <a asp-page="CreateUser">Opret dig som bruger her!</a></p>
+    </div>
+</div>
+

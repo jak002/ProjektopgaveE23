@@ -4,32 +4,38 @@
     ViewData["Title"] = "Slet tilmelding";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+</head>
+
 <h1>Slet tilmelding</h1>
 
-@Model.Message
-<form method="post">
-    <div class="form-group">
-        <table>
-            <tr>
-                <th>ID</th>
-                <td>@Model.BookingToDelete.BookingId</td>
-            </tr>
-            <tr>
-                <th>Navn</th>
-                <td>@Model.BookingToDelete.Username</td>
-            </tr>
-            <tr>
-                <th>Begivenhed</th>
-                <td>@Model.Boat.Name</td>
-            </tr>
+<div class="card">
+    @Model.Message
+    <form method="post">
+        <div class="form-group">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td>@Model.BookingToDelete.BookingId</td>
+                </tr>
+                <tr>
+                    <th>Medlems Navn</th>
+                    <td>@Model.BookingToDelete.Username</td>
+                </tr>
+                <tr>
+                    <th>Båd</th>
+                    <td>@Model.Boat.Name</td>
+                </tr>
 
-        </table>
+            </table>
 
-        <br />
-        <input type="submit" asp-page-handler="Delete" asp-route-idNumber="@Model.BookingToDelete.BookingId" class="btn btn-danger" value="Slet booking" />
-        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
+            <br />
+            <input type="submit" asp-page-handler="Delete" asp-route-idNumber="@Model.BookingToDelete.BookingId" class="btn btn-danger" value="Slet booking" />
+            <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" />
 
 
 
-    </div>
-</form>
+        </div>
+    </form>
+</div>

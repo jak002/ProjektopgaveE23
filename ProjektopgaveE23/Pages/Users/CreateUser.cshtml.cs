@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjektopgaveE23.Interfaces;
 using ProjektopgaveE23.Models;
+using ProjektopgaveE23.Helpers;
 
 namespace ProjektopgaveE23.Pages.Users
 {
@@ -24,10 +25,19 @@ namespace ProjektopgaveE23.Pages.Users
 
         public IActionResult OnPost() 
         {
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
             bool valid = true;
-            if (NewUser.Email != null && !NewUser.Email.Contains("@") && !NewUser.Email.Contains("."))
+            if (!InputValidator.ValidateEmail(NewUser.Email))
             {
                 EmailMessage = "E-mail skal formateres korrekt";
+                valid = false;
+            }
+            if (!InputValidator.ValidatePhone(NewUser.PhoneNumber))
+            {
+                PhoneMessage = "Telefonnummer må kun indeholde tal, +, og mellemrum";
                 valid = false;
             }
 
@@ -38,6 +48,7 @@ namespace ProjektopgaveE23.Pages.Users
             else
             {
                 NewUser.Admin = false;
+                NewUser.CreatedThroughWebsite = true;
                 _urepo.AddUser(NewUser);
                 return RedirectToPage("Index");
             }

@@ -4,57 +4,57 @@
     ViewData["Title"] = "Fjern bruger";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+</head>
+
 <h1>Er du sikker?</h1>
-@if (Model.CurrentUser.Admin)
-{
-    if (Model.CurrentUser.Username == Model.UserToDelete.Username)
+<div class="card">
+    @if (Model.CurrentUser.Admin)
     {
-        <p class="text-danger">Du er ved at prøve at fjerne admin. Vær opmærksom på at admin brugere ikke kan tilføjes igen via hjemmesiden.</p>
+        if (Model.CurrentUser.Username == Model.UserToDelete.Username)
+        {
+            <p class="text-danger">
+                Du er ved at prøve at fjerne admin.
+                Vær opmærksom på at admin brugere ikke kan tilføjes igen via hjemmesiden.
+            </p>
+        }
+        else
+        {
+            <p>Du er ved at fjerne følgende bruger:</p>
+        }
     }
     else
     {
-        <p>Du er ved at fjerne følgende bruger:</p>
-    }
-} else
-{
-    <p>Hvis du vil ændre oplysninger som f.eks. password, kan du altid <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">opdatere dem her i stedet.</a></p>
-}
-
-<form method="post">
-    <div class="form-group">
-        <table>
-            <tr>
-        <th>Brugernavn: </th>
-        <td>@Model.UserToDelete.Username</td>
-        </tr>
-        <tr>
-        <th>Navn:</th>
-        <td>@Model.UserToDelete.Name</td>
-        </tr>
-        <tr>
-        <th>E-mail: </th>
-        <td>@Model.UserToDelete.Email</td>
-        </tr>
-        </table>
-        <br />
-        <input type="submit" asp-page-handler="Delete" asp-route-username="@Model.UserToDelete.Username" class="btn btn-danger" value="Fjern" />
-
-        <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" asp-route-username="@Model.UserToDelete.Username" />
-    </div>
-</form>
-
-
-<style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
+        <p>
+            Hvis du vil ændre oplysninger som f.eks. password, kan du altid
+            <a asp-page="UpdateUser" asp-route-username="@Model.CurrentUser.Username">
+                opdatere dem her i stedet.
+            </a>
+        </p>
     }
 
-    th {
-        background-color: #A3CEF1;
-    }
+    <form method="post">
+        <div class="form-group">
+            <table>
+                <tr>
+                    <th>Brugernavn: </th>
+                    <td>@Model.UserToDelete.Username</td>
+                </tr>
+                <tr>
+                    <th>Navn:</th>
+                    <td>@Model.UserToDelete.Name</td>
+                </tr>
+                <tr>
+                    <th>E-mail: </th>
+                    <td>@Model.UserToDelete.Email</td>
+                </tr>
+            </table>
+            <br />
+            <input type="submit" asp-page-handler="Delete" asp-route-username="@Model.UserToDelete.Username" class="btn btn-danger" value="Fjern" />
 
-    th, td {
-        padding: 15px;
-    }
-</style>
+            <input type="submit" value="Fortryd" class="btn btn-warning" asp-page-handler="Cancel" asp-route-username="@Model.UserToDelete.Username" />
+        </div>
+    </form>
+
+</div>

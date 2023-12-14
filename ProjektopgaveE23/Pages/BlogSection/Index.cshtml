@@ -1,0 +1,62 @@
+﻿@page
+@model ProjektopgaveE23.Pages.BlogSection.IndexModel
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/blog.css" asp-append-version="true" />
+</head>
+
+
+<div class="header">
+    <h1> <span class="material-icons md-36">sailing</span> Klubbens blog <span class="material-icons md-36">sailing</span></h1>
+</div>
+
+
+@if (Model.CurrentUser!=null)
+{
+    @if (Model.CurrentUser.Admin)
+    {
+        <br />
+        <a asp-page="AddPost" class="btn btn-secondary">Opret nyt blogindlæg</a>
+
+    }
+}
+
+
+
+
+@foreach (var item in Model.Posts)
+{
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2 align="center">@item.Title</h2>
+                <h7 align="center">@item.Date.ToString("dddd, dd MMMM yyyy HH:mm")</h7>
+                <h7 align="center">skrevet af @item.Author </h7>
+                <div align="center"><img src="~/images/blogimages/@item.BlogImage" height="400px" class="responsive"></div>
+                <br>
+                @* <p align="center">@item.Text</p> *@
+                <pre align="center" style="font-family:Verdana">@item.Text</pre>
+
+                <div>
+                    @if (Model.CurrentUser != null)
+                    {
+                        @if (Model.CurrentUser.Admin)
+                        {
+                            <a asp-page="DeletePost" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet blogindlæg</a>
+                            <a asp-page="EditPost" asp-route-id="@item.Id" class="btn btn-secondary">Rediger blogindlæg</a>
+
+                        }
+                    }
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />

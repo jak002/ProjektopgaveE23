@@ -17,6 +17,8 @@
 
         public string Image { get; set; }
 
+        public string Author { get; set; }
+
 
 
         public override bool Equals(object? obj)

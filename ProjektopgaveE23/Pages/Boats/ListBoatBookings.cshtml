@@ -8,6 +8,11 @@
 @{
     ViewData["Title"] = "List bookings";
 }
+
+<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
+
 <h1>Liste af båd bookings</h1>
 
 @* <div>
@@ -15,6 +20,80 @@
         <li> Der er @repo.GetAllBoatBookings().Count båd bookninger</li>
     </ul>
 </div> *@
+
+<div class="card">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    BookingId
+                </th>
+                <th>
+                    Båd navn
+                </th>
+                <th>
+                    Bruger
+                </th>
+                <th>Dato</th>
+                <th>Tidspunkt</th>
+                <th>Til Kl</th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Bookings)
+            {
+                <tr>
+                    <td>
+                        @item.BookingId
+                    </td>
+                    <td>
+                        @boatRepository.GetBoat(item.BoatId).Name
+                    </td>
+                    <td>
+                        @userRepo.GetUser(item.Username).Name
+                    </td>
+                    <td>
+                        @item.DateTime.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.DateTime.ToShortTimeString()
+                    </td>
+                    <td>
+                        @item.DateTime.AddHours(item.NumberOfHours*1.0).ToShortTimeString()
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        @if (Model.CurrentUser != null)
+                        {
+                            if (!Model.CurrentUser.Admin)
+                            {
+                                if (Model.CurrentUser.Username == item.Username)
+                                {
+                                    <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del" class="btn btn-secondary">Slet</a>
+                                }
+                            }
+
+                            if (Model.CurrentUser.Admin)
+                            {
+                                <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del" class="btn btn-secondary">Slet</a>
+                            }
+
+                        }
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 
 <table class="table">
     <thead>
@@ -31,11 +110,14 @@
             <th>Dato</th>
             <th>Tidspunkt</th>
             <th>Til Kl</th>
-            
+            <th></th>
+            <th></th>
+            <th></th>
+
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Bookings)
+        @foreach (var item in Model.List)
         {
             <tr>
                 <td>
@@ -65,20 +147,21 @@
                         {
                             if (Model.CurrentUser.Username == item.Username)
                             {
-                                <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del">Slet</a>
+                                <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del" class="btn btn-secondary">Slet</a>
                             }
                         }
 
                         if (Model.CurrentUser.Admin)
                         {
-                            <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del">Slet</a>
+                            <a asp-page="DeleteBoatBooking" asp-route-deleteId="@item.BookingId" asp-page-handler="Del" class="btn btn-secondary">Slet</a>
                         }
 
                     }
-                    
+
                 </td>
-                
+
             </tr>
         }
     </tbody>
 </table>
+

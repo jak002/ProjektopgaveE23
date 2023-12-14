@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Event Index";
 }
+<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
 
 <h1>Klubbens Begivenheder</h1>
 
@@ -13,21 +16,25 @@
     @if(Model.CurrentUser.Admin)
     {
         <a asp-page="AddEvent" class="btn btn-secondary">Opret begivenhed</a>
+        <br />
+        <br />
     }
 }
 
-
-
+<div class="card">
 <table class="table">
     <thead>
         <tr>
             <th>Billede</th>
-            <th>ID</th>
+            @* <th>ID</th> *@
             <th>Dato</th>
+            <th>Tidspunkt</th>
             <th>Navn</th>
             <th>Afholdelsessted</th>
+            @* <th>Arrangør</th> *@
             <th>Beskrivelse</th>
             @* <th>Antal deltagere</th> *@
+            <th></th>
             <th></th>
             <th></th>
             
@@ -41,26 +48,28 @@
                 <td>
                     <img src="~/images/eventimages/@item.Image" width="150" height="150">
                 </td>
-                <td>@item.Id</td>
-                <td>@item.Date</td>
+                @* <td>@item.Id</td> *@
+                <td>@item.Date.ToString("dddd, dd MMMM yyyy")</td>
+                <td>@item.Date.TimeOfDay</td>
                 <td>@item.Name</td>
                 <td>@item.Place</td>
+                @* <td>@item.Author</td> *@
                 <td>@item.Description</td>
                 @* <td>@item.Attendees</td> *@
                 @if (Model.CurrentUser != null)
                 {
                     if(!Model.CurrentUser.Admin)
                     {
-                        <td><a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book">Tilmelding</a></td>
-                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal">Se din Tilmelding</a></td>
+                        <td><a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book" class="btn btn-secondary btn-sm">Tilmelding dig her!</a></td>
+                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal" class="btn btn-secondary btn-sm">Se din Tilmelding</a></td>
                     }
                     
                     //noget med at se egen tilmelding
                     if(Model.CurrentUser.Admin)
                     {
-                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="All">Se alle Tilmeldinger</a></td>
-                        <td><a asp-page="EditEvent" asp-route-id="@item.Id">Rediger</a></td>
-                        <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id">Slet</a></td>
+                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="All" class="btn btn-secondary">Tilmeldinger</a></td>
+                        <td><a asp-page="EditEvent" asp-route-id="@item.Id" class="btn btn-secondary">Rediger</a></td>
+                        <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet</a></td>
                     }
                     
                 }
@@ -72,3 +81,7 @@
         }
     </tbody>
 </table>
+</div>
+
+
+
