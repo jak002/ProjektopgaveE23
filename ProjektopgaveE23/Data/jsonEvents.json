@@ -18,45 +18,5 @@
     "Description": "S\u00E5 skal der spises p\u00F8lser. Tag hele familien med",
     "Image": "d2e45699-2345-40aa-aaa3-d34c49564b01_Grill.jpg",
     "Author": null
-  },
-  {
-    "Id": 6,
-    "Name": "TESTETS",
-    "Date": "2023-12-13T13:47:00",
-    "Place": "TEST",
-    "Attendees": null,
-    "Description": "TEST",
-    "Image": "a7088fc7-2b31-425b-9afb-9173f5b2ee37_hoootel.jpg",
-    "Author": "Admin"
-  },
-  {
-    "Id": 7,
-    "Name": "Test3",
-    "Date": "2023-12-29T14:10:00",
-    "Place": "ddd",
-    "Attendees": null,
-    "Description": "dddddd",
-    "Image": "aa97bce6-1e61-4477-ac4f-88adf2979055_hoootel.jpg",
-    "Author": "Admin"
-  },
-  {
-    "Id": 8,
-    "Name": "fghfgg",
-    "Date": "2023-12-27T14:13:00",
-    "Place": "gfhghfg",
-    "Attendees": null,
-    "Description": "fghfghfg",
-    "Image": "c3d952d9-8014-470e-afa6-bfddcf8349e9_hoootel.jpg",
-    "Author": "Admin"
-  },
-  {
-    "Id": 9,
-    "Name": "Begivenhed",
-    "Date": "2023-12-21T10:45:00",
-    "Place": "et andet sted",
-    "Attendees": null,
-    "Description": "hsdfonasvljhs fvlkjsn vlks",
-    "Image": "59e4d801-08b6-4fbb-983d-a0a8bc3e6c07_f93c2217-f76d-4d58-b70b-8e4d79ee438b_1653302948-47_burgerpizza.jpg",
-    "Author": "Admin"
   }
 ]
