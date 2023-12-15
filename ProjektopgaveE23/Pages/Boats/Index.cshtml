@@ -11,7 +11,7 @@
 </head>
 
 <h1>Bådliste</h1>
-
+<p class="text-danger">@Model.ErrorMessage</p>
 @if (Model.CurrentUser != null)
 {
     @if (Model.CurrentUser.Admin)
