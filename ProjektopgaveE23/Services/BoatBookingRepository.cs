@@ -87,5 +87,18 @@ namespace ProjektopgaveE23.Services
         {
             throw new NotImplementedException();
         }
+
+        public List<BoatBooking> GetCurrentBookings()
+        {
+            List<BoatBooking> currentList = new List<BoatBooking>();
+            foreach(var booking in GetAllBoatBookings())
+            {
+                if (booking.DateTime <= DateTime.Now && booking.EndDateTime >= DateTime.Now)
+                {
+                    currentList.Add(booking);
+                }
+            }
+            return currentList;
+        }
     }
 }

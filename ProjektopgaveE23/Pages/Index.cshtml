@@ -1,11 +1,15 @@
 ﻿@page
+@using ProjektopgaveE23.Interfaces;
 @model IndexModel
+@inject IBoatRepository boatRepository;
+@inject IUserRepository userRepo;
 @{
     ViewData["Title"] = "Home page";
 }
 
 <head>
     <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 @* <div class="header">
     <h1>Hillerød sejlklub</h1>
@@ -17,17 +21,45 @@
             <h2>Velkommen til Hillerød Sejlklub</h2>
             <h5>En klub for jollesejlere</h5>
             <div align="center"><img src="~/images/boatimages/Peace.jpg" height="300px" class="responsive"></div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <p>Bor du i Hillerød kommune og omegn, og har lyst til at sejle? Det har vi også :)</p>
+            <p>Du kan se events, booke en båd, og holde dig opdateret med sejlklubben, ved enten at klikke på vores links ovenover, eller de hurtige knapper længere nede på siden.</p>
         </div>
 
         <div class="card" align="center">
             <h2>Igangværende sejlere</h2>
-            <h5>To be made</h5>
+@*             <h5>To be made</h5>
             <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+ *@
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Båd navn</th>
+                        <th>Medlem</th>
+                        <th>Dato</th>
+                        <th>Tidspunkt</th>
+                        <th>Til Kl</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model.Bookings)
+                    {
+                        <tr>
+                            <td>@boatRepository.GetBoat(item.BoatId).Name</td>
+                            <td>@userRepo.GetUser(item.Username).Name</td>
+                            <td>@item.DateTime.ToShortDateString()</td>
+                            <td>@item.DateTime.ToShortTimeString()</td>
+                            <td>@item.EndDateTime.ToShortTimeString()</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
         </div>
+
     </div>
+    
+
     <div class="rightcolumn">
         <div class="card">
             <h2>Om os</h2>
@@ -47,7 +79,9 @@
         </div>
         <div class="card">
             <h3>Følg os her</h3>
-            <p>Some text..</p>
+            <p><i class="fa-brands fa-facebook"></i> <a href="https://www.facebook.com/hillerodsejl/">Facebook</a></p>
+            <p><i class="fa-brands fa-instagram"></i> <a href="#">Instagram</a></p>
+            <p><i class="fa-solid fa-sailboat"></i> <a href="http://hillerodsejlklub.dk/">Vores gamle hjemmeside</a></p>
         </div>
     </div>
 </div>

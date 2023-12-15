@@ -1,52 +1,62 @@
 [
   {
-    "Username": "test16",
-    "Password": "123456",
-    "Name": "Jonas",
-    "Email": "testest@testest.test",
-    "PhoneNumber": "12345678",
-    "Admin": false,
-    "CreatedThroughWebsite": true,
-    "MembershipType": 2
-  },
-  {
-    "Username": "very test",
-    "Password": "asdfasdf",
-    "Name": "Testidy Testables",
-    "Email": "beepeebeep@hgfdgkhjf.lol",
-    "PhoneNumber": "12341234",
-    "Admin": false,
-    "CreatedThroughWebsite": true,
-    "MembershipType": 1
-  },
-  {
     "Username": "admin",
     "Password": "admin",
     "Name": "Admin",
-    "Email": "bestyrelse@text.noget",
-    "PhoneNumber": "nej",
+    "Email": "bestyrelse@hillerodsejl.dk",
+    "PhoneNumber": "\u002B45 11 11 11 11",
     "Admin": true,
     "CreatedThroughWebsite": false,
     "MembershipType": 3
   },
   {
-    "Username": "notadmin",
+    "Username": "jonasg",
     "Password": "1234",
-    "Name": "Not Admin",
-    "Email": "hej@gmail.com",
-    "PhoneNumber": "12345678",
-    "Admin": false,
+    "Name": "Jonas Gr\u00F8nquist",
+    "Email": "jonas@klartnormalemail.dk",
+    "PhoneNumber": "\u002B45 11 22 33 44",
+    "Admin": true,
     "CreatedThroughWebsite": true,
     "MembershipType": 1
   },
   {
-    "Username": "Jacob",
+    "Username": "jask",
     "Password": "1234",
     "Name": "Jacob Sejer",
-    "Email": "jacob.sejer@email.dk",
+    "Email": "email@email.email",
     "PhoneNumber": "\u002B45 12 34 56 78",
     "Admin": true,
     "CreatedThroughWebsite": true,
     "MembershipType": 1
+  },
+  {
+    "Username": "pohe",
+    "Password": "1234",
+    "Name": "Poul Henriksen",
+    "Email": "pohe@email.dk",
+    "PhoneNumber": "\u002B45 15 15 15 15",
+    "Admin": false,
+    "CreatedThroughWebsite": true,
+    "MembershipType": 3
+  },
+  {
+    "Username": "tamedudogfisk",
+    "Password": "1234",
+    "Name": "Gitte H\u00E6nning",
+    "Email": "git@mail.com",
+    "PhoneNumber": "\u002B45 1234 1234",
+    "Admin": false,
+    "CreatedThroughWebsite": true,
+    "MembershipType": 2
+  },
+  {
+    "Username": "hepo",
+    "Password": "1234",
+    "Name": "Henrik Poulsen",
+    "Email": "henrik.poulsen@email.dk",
+    "PhoneNumber": "\u002B45 55 66 77 88",
+    "Admin": false,
+    "CreatedThroughWebsite": true,
+    "MembershipType": 2
   }
 ]

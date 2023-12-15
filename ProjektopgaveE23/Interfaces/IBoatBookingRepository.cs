@@ -14,5 +14,7 @@ namespace ProjektopgaveE23.Interfaces
         bool CheckAvailability(int boatId, DateTime start, DateTime end);
         void DeleteBoatBooking(BoatBooking boatBooking);
 
+        List<BoatBooking> GetCurrentBookings();
+
     }
 }

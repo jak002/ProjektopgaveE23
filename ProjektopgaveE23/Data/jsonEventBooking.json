@@ -1,35 +1,5 @@
 [
   {
-    "ID": 2,
-    "Username": "[test16, ProjektopgaveE23.Models.User]",
-    "EventID": 2,
-    "AttendeesPerBooking": 6
-  },
-  {
-    "ID": 5,
-    "Username": "notadmin",
-    "EventID": 1,
-    "AttendeesPerBooking": 4
-  },
-  {
-    "ID": 9,
-    "Username": "test16",
-    "EventID": 1,
-    "AttendeesPerBooking": 6
-  },
-  {
-    "ID": 10,
-    "Username": "test16",
-    "EventID": 2,
-    "AttendeesPerBooking": 7
-  },
-  {
-    "ID": 11,
-    "Username": "notadmin",
-    "EventID": 2,
-    "AttendeesPerBooking": 7
-  },
-  {
     "ID": 13,
     "Username": "notadmin",
     "EventID": 6,
@@ -46,5 +16,41 @@
     "Username": "notadmin",
     "EventID": 9,
     "AttendeesPerBooking": 2
+  },
+  {
+    "ID": 16,
+    "Username": "pohe",
+    "EventID": 1,
+    "AttendeesPerBooking": 1
+  },
+  {
+    "ID": 17,
+    "Username": "pohe",
+    "EventID": 2,
+    "AttendeesPerBooking": 4
+  },
+  {
+    "ID": 18,
+    "Username": "hepo",
+    "EventID": 1,
+    "AttendeesPerBooking": 4
+  },
+  {
+    "ID": 19,
+    "Username": "hepo",
+    "EventID": 2,
+    "AttendeesPerBooking": 1
+  },
+  {
+    "ID": 20,
+    "Username": "tamedudogfisk",
+    "EventID": 1,
+    "AttendeesPerBooking": 10
+  },
+  {
+    "ID": 21,
+    "Username": "tamedudogfisk",
+    "EventID": 2,
+    "AttendeesPerBooking": 3
   }
 ]
