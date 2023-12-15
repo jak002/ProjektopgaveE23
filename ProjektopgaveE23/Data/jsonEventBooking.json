@@ -52,5 +52,11 @@
     "Username": "tamedudogfisk",
     "EventID": 2,
     "AttendeesPerBooking": 3
+  },
+  {
+    "ID": 22,
+    "Username": "jask",
+    "EventID": 2,
+    "AttendeesPerBooking": 5
   }
 ]

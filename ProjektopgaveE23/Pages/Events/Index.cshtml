@@ -64,16 +64,28 @@
                 {
                     if(!Model.CurrentUser.Admin)
                     {
-                        <td><a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book" class="btn btn-secondary btn-sm">Tilmelding dig her!</a></td>
+                        <td><a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book" class="btn btn-secondary btn-sm">Tilmeld dig her!</a></td>
                         <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal" class="btn btn-secondary btn-sm">Se din Tilmelding</a></td>
                     }
                     
                     //noget med at se egen tilmelding
                     if(Model.CurrentUser.Admin)
                     {
-                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="All" class="btn btn-secondary">Tilmeldinger</a></td>
-                        <td><a asp-page="EditEvent" asp-route-id="@item.Id" class="btn btn-secondary">Rediger</a></td>
-                        <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet</a></td>
+                        <td><a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="All" class="btn btn-secondary">Tilmeldinger</a>
+                                @if (Model.CurrentUser.CreatedThroughWebsite)
+                                {
+                                    <br />
+                                    <a asp-page="BookEvent" asp-route-id="@item.Id" asp-page-handler="Book" class="btn btn-secondary w-100" style="margin-top: 10px">Tilmeld dig</a>
+                                }
+                            </td>
+                        <td><a asp-page="EditEvent" asp-route-id="@item.Id" class="btn btn-secondary">Rediger</a>
+@*                                 @if (Model.CurrentUser.CreatedThroughWebsite)
+                                {
+                                    <br />
+                                    <a asp-page="ListEventBooking" asp-route-id="@item.Id" asp-page-handler="Personal" class="btn btn-secondary btn-sm" style="margin-top: 5px">Se din Tilmelding</a>
+                                } *@
+                            </td>
+                            <td><a asp-page="DeleteEvent" asp-route-deleteId="@item.Id" class="btn btn-secondary">Slet</a></td>
                     }
                     
                 }
