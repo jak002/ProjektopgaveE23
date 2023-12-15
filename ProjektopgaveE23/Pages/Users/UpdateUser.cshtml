@@ -40,6 +40,10 @@
                     <label asp-for="@Model.UsertoUpdate.Admin" class="form-check-label"></label>
                 </div>
             }
+            else
+            {
+                <input type="hidden" asp-for="@Model.UsertoUpdate.Admin"/>
+            }
         }
         <div class="form-group">
             <label asp-for="@Model.UsertoUpdate.MembershipType" class="control-label"></label>
