@@ -57,17 +57,16 @@
 
         <div class="form-group">
             <input type="submit" value="Opdater" class="btn btn-primary" />
+            @if (Model.UsertoUpdate.Username != Model.CurrentUser.Username && Model.CurrentUser.Admin)
+            {
+               
+                <a asp-page="Index" class="btn btn-warning">Tilbage til oversigt</a>
+            }
+            else
+            {
+               
+                <a asp-page="Info" class="btn btn-warning">Tilbage til brugerinfo</a>
+            }
         </div>
     </form>
-
-    <div>
-        @if (Model.UsertoUpdate.Username != Model.CurrentUser.Username && Model.CurrentUser.Admin)
-        {
-            <a asp-page="Index" class="btn btn-warning">Tilbage til oversigt</a>
-        }
-        else
-        {
-            <a asp-page="Info" class="btn btn-warning">Tilbage til brugerinfo</a>
-        }
-    </div>
 </div>

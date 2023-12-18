@@ -58,5 +58,15 @@
     "Admin": false,
     "CreatedThroughWebsite": true,
     "MembershipType": 2
+  },
+  {
+    "Username": "katrineh",
+    "Password": "1234",
+    "Name": "Katrine Hansen",
+    "Email": "Katrine@gmail.com",
+    "PhoneNumber": "\u002B45 34 56 24 43",
+    "Admin": true,
+    "CreatedThroughWebsite": true,
+    "MembershipType": 1
   }
 ]

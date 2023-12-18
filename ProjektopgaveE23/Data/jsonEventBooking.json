@@ -58,5 +58,17 @@
     "Username": "jask",
     "EventID": 2,
     "AttendeesPerBooking": 5
+  },
+  {
+    "ID": 23,
+    "Username": "jask",
+    "EventID": 1,
+    "AttendeesPerBooking": 5
+  },
+  {
+    "ID": 24,
+    "Username": "katrineh",
+    "EventID": 1,
+    "AttendeesPerBooking": 3
   }
 ]

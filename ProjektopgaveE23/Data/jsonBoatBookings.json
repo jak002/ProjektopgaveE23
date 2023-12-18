@@ -38,5 +38,45 @@
     "DateTime": "2023-12-15T10:25:00",
     "NumberOfHours": 4,
     "EndDateTime": "2023-12-15T14:25:00"
+  },
+  {
+    "BookingId": 6,
+    "BoatId": 3,
+    "Username": "jask",
+    "DateTime": "2023-12-21T09:00:00",
+    "NumberOfHours": 6,
+    "EndDateTime": "2023-12-21T15:00:00"
+  },
+  {
+    "BookingId": 7,
+    "BoatId": 5,
+    "Username": "pohe",
+    "DateTime": "2023-12-21T09:04:00",
+    "NumberOfHours": 7,
+    "EndDateTime": "2023-12-21T16:04:00"
+  },
+  {
+    "BookingId": 8,
+    "BoatId": 1,
+    "Username": "jonasg",
+    "DateTime": "2023-12-21T09:12:00",
+    "NumberOfHours": 8,
+    "EndDateTime": "2023-12-21T17:12:00"
+  },
+  {
+    "BookingId": 9,
+    "BoatId": 4,
+    "Username": "tamedudogfisk",
+    "DateTime": "2023-12-21T06:01:00",
+    "NumberOfHours": 7,
+    "EndDateTime": "2023-12-21T13:01:00"
+  },
+  {
+    "BookingId": 10,
+    "BoatId": 8,
+    "Username": "katrineh",
+    "DateTime": "2023-12-21T05:08:00",
+    "NumberOfHours": 9,
+    "EndDateTime": "2023-12-21T14:08:00"
   }
 ]
